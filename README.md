@@ -14,23 +14,44 @@ pnpm dev
 bun dev
 ```
 
-<pre style="background-color: #1e1e1e; color: #f8f8f8; padding: 16px; border-radius: 6px; overflow: auto;">
-<code>npx create-next-app --example next-css next-css-app</code>
-</pre>
-
-<pre style="background-color: #1e1e1e; color: #f8f8f8; padding: 16px; border-radius: 6px; overflow: auto;">
-<code>yarn create next-app --example next-css next-css-app</code>
-</pre>
-
-<pre style="background-color: #1e1e1e; color: #f8f8f8; padding: 16px; border-radius: 6px; overflow: auto;">
-<code>pnpm create next-app --example next-css next-css-app</code>
-</pre>
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Custom Scripts
+
+This project includes several custom scripts to help with development and maintenance:
+
+```bash
+# Start development server after cleaning .next folder
+pnpm refresh
+
+# Clean .next folder and build the project
+pnpm rebuild
+
+# Clean only the .next folder
+pnpm clean
+
+# Reset project: clean .next, remove node_modules, and reinstall dependencies
+pnpm reset
+
+# Remove only node_modules folder
+pnpm clean:modules
+
+# Update lock file without cleaning the project
+pnpm update-lock
+
+# Install with increased network timeout (for slow connections)
+pnpm install:timeout
+
+# Install using the official npm registry
+pnpm install:registry
+
+# Clean the pnpm store cache
+pnpm cache:clean
+```
 
 ## Learn More
 

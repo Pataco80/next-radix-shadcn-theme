@@ -12,7 +12,10 @@
 		"clean": "rm -rf .next",
 		"reset": "pnpm clean && pnpm clean:modules && pnpm install --prefer-offline",
 		"clean:modules": "rm -rf node_modules",
-		"update-lock": "pnpm install --prefer-offline"
+		"update-lock": "pnpm install --prefer-offline",
+		"install:timeout": "pnpm install --network-timeout 100000",
+		"install:registry": "pnpm install --registry=https://registry.npmjs.org/",
+		"cache:clean": "pnpm store prune"
 	},
 	"dependencies": {
 		"react": "^19.0.0",
