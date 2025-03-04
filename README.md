@@ -14,6 +14,18 @@ pnpm dev
 bun dev
 ```
 
+<pre style="background-color: #1e1e1e; color: #f8f8f8; padding: 16px; border-radius: 6px; overflow: auto;">
+<code>npx create-next-app --example next-css next-css-app</code>
+</pre>
+
+<pre style="background-color: #1e1e1e; color: #f8f8f8; padding: 16px; border-radius: 6px; overflow: auto;">
+<code>yarn create next-app --example next-css next-css-app</code>
+</pre>
+
+<pre style="background-color: #1e1e1e; color: #f8f8f8; padding: 16px; border-radius: 6px; overflow: auto;">
+<code>pnpm create next-app --example next-css next-css-app</code>
+</pre>
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
