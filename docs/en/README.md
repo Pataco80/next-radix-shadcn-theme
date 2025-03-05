@@ -12,6 +12,9 @@ next-radix-theme/
 ├── .gitignore             # Git ignore patterns
 ├── .npmrc                 # NPM/PNPM configuration
 ├── .prettierrc            # Prettier code formatter configuration
+├── .private/              # Private files not committed to repository
+├── .vscode/               # VS Code specific settings
+│   └── settings.json      # VS Code settings
 ├── README.md              # Project documentation (this file)
 ├── app/                   # Next.js App Router directory
 │   ├── favicon.ico        # Website favicon
@@ -20,7 +23,7 @@ next-radix-theme/
 │   └── page.tsx           # Home page component
 ├── docs/                  # Detailed project documentation
 │   ├── index.md           # Documentation entry point
-│   ├── scripts.md         # Available scripts documentation
+│   ├── SCRIPTS.md         # Available scripts documentation
 │   ├── translation-guide.md # Translation features guide
 │   ├── project-structure.md # Detailed project structure
 │   ├── en/                # English translations of documentation
@@ -36,9 +39,7 @@ next-radix-theme/
 ├── scripts/               # Utility scripts
 │   ├── translate-en.ts    # Script to translate Markdown files to English
 │   └── translate-fr.ts    # Script to translate Markdown files to French
-├── tsconfig.json          # Main TypeScript configuration
-├── tsconfig.node.json     # TypeScript configuration for Node.js
-└── tsconfig.scripts.json  # TypeScript configuration for scripts
+└── tsconfig.json          # TypeScript configuration
 ```
 
 ## Documentation

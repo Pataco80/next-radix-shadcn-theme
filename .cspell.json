@@ -1,0 +1,44 @@
+{
+	"version": "0.2",
+	"language": "en",
+	"words": [
+		"turbopack",
+		"nextjs",
+		"tailwindcss",
+		"radix",
+		"shadcn",
+		"nuqs",
+		"pnpm",
+		"vercel",
+		"geist",
+		"suspense",
+		"webp"
+	],
+	"ignorePaths": [
+		"node_modules/**",
+		".next/**",
+		"pnpm-lock.yaml",
+		".git/**",
+		"public/**",
+		".private/**",
+		"*.min.js",
+		"*.min.css"
+	],
+	"ignoreRegExpList": [
+		"/'[^']*'/",
+		"/`[^`]*`/",
+		"/import\\s+.*?\\s+from\\s+['\"].*?['\"];?/",
+		"/export\\s+.*?\\s+from\\s+['\"].*?['\"];?/"
+	],
+	"allowCompoundWords": true,
+	"enableFiletypes": [
+		"typescript",
+		"typescriptreact",
+		"javascript",
+		"javascriptreact",
+		"markdown",
+		"json",
+		"css",
+		"scss"
+	]
+}

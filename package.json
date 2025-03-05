@@ -15,12 +15,20 @@
 		"update-lock": "pnpm install --prefer-offline",
 		"install:timeout": "pnpm install --network-timeout 100000",
 		"install:registry": "pnpm install --registry=https://registry.npmjs.org/",
-		"cache:clean": "pnpm store prune"
+		"cache:clean": "pnpm store prune",
+		"translate:fr": "ts-node scripts/translate-fr.ts",
+		"translate:fr:all": "ts-node scripts/translate-fr.ts --all",
+		"translate:fr:find": "ts-node scripts/translate-fr.ts --find",
+		"translate:en": "ts-node scripts/translate-en.ts",
+		"translate:en:all": "ts-node scripts/translate-en.ts --all",
+		"translate:en:find": "ts-node scripts/translate-en.ts --find"
 	},
 	"dependencies": {
+		"@iamtraction/google-translate": "^2.0.1",
 		"next": "15.2.1",
 		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
+		"react-dom": "^19.0.0",
+		"ts-node": "^10.9.2"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
@@ -32,6 +40,6 @@
 		"eslint-config-next": "15.2.1",
 		"eslint-config-prettier": "^10.0.2",
 		"tailwindcss": "^4",
-		"typescript": "^5"
+		"typescript": "^5.8.2"
 	}
 }
