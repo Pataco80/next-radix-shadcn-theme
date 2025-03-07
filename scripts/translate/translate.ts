@@ -1,57 +1,27 @@
 #!/usr/bin/env node
 
 /**
- * Script pour traduire des fichiers Markdown (.md) en anglais
- * Usage: ts-node scripts/translate-en.ts <fichier1.md> <fichier2.md> ...
- * Usage: ts-node scripts/translate-en.ts --all (pour traduire tous les fichiers .md prédéfinis)
- * Usage: ts-node scripts/translate-en.ts --find (pour trouver et traduire tous les fichiers .md du projet)
- * Exemple: ts-node scripts/translate-en.ts README.md CONTRIBUTING.md
+ * Script pour traduire des fichiers Markdown (.md) dans différentes langues
+ * Usage: ts-node -P tsconfig.scripts.json scripts/translate/translate.ts <langue> [options] [fichiers]
+ * Options:
+ *   --all : traduit tous les fichiers Markdown prédéfinis
+ *   --find : recherche et traduit tous les fichiers Markdown du projet
+ * Exemples:
+ *   ts-node -P tsconfig.scripts.json scripts/translate/translate.ts fr README.md CONTRIBUTING.md
+ *   ts-node -P tsconfig.scripts.json scripts/translate/translate.ts en --all
+ *   ts-node -P tsconfig.scripts.json scripts/translate/translate.ts fr --find
  */
 
 import { exec } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 import { promisify } from 'util'
+import TRANSLATION_CONFIG, { languages } from './translate.config'
 
 const execAsync = promisify(exec)
 const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
 const mkdirAsync = promisify(fs.mkdir)
-
-// Configuration des dossiers pour la recherche de fichiers Markdown
-const TRANSLATION_CONFIG = {
-	// Liste prédéfinie des fichiers Markdown à traduire avec --all
-	defaultFiles: [
-		'README.md',
-		'.cursorrules.md',
-		'docs/index.md',
-		'docs/translation-guide.md',
-		'docs/scripts.md',
-		'docs/project-structure.md',
-	],
-
-	// Dossiers à exclure lors de la recherche de fichiers Markdown avec --find
-	excludedDirs: [
-		'node_modules',
-		'.git',
-		'.next',
-		'.private',
-		'docs/en',
-		'docs/fr',
-	],
-
-	// Dossiers spécifiques à inclure lors de la recherche, même s'ils sont dans un dossier exclu
-	includeDirs: ['docs'],
-
-	// Dossiers spécifiques à exclure, même s'ils sont dans un dossier inclus
-	excludeSpecificDirs: ['docs/en', 'docs/fr'],
-
-	// Langue cible pour la traduction
-	targetLanguage: 'en',
-
-	// Dossier de destination pour les traductions
-	outputDir: path.join('docs', 'en'),
-}
 
 // Fonction pour vérifier si un package est installé
 async function isPackageInstalled(packageName: string): Promise<boolean> {
@@ -130,16 +100,68 @@ async function findAllMarkdownFiles(): Promise<string[]> {
 	}
 }
 
+// Fonction pour diviser le contenu en morceaux pour éviter les limites de l'API
+function splitContentIntoChunks(
+	content: string,
+	maxChunkSize: number
+): string[] {
+	const chunks: string[] = []
+	let currentChunk = ''
+	const paragraphs = content.split(/\n\n+/)
+
+	for (const paragraph of paragraphs) {
+		// Si le paragraphe est trop grand, le diviser en lignes
+		if (paragraph.length > maxChunkSize) {
+			const lines = paragraph.split('\n')
+			for (const line of lines) {
+				// Si la ligne est trop grande, la diviser en morceaux
+				if (line.length > maxChunkSize) {
+					let i = 0
+					while (i < line.length) {
+						const chunk = line.substring(i, i + maxChunkSize)
+						if (currentChunk.length + chunk.length + 1 > maxChunkSize) {
+							chunks.push(currentChunk)
+							currentChunk = chunk
+						} else {
+							currentChunk += (currentChunk ? '\n' : '') + chunk
+						}
+						i += maxChunkSize
+					}
+				} else if (currentChunk.length + line.length + 1 > maxChunkSize) {
+					chunks.push(currentChunk)
+					currentChunk = line
+				} else {
+					currentChunk += (currentChunk ? '\n' : '') + line
+				}
+			}
+		} else if (currentChunk.length + paragraph.length + 2 > maxChunkSize) {
+			chunks.push(currentChunk)
+			currentChunk = paragraph
+		} else {
+			currentChunk += (currentChunk ? '\n\n' : '') + paragraph
+		}
+	}
+
+	if (currentChunk) {
+		chunks.push(currentChunk)
+	}
+
+	return chunks
+}
+
 // Fonction pour traduire une liste spécifique de fichiers
-async function translateFileList(files: string[]): Promise<void> {
+async function translateFileList(
+	files: string[],
+	targetLanguage: string,
+	outputDir: string
+): Promise<void> {
 	try {
 		// Vérifier si @iamtraction/google-translate est installé
 		await installPackageIfNeeded('@iamtraction/google-translate')
 		await installPackageIfNeeded('ts-node')
 
 		// Importer la bibliothèque après s'être assuré qu'elle est installée
-
-		const translate = require('@iamtraction/google-translate')
+		const { default: translate } = await import('@iamtraction/google-translate')
 
 		if (files.length === 0) {
 			console.error('Erreur: Aucun fichier spécifié pour la traduction.')
@@ -165,7 +187,7 @@ async function translateFileList(files: string[]): Promise<void> {
 		}
 
 		// Créer le dossier de destination s'il n'existe pas
-		await mkdirAsync(TRANSLATION_CONFIG.outputDir, { recursive: true })
+		await mkdirAsync(outputDir, { recursive: true })
 
 		// Traduire chaque fichier Markdown
 		for (const file of markdownFiles) {
@@ -175,7 +197,7 @@ async function translateFileList(files: string[]): Promise<void> {
 				continue
 			}
 
-			console.log(`Traduction de ${file} vers l'anglais...`)
+			console.log(`Traduction de ${file} vers ${targetLanguage}...`)
 
 			// Lire le contenu du fichier
 			const content = await readFileAsync(file, 'utf8')
@@ -208,7 +230,7 @@ async function translateFileList(files: string[]): Promise<void> {
 					try {
 						attempts++
 						const result = (await translate(chunks[i], {
-							to: TRANSLATION_CONFIG.targetLanguage,
+							to: targetLanguage,
 						})) as TranslationResult
 						translatedContent += result.text
 						success = true
@@ -232,7 +254,7 @@ async function translateFileList(files: string[]): Promise<void> {
 
 			// Déterminer le chemin de destination
 			const fileName = path.basename(file)
-			const destPath = path.join(TRANSLATION_CONFIG.outputDir, fileName)
+			const destPath = path.join(outputDir, fileName)
 
 			// Écrire le contenu traduit
 			await writeFileAsync(destPath, translatedContent, 'utf8')
@@ -249,90 +271,76 @@ async function translateFileList(files: string[]): Promise<void> {
 }
 
 // Fonction principale
-async function translateFiles(): Promise<void> {
+async function main() {
 	try {
-		// Récupérer les fichiers à traduire depuis les arguments
+		// Récupérer les arguments de la ligne de commande
 		const args = process.argv.slice(2)
 
-		// Vérifier si l'option --find est spécifiée pour trouver tous les fichiers Markdown
-		if (args.includes('--find') || args.includes('-f')) {
-			console.log(
-				'Recherche de tous les fichiers Markdown (.md) dans le projet...'
-			)
-			const allMarkdownFiles = await findAllMarkdownFiles()
-			console.log(`${allMarkdownFiles.length} fichier(s) Markdown trouvé(s).`)
-
-			if (allMarkdownFiles.length > 0) {
-				console.log('Fichiers trouvés:')
-				allMarkdownFiles.forEach(file => console.log(`  - ${file}`))
-				await translateFileList(allMarkdownFiles)
-			}
-			return
-		}
-
-		// Vérifier si l'option --all est spécifiée
-		if (args.includes('--all') || args.includes('-a')) {
-			console.log(
-				'Mode traduction de tous les fichiers Markdown prédéfinis activé.'
-			)
-			await translateFileList(TRANSLATION_CONFIG.defaultFiles)
-			return
-		}
-
 		if (args.length === 0) {
-			console.error('Erreur: Aucun fichier spécifié pour la traduction.')
+			console.error('Erreur: Langue cible non spécifiée.')
 			console.log(
-				'Usage: ts-node scripts/translate-en.ts <fichier1.md> <fichier2.md> ...'
+				'Usage: ts-node -P tsconfig.scripts.json scripts/translate/translate.ts <langue> [options] [fichiers]'
 			)
-			console.log(
-				'Usage: ts-node scripts/translate-en.ts --all (pour traduire tous les fichiers .md prédéfinis)'
-			)
-			console.log(
-				'Usage: ts-node scripts/translate-en.ts --find (pour trouver et traduire tous les fichiers .md du projet)'
-			)
-			console.log('Fichiers Markdown prédéfinis:')
-			TRANSLATION_CONFIG.defaultFiles.forEach(file =>
-				console.log(`  - ${file}`)
-			)
+			console.log('Langues disponibles:', languages.map(l => l.code).join(', '))
 			process.exit(1)
 		}
 
-		// Traduire les fichiers spécifiés
-		await translateFileList(args)
+		// Récupérer la langue cible
+		const langCode = args[0]
+
+		// Vérifier si la langue est supportée
+		const langSupported = languages.some(l => l.code === langCode)
+		if (!langSupported) {
+			console.error(`Erreur: Langue "${langCode}" non supportée.`)
+			console.log('Langues disponibles:', languages.map(l => l.code).join(', '))
+			process.exit(1)
+		}
+
+		// Récupérer la configuration spécifique à la langue
+		const langConfig = TRANSLATION_CONFIG.getLanguageConfig(langCode)
+
+		// Traiter les options
+		const options = args.slice(1)
+
+		if (options.includes('--all')) {
+			// Traduire tous les fichiers prédéfinis
+			console.log(
+				`Traduction de tous les fichiers prédéfinis en ${langCode}...`
+			)
+			await translateFileList(
+				TRANSLATION_CONFIG.defaultFiles,
+				langConfig.targetLanguage,
+				langConfig.outputDir
+			)
+		} else if (options.includes('--find')) {
+			// Rechercher et traduire tous les fichiers Markdown
+			console.log(
+				`Recherche et traduction de tous les fichiers Markdown en ${langCode}...`
+			)
+			const files = await findAllMarkdownFiles()
+			await translateFileList(
+				files,
+				langConfig.targetLanguage,
+				langConfig.outputDir
+			)
+		} else {
+			// Traduire les fichiers spécifiés
+			const files = options
+			if (files.length === 0) {
+				console.error('Erreur: Aucun fichier spécifié pour la traduction.')
+				process.exit(1)
+			}
+			await translateFileList(
+				files,
+				langConfig.targetLanguage,
+				langConfig.outputDir
+			)
+		}
 	} catch (error) {
-		console.error('Erreur lors de la traduction:', error)
+		console.error('Erreur:', error)
 		process.exit(1)
 	}
 }
 
-// Fonction pour diviser le contenu en morceaux
-function splitContentIntoChunks(
-	content: string,
-	maxChunkSize: number
-): string[] {
-	const chunks: string[] = []
-	let currentChunk = ''
-
-	const lines = content.split('\n')
-
-	for (const line of lines) {
-		if (currentChunk.length + line.length + 1 > maxChunkSize) {
-			chunks.push(currentChunk)
-			currentChunk = line
-		} else {
-			currentChunk += (currentChunk ? '\n' : '') + line
-		}
-	}
-
-	if (currentChunk) {
-		chunks.push(currentChunk)
-	}
-
-	return chunks
-}
-
 // Exécuter la fonction principale
-translateFiles().catch(error => {
-	console.error('Erreur non gérée:', error)
-	process.exit(1)
-})
+main()

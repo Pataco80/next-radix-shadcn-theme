@@ -4,41 +4,42 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ```
 next-radix-theme/
-├── .cspell.json           # Configuration for spell checking
-├── .cursorrules.md        # Guidelines for Cursor AI assistant
-├── .editorconfig          # Editor configuration for consistent coding style
-├── .eslintrc.json         # ESLint configuration
-├── .git/                  # Git repository
-├── .gitignore             # Git ignore patterns
-├── .npmrc                 # NPM/PNPM configuration
-├── .prettierrc            # Prettier code formatter configuration
-├── README.md              # Project documentation (this file)
-├── app/                   # Next.js App Router directory
-│   ├── favicon.ico        # Website favicon
-│   ├── globals.css        # Global CSS styles
-│   ├── layout.tsx         # Root layout component
-│   └── page.tsx           # Home page component
-├── docs/                  # Detailed project documentation
-│   ├── index.md           # Documentation entry point
-│   ├── scripts.md         # Available scripts documentation
-│   ├── translation-guide.md # Translation features guide
-│   ├── project-structure.md # Detailed project structure
-│   ├── en/                # English translations of documentation
-│   └── fr/                # French translations of documentation
-├── next-env.d.ts          # TypeScript declarations for Next.js
-├── next.config.ts         # Next.js configuration
-├── node_modules/          # Dependencies (not tracked in git)
-├── package.json           # Project metadata and dependencies
-├── pnpm-lock.yaml         # PNPM lock file
-├── pnpm-workspace.yaml    # PNPM workspace configuration
-├── postcss.config.mjs     # PostCSS configuration
-├── public/                # Static assets
-├── scripts/               # Utility scripts
-│   ├── translate-en.ts    # Script to translate Markdown files to English
-│   └── translate-fr.ts    # Script to translate Markdown files to French
-├── tsconfig.json          # Main TypeScript configuration
-├── tsconfig.node.json     # TypeScript configuration for Node.js
-└── tsconfig.scripts.json  # TypeScript configuration for scripts
+├── .cspell.json                # Configuration for spell checking
+├── .cursorrules.md             # Guidelines for Cursor AI assistant
+├── .editorconfig               # Editor configuration for consistent coding style
+├── .eslintrc.json              # ESLint configuration
+├── .git/                       # Git repository
+├── .gitignore                  # Git ignore patterns
+├── .npmrc                      # NPM/PNPM configuration
+├── .prettierrc                 # Prettier code formatter configuration
+├── README.md                   # Project documentation (this file)
+├── app/                        # Next.js App Router directory
+│   ├── favicon.ico             # Website favicon
+│   ├── globals.css             # Global CSS styles
+│   ├── layout.tsx              # Root layout component
+│   └── page.tsx                # Home page component
+├── docs/                       # Detailed project documentation
+│   ├── index.md                # Documentation entry point
+│   ├── scripts.md              # Available scripts documentation
+│   ├── translation-guide.md    # Translation features guide
+│   ├── project-structure.md    # Detailed project structure
+│   ├── project-design.md       # Detailed project design
+│   ├── en/                     # English translations of documentation
+│   └── fr/                     # French translations of documentation
+├── next-env.d.ts               # TypeScript declarations for Next.js
+├── next.config.ts              # Next.js configuration
+├── node_modules/               # Dependencies (not tracked in git)
+├── package.json                # Project metadata and dependencies
+├── pnpm-lock.yaml              # PNPM lock file
+├── pnpm-workspace.yaml         # PNPM workspace configuration
+├── postcss.config.mjs          # PostCSS configuration
+├── public/                     # Static assets
+├── scripts/                    # Utility scripts
+│   ├── translate-en.ts         # Script to translate Markdown files to English
+│   └── translate-fr.ts         # Script to translate Markdown files to French
+├── tsconfig.json               # Main TypeScript configuration
+├── tsconfig.node.json          # TypeScript configuration for Node.js
+└── tsconfig.scripts.json       # TypeScript configuration for scripts
 ```
 
 ## Documentation

@@ -6,6 +6,18 @@ Ce guide explique comment utiliser les fonctionnalités de traduction intégrée
 
 Le script de traduction utilise la bibliothèque `@iamtraction/google-translate` qui sera automatiquement installée lors de la première utilisation. Vous devez avoir `ts-node` installé pour exécuter le script TypeScript.
 
+Pour éviter les problèmes d'exécution avec les scripts TypeScript, utilisez la commande suivante :
+
+```bash
+npx ts-node -P tsconfig.scripts.json scripts/translate-fr.ts <fichier1.md> <fichier2.md> ...
+```
+
+Ou pour la traduction en anglais :
+
+```bash
+npx ts-node -P tsconfig.scripts.json scripts/translate-en.ts <fichier1.md> <fichier2.md> ...
+```
+
 ## Commandes disponibles
 
 ### Traduire des fichiers spécifiques en français
@@ -65,7 +77,7 @@ const TRANSLATION_CONFIG = {
 		'README.md',
 		'.cursorrules.md',
 		'docs/index.md',
-		'docs/SCRIPTS.md',
+		'docs/scripts.md',
 		'docs/translation-guide.md',
 		'docs/project-structure.md',
 	],
