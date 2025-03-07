@@ -4,112 +4,120 @@ This document describes all the scripts available in this project Next.js. Use t
 
 ## Start scripts
 
-- `dev`: Starts the development server with Turbopack
+- `Dev`: Starts the development server with Turbopack
 
-  ```bash
-  pnpm dev
-  ```
+  **Code_Block_0**
 
-- `start`: start the application in production mode
-  ```bash
-  pnpm start
-  ```
+- `Start`: start the application in production mode
+  **Code_Block_1**
 
 ## Build scripts
 
-- `build`: Compile the application for production
+- `Build`: Compile the application for production
 
-  ```bash
-  pnpm build
-  ```
+  **Code_Block_2**
 
-- `rebuild`: clean the `next` folder then compiles the application
-  ```bash
-  pnpm rebuild
-  ```
+- `rebuild`: clean the `nexet 'folder then compiles the application
+  **Code_Block_3**
 
 ## Cleaning scripts
 
-- `clean`: delete the `.next` folder
+- `clean`: delete the file`.
 
-  ```bash
-  pnpm clean
-  ```
+  **Code_Block_4**
 
-- `clean:modules`: delete the `node_modules` folder
+- `Clean: modules`: delete the file` node_modles'
 
-  ```bash
-  pnpm clean:modules
-  ```
+  **Code_Block_5**
 
-- `cache:clean`: Clean the PNPM cache
-  ```bash
-  pnpm cache:clean
-  ```
+- `Cache: Clean`: Clean the PNPM cache
+  **Code_Block_6**
 
 ## Reset scripts
 
-- `refresh`: cleans the `next` folder then starts the development server
+- `Refresh`: cleans the `nexet 'folder then starts the development server
 
-  ```bash
-  pnpm refresh
-  ```
+  **Code_Block_7**
 
-- `reset`: completely resets the project (clean `next`, deletes `node_modules` and reinstalls dependencies)
-  ```bash
-  pnpm reset
-  ```
+- `Reset`: completely resets the project (clean `nexet ', deletes` node*modles' and reinstalls dependencies)
+  \_\_Code_Block_8*
 
 ## Installation scripts
 
-- `update-lock`: updates the locking file without cleaning the project
+- `Update-Lock`: updates the locking file without cleaning the project
 
-  ```bash
-  pnpm update-lock
-  ```
+  **Code_Block_9**
 
-- `install:timeout`: install dependencies with an increased network time (for slow connections)
+- `install: timeout`: install dependencies with an increased network time (for slow connections)
 
-  ```bash
-  pnpm install:timeout
-  ```
+  **Code_Block_10**
 
-- `install:registry`: Install the dependencies using the official NPM register
-  ```bash
-  pnpm install:registry
-  ```
+- `Install: Registry: Install the dependencies using the official NPM register
+  **Code_Block_11**
 
-## Lint scripts
+## Lin scripts
 
 - `lint`: executes eslint to check the code
-  ```bash
-  pnpm lint
-  ```
+  **Code_Block_12**
 
 ## Translation scripts
 
-- `translate:fr`: Translated specific Markdown files in French
+> ** Important note **: All translation scripts now use a centralized system that allows Markdown files to be translated into different languages.
+>
+> ** Preservation of code blocks **: The system is designed to preserve code blocks during translation. If you encounter problems with deformed code blocks in the translated files, you can correct them manually or relaunch the translation.
 
-  ```bash
-  pnpm translate:fr <file1.md> <file2.md> ...
-  ```
+### Generic translation script
 
-- `translate:fr:all`: translates all predefined Markdown files in French
+- `Translate`: Basic script for translating files in any supported language
 
-  ```bash
-  pnpm translate:fr:all
-  ```
+  **Code_Block_13**
 
-- `translate:fr:find`: Research and translates all the Markdown files of the project in French
+  Example :
 
-  ```bash
-  pnpm translate:fr:find
-  ```
+  **Code_Block_14**
 
-- `translate:en`: Translates Markdown files from French to English
+### Translation in French
 
-  ```bash
-  pnpm translate:en
-  ```
+- `Translate: Fr`: Translated specific Markdown files in French
 
-The translated files are saved in the `docs/fr/` and `docs/en/` folders respectively.
+  **Code_Block_15**
+
+- `Translate: FR: All`: translates all Markdown files predefined in French
+
+  **Code_Block_16**
+
+- `Translate: Fr: Find`: Research and translates all the Markdown files of the project in French
+
+  **Code_Block_17**
+
+### Translation in English
+
+- `Translate: by: translated specific Markdown files in English
+
+  **Code_Block_18**
+
+- `Translate: in: All`: translates all Markdown files predefined in English
+
+  **Code_Block_19**
+
+- `Translate: in: Find`: Research and translates all the Markdown files of the project in English
+
+  **Code_Block_20**
+
+The files translated into French are saved in the Docs/Fr/`folder, and the files translated into English in the Docs/En/` folder.
+
+### Adding new languages
+
+To add a new translation language, simply modify the file `Scripts/Translate/Translate.config.ts`s' by adding the tongue in the table` languages`. For example, to add the Spanish:
+
+**Code_Block_21**
+
+The system is designed to automatically manage output files and exclusions. When you add a new language:
+
+1. A new output folder is created automatically (`docs/es/` in the example above)
+2. This folder is automatically excluded when searching for files to be translated to avoid loop translations
+3. No other configuration is necessary
+
+Then you can use the generic script to translate into this new language:
+
+\__Code_Block_22_

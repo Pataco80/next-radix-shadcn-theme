@@ -28,22 +28,19 @@ Next-Radix-theme/
 ├── docs/                  # Detailed Project Documentation
 │   ├── index.md           # Documentation entry point
 │   ├── scripts.md         # Documentation of available scripts
-│   ├── translation-guide.md # User guide for translation features
-│   └── project-structure.md # This document
-├── next-env.d.ts          # TypeScript declarations for Next.js
-├── next.config.ts         # Configuration Next.js
-├── node_modules/          # Dependencies (not tracked in Git)
-├── package.json           # Project metadata and dependencies
-├── pnpm-lock.yaml         # PNPM lock file
-├── pnpm-workspace.yaml    # Configuration of the PNPM workspace
-├── postcss.config.mjs     # PostCSS configuration
-├── public/                # Static resources
-├── scripts/               # Utility scripts
-│   ├── translate-en.ts    # Script to translate Markdown files to English
-│   └── translate-fr.ts    # Script to translate Markdown files to French
-├── tsconfig.json          # Main TypeScript configuration
-├── tsconfig.node.json     # TypeScript configuration for Node.js
-└── tsconfig.scripts.json  # TypeScript configuration for scripts
+│   ├── Translation-guide.md # User guide for translation features
+│   └── Project-md # This document
+├── Next-Entv.d.TS # Typescript declarations for Next.js
+├── Next.config.ts # Configuration Next.js
+├── Node_Modules/ # Outbuildings (not followed in Git)
+├── Package.json # Project metadata and outbuildings
+├── pnpm-lock.yaml # PNPM locking file
+├── PNPM-Torkspace.Yaml # Configuration of the PNPM workspace
+├── pos postcss.config.mjs # postcss configuration
+├── public Public/ # Static resources
+├── Scripts/ # Utility scripts
+│   └── Translate.ts # Markdown file translation script
+└── tsconfig.json # Typecript configuration
 ```
 
 ## Main files
@@ -85,9 +82,7 @@ This file contains utility scripts to facilitate the development and maintenance
 
 ### Typecript configuration
 
-- `tsconfig.json`: Main TypeScript configuration for the project
-- `tsconfig.node.json`: TypeScript configuration specific to Node.js environments
-- `tsconfig.scripts.json`: TypeScript configuration for utility scripts in the `scripts/` folder
+- `tsconfig.json`: Typescript configuration for the project
 
 ### Configuration of development tools
 

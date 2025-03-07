@@ -4,15 +4,16 @@ Welcome to the documentation of the Next.js Radix Theme project. This documentat
 
 ## Table of contents
 
-- [Scripts available](./scripts.md) - Full list of scripts available in the project
-- [Translation guide](./translation-guide.md) - Guide to use translation features
-- [Project structure](./project-structure.md) - Detailed description of the structure of the project
+- [Scripts available] (./ scripts.md) - Full list of scripts available in the project
+- [Translation guide] (./ Translation -Guide.md) - Guide to use translation features
+- [Project structure] (./ Project-Tructure.md) - Detailed description of the structure of the project
+- [Project design] (./ Project-edesign.md) - Fluid design and typography principles
 
-## Quick links
+# Quick links
 
-- [Main README](../README.md) - Back to the main project documentation
-- [Official website of Next.js](https://nextjs.org/docs) - official documentation of Next.js
-- [Radix UI](https://www.radix-ui.com/) - Documentation of Radix UI
+- [main reading] (../ Readme.md) - Back to the main project of the project
+- [Official website of Next.js] (https://nextjs.org/docs) - official documentation of Next.js
+- [Radix UI] (https://www.radix-uii.com/) - Documentation of Radix UI
 
 ## Contribution
 
@@ -22,7 +23,7 @@ If you want to contribute to this documentation, do not hesitate to create new M
 
 This documentation can be translated into French and English using the translation scripts provided:
 
-- To translate into French: `pnpm translate:fr:all` or `pnpm translate:fr:find`
-- To translate into English: `pnpm translate:en`
+- To translate into French: `PNPM Translate: FR: All` or` PNPM Translate: FR: Find`
+- to translate into English: `PNPM Translate: by
 
-The translations are stored in the `docs/fr/` and `docs/en/` folders respectively.
+The translations are stored in the Docs/Fr/`and` Docs/`` files respectively.
