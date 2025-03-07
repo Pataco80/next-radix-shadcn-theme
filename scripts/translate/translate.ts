@@ -149,6 +149,67 @@ function splitContentIntoChunks(
 	return chunks
 }
 
+// Fonction pour extraire et préserver les blocs de code
+function extractAndPreserveCodeBlocks(content: string): {
+	processedContent: string
+	codeBlocks: string[]
+} {
+	const codeBlocks: string[] = []
+	// Regex pour capturer les blocs de code
+	const codeBlockRegex = /```[\s\S]*?```/gm
+
+	// Remplacer les blocs de code par des marqueurs
+	const processedContent = content.replace(codeBlockRegex, match => {
+		const placeholder = `__CODE_BLOCK_${codeBlocks.length}__`
+		codeBlocks.push(match)
+		return placeholder
+	})
+
+	return { processedContent, codeBlocks }
+}
+
+// Fonction pour corriger les liens Markdown après traduction
+function fixMarkdownLinks(content: string): string {
+	// Correction des liens Markdown qui sont souvent mal traduits
+	// Exemple: [texte] (lien) devient [texte](lien)
+	let fixedContent = content.replace(/\[([^\]]+)\]\s+\(([^)]+)\)/g, '[$1]($2)')
+
+	// Correction des chemins relatifs avec des espaces
+	// Exemple: (./ docs / index.md) devient (./docs/index.md)
+	fixedContent = fixedContent.replace(
+		/\(\.\/\s+([^/\s]+)\s+\/\s+([^)]+)\)/g,
+		'(./$1/$2)'
+	)
+
+	// Correction des URLs avec des espaces
+	// Exemple: (http: // localhost: 3000) devient (http://localhost:3000)
+	fixedContent = fixedContent.replace(
+		/\((https?):\/\/\s+([^/\s]+):\s+(\d+)\)/g,
+		'($1://$2:$3)'
+	)
+
+	// Correction spécifique pour localhost
+	fixedContent = fixedContent.replace(
+		/\[http:\s*\/\/\s*localhost:\s*(\d+)\]/g,
+		'[http://localhost:$1]'
+	)
+
+	return fixedContent
+}
+
+// Fonction pour restaurer les blocs de code
+function restoreCodeBlocks(content: string, codeBlocks: string[]): string {
+	let restoredContent = content
+
+	// Remplacer les marqueurs par les blocs de code originaux
+	for (let i = 0; i < codeBlocks.length; i++) {
+		const placeholder = `__CODE_BLOCK_${i}__`
+		restoredContent = restoredContent.replace(placeholder, codeBlocks[i])
+	}
+
+	return restoredContent
+}
+
 // Fonction pour traduire une liste spécifique de fichiers
 async function translateFileList(
 	files: string[],
@@ -202,8 +263,12 @@ async function translateFileList(
 			// Lire le contenu du fichier
 			const content = await readFileAsync(file, 'utf8')
 
+			// Extraire et préserver les blocs de code
+			const { processedContent, codeBlocks } =
+				extractAndPreserveCodeBlocks(content)
+
 			// Diviser le contenu en morceaux pour éviter les limites de l'API
-			const chunks = splitContentIntoChunks(content, 5000)
+			const chunks = splitContentIntoChunks(processedContent, 5000)
 			let translatedContent = ''
 
 			// Traduire chaque morceau avec délai et mécanisme de nouvelle tentative
@@ -252,12 +317,18 @@ async function translateFileList(
 				}
 			}
 
+			// Restaurer les blocs de code dans le contenu traduit
+			const finalContent = restoreCodeBlocks(translatedContent, codeBlocks)
+
+			// Corriger les liens Markdown qui ont pu être mal traduits
+			const fixedContent = fixMarkdownLinks(finalContent)
+
 			// Déterminer le chemin de destination
 			const fileName = path.basename(file)
 			const destPath = path.join(outputDir, fileName)
 
 			// Écrire le contenu traduit
-			await writeFileAsync(destPath, translatedContent, 'utf8')
+			await writeFileAsync(destPath, fixedContent, 'utf8')
 			console.log(
 				`✅ Traduction de ${file} terminée. Fichier sauvegardé dans ${destPath}`
 			)

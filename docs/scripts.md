@@ -89,6 +89,10 @@ Ce document décrit tous les scripts disponibles dans ce projet Next.js. Utilise
 ## Scripts de traduction
 
 > **Note importante** : Tous les scripts de traduction utilisent maintenant un système centralisé qui permet de traduire les fichiers Markdown dans différentes langues.
+>
+> **Préservation des blocs de code** : Le système est conçu pour préserver les blocs de code lors de la traduction. Si vous rencontrez des problèmes avec des blocs de code déformés dans les fichiers traduits, vous pouvez les corriger manuellement ou relancer la traduction.
+>
+> **Correction des liens Markdown** : Le système corrige automatiquement les liens Markdown qui peuvent être déformés pendant la traduction, comme les espaces ajoutés entre les crochets et les parenthèses.
 
 ### Script de traduction générique
 
@@ -157,6 +161,12 @@ export const languages = [
 	{ code: 'es', name: 'Español', dir: 'es' },
 ]
 ```
+
+Le système est conçu pour gérer automatiquement les dossiers de sortie et les exclusions. Lorsque vous ajoutez une nouvelle langue :
+
+1. Un nouveau dossier de sortie est créé automatiquement (`docs/es/` dans l'exemple ci-dessus)
+2. Ce dossier est automatiquement exclu lors de la recherche de fichiers à traduire pour éviter les traductions en boucle
+3. Aucune autre configuration n'est nécessaire
 
 Ensuite, vous pouvez utiliser le script générique pour traduire dans cette nouvelle langue :
 

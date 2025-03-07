@@ -6,6 +6,11 @@ export const languages = [
 	{ code: 'en', name: 'English', dir: 'en' },
 ]
 
+// Génération dynamique des dossiers à exclure pour chaque langue
+const generateLanguageExcludeDirs = () => {
+	return languages.map(lang => `docs/${lang.dir}`)
+}
+
 // Configuration pour la traduction
 const TRANSLATION_CONFIG = {
 	// Liste prédéfinie des fichiers Markdown à traduire avec --all
@@ -25,15 +30,14 @@ const TRANSLATION_CONFIG = {
 		'.git',
 		'.next',
 		'.private',
-		'docs/en',
-		'docs/fr',
+		...generateLanguageExcludeDirs(),
 	],
 
 	// Dossiers spécifiques à inclure lors de la recherche, même s'ils sont dans un dossier exclu
 	includeDirs: ['docs'],
 
 	// Dossiers spécifiques à exclure, même s'ils sont dans un dossier inclus
-	excludeSpecificDirs: ['docs/en', 'docs/fr'],
+	excludeSpecificDirs: generateLanguageExcludeDirs(),
 
 	// Fonction pour obtenir la configuration spécifique à une langue
 	getLanguageConfig: (langCode: string) => {
