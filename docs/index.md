@@ -7,6 +7,7 @@ Bienvenue dans la documentation du projet Next.js Radix Theme. Cette documentati
 - [Scripts disponibles](./SCRIPTS.md) - Liste complète des scripts disponibles dans le projet
 - [Guide de traduction](./translation-guide.md) - Guide pour utiliser les fonctionnalités de traduction
 - [Structure du projet](./project-structure.md) - Description détaillée de la structure du projet
+- [Design du projet](./project-design.md) - Principes de design et typographie fluide
 
 ## Liens rapides
 
