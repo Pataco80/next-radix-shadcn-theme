@@ -20,11 +20,12 @@ next-radix-theme/
 │   └── page.tsx                # Composant de la page d'accueil
 ├── docs/                       # Documentation détaillée du projet
 │   ├── index.md                # Point d'entrée de la documentation
-│   ├── scripts.md              # Documentation des scripts disponibles
-│   ├── project-structure.md    # Structure détaillée du projet
-│   ├── project-design.md       # Conception détaillée du projet
-│   ├── en/                     # Traductions en anglais de la documentation
-│   └── fr/                     # Traductions en français de la documentation
+│   ├── cursor-config/          # Documentation de configuration Cursor
+│   │   ├── fr/                 # Documentation en français pour Cursor
+│   │   └── en/                 # Documentation en anglais pour Cursor (à venir)
+│   └── project/                # Documentation du projet
+│       ├── fr/                 # Documentation en français du projet
+│       └── en/                 # Documentation en anglais du projet (à venir)
 ├── next-env.d.ts               # Déclarations TypeScript pour Next.js
 ├── next.config.ts              # Configuration Next.js
 ├── node_modules/               # Dépendances (non suivies dans Git)
@@ -44,8 +45,11 @@ next-radix-theme/
 Ce projet inclut une documentation détaillée dans le répertoire `docs/` :
 
 - [Accueil de la documentation](./docs/index.md) - Point d'entrée avec table des matières
-- [Scripts disponibles](./docs/scripts.md) - Description détaillée de tous les scripts disponibles
-- [Structure du projet](./docs/project-structure.md) - Explication détaillée de la structure du projet
+- [Documentation du projet](./docs/project/fr/) - Documentation détaillée du projet
+  - [Scripts disponibles](./docs/project/fr/scripts.md) - Description détaillée de tous les scripts disponibles
+  - [Structure du projet](./docs/project/fr/project-structure.md) - Explication détaillée de la structure du projet
+  - [Design du projet](./docs/project/fr/project-design.md) - Principes de design et typographie fluide
+- [Configuration Cursor](./docs/cursor-config/fr/) - Documentation de configuration pour l'assistant IA Cursor
 
 ## Démarrage
 
@@ -69,7 +73,7 @@ Ce projet utilise [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Scripts personnalisés
 
-Ce projet inclut plusieurs scripts personnalisés pour faciliter le développement et la maintenance. Pour une liste complète avec des descriptions détaillées, consultez [scripts.md](./docs/scripts.md).
+Ce projet inclut plusieurs scripts personnalisés pour faciliter le développement et la maintenance. Pour une liste complète avec des descriptions détaillées, consultez [scripts.md](./docs/project/fr/scripts.md).
 
 Voici quelques-uns des scripts les plus couramment utilisés :
 
