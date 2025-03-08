@@ -17,7 +17,7 @@ Ces directives visent à établir des pratiques cohérentes pour le développeme
 > **Note importante** : Les règles pour Cursor ont été séparées pour mieux structurer et diminuer ainsi la quantité de code par fichier.
 
 ```
-next-radix-theme/
+next-radix-shadcn-theme/
 ├── .cursor/rules/                 # Dossier des règles de Cursor
 │   ├── README.md                  # Aperçu général et introduction
 │   ├── code-style.md              # Style et structure du code

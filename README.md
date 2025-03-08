@@ -3,7 +3,7 @@ Ceci est un projet [Next.js](https://nextjs.org) créé avec [`create-next-app`]
 ## Structure du projet
 
 ```
-next-radix-theme/
+next-radix-shadcn-theme/
 ├── .cspell.json                # Configuration pour la vérification orthographique
 ├── .cursorrules.md             # Directives pour l'assistant IA Cursor
 ├── .editorconfig               # Configuration de l'éditeur pour un style de codage cohérent

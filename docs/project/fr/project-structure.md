@@ -110,7 +110,7 @@ Ce dossier contient des scripts utilitaires pour faciliter le développement et 
 
 ## Conventions de nommage
 
-- Les fichiers utilisent des noms en minuscules avec des tirets si nécessaire (ex : `next-radix-theme`)
+- Les fichiers utilisent des noms en minuscules avec des tirets si nécessaire (ex : `next-radix-shadcn-theme`)
 - Les composants React utilisent le PascalCase (ex : `Layout.tsx`, `Page.tsx`)
 - Les fichiers de configuration utilisent généralement des noms en minuscules avec des points (ex : `.eslintrc.json`)
 - Les fichiers cachés commencent par un point (ex : `.gitignore`)
