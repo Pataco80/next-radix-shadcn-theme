@@ -1,119 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Ceci est un projet [Next.js](https://nextjs.org) créé avec [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Project Structure
+## Structure du projet
 
 ```
 next-radix-theme/
-├── .cspell.json                # Configuration for spell checking
-├── .cursorrules.md             # Guidelines for Cursor AI assistant
-├── .editorconfig               # Editor configuration for consistent coding style
-├── .eslintrc.json              # ESLint configuration
-├── .git/                       # Git repository
-├── .gitignore                  # Git ignore patterns
-├── .npmrc                      # NPM/PNPM configuration
-├── .prettierrc                 # Prettier code formatter configuration
-├── README.md                   # Project documentation (this file)
-├── app/                        # Next.js App Router directory
-│   ├── favicon.ico             # Website favicon
-│   ├── globals.css             # Global CSS styles
-│   ├── layout.tsx              # Root layout component
-│   └── page.tsx                # Home page component
-├── docs/                       # Detailed project documentation
-│   ├── index.md                # Documentation entry point
-│   ├── scripts.md              # Available scripts documentation
-│   ├── translation-guide.md    # Translation features guide
-│   ├── project-structure.md    # Detailed project structure
-│   ├── project-design.md       # Detailed project design
-│   ├── en/                     # English translations of documentation
-│   └── fr/                     # French translations of documentation
-├── next-env.d.ts               # TypeScript declarations for Next.js
-├── next.config.ts              # Next.js configuration
-├── node_modules/               # Dependencies (not tracked in git)
-├── package.json                # Project metadata and dependencies
-├── pnpm-lock.yaml              # PNPM lock file
-├── pnpm-workspace.yaml         # PNPM workspace configuration
-├── postcss.config.mjs          # PostCSS configuration
-├── public/                     # Static assets
-├── scripts/                    # Utility scripts
-│   ├── translate-en.ts         # Script to translate Markdown files to English
-│   └── translate-fr.ts         # Script to translate Markdown files to French
-├── tsconfig.json               # Main TypeScript configuration
-├── tsconfig.node.json          # TypeScript configuration for Node.js
-└── tsconfig.scripts.json       # TypeScript configuration for scripts
+├── .cspell.json                # Configuration pour la vérification orthographique
+├── .cursorrules.md             # Directives pour l'assistant IA Cursor
+├── .editorconfig               # Configuration de l'éditeur pour un style de codage cohérent
+├── .eslintrc.json              # Configuration ESLint
+├── .git/                       # Dépôt Git
+├── .gitignore                  # Modèles d'exclusion Git
+├── .npmrc                      # Configuration NPM/PNPM
+├── .prettierrc                 # Configuration du formateur de code Prettier
+├── README.md                   # Documentation du projet (ce fichier)
+├── app/                        # Répertoire App Router de Next.js
+│   ├── favicon.ico             # Favicon du site web
+│   ├── globals.css             # Styles CSS globaux
+│   ├── layout.tsx              # Composant de mise en page racine
+│   └── page.tsx                # Composant de la page d'accueil
+├── docs/                       # Documentation détaillée du projet
+│   ├── index.md                # Point d'entrée de la documentation
+│   ├── scripts.md              # Documentation des scripts disponibles
+│   ├── translation-guide.md    # Guide des fonctionnalités de traduction
+│   ├── project-structure.md    # Structure détaillée du projet
+│   ├── project-design.md       # Conception détaillée du projet
+│   ├── en/                     # Traductions en anglais de la documentation
+│   └── fr/                     # Traductions en français de la documentation
+├── next-env.d.ts               # Déclarations TypeScript pour Next.js
+├── next.config.ts              # Configuration Next.js
+├── node_modules/               # Dépendances (non suivies dans Git)
+├── package.json                # Métadonnées du projet et dépendances
+├── pnpm-lock.yaml              # Fichier de verrouillage PNPM
+├── pnpm-workspace.yaml         # Configuration de l'espace de travail PNPM
+├── postcss.config.mjs          # Configuration PostCSS
+├── public/                     # Ressources statiques
+├── scripts/                    # Scripts utilitaires
+│   └── translate/              # Scripts de traduction
+│       ├── translate.config.ts # Configuration centralisée des traductions
+│       └── translate.ts        # Script générique de traduction des fichiers Markdown
+├── tsconfig.json               # Configuration principale TypeScript
+├── tsconfig.node.json          # Configuration TypeScript pour Node.js
+└── tsconfig.scripts.json       # Configuration TypeScript pour les scripts
 ```
 
 ## Documentation
 
-This project includes detailed documentation in the `docs/` directory:
+Ce projet inclut une documentation détaillée dans le répertoire `docs/` :
 
-- [Documentation Home](./docs/index.md) - Entry point with table of contents
-- [Available Scripts](./docs/SCRIPTS.md) - Detailed description of all available scripts
-- [Translation Guide](./docs/translation-guide.md) - How to use the translation features
-- [Project Structure](./docs/project-structure.md) - Detailed explanation of project structure
+- [Accueil de la documentation](./docs/index.md) - Point d'entrée avec table des matières
+- [Scripts disponibles](./docs/scripts.md) - Description détaillée de tous les scripts disponibles
+- [Guide de traduction](./docs/translation-guide.md) - Comment utiliser les fonctionnalités de traduction
+- [Structure du projet](./docs/project-structure.md) - Explication détaillée de la structure du projet
 
-## Getting Started
+## Démarrage
 
-First, run the development server:
+Tout d'abord, lancez le serveur de développement :
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) avec votre navigateur pour voir le résultat.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Vous pouvez commencer à modifier la page en modifiant `app/page.tsx`. La page se met à jour automatiquement lorsque vous modifiez le fichier.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ce projet utilise [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) pour optimiser et charger automatiquement [Geist](https://vercel.com/font), une nouvelle famille de polices pour Vercel.
 
-## Custom Scripts
+## Scripts personnalisés
 
-This project includes several custom scripts to help with development and maintenance. For a complete list with detailed descriptions, see [SCRIPTS.md](./docs/SCRIPTS.md).
+Ce projet inclut plusieurs scripts personnalisés pour faciliter le développement et la maintenance. Pour une liste complète avec des descriptions détaillées, consultez [scripts.md](./docs/scripts.md).
 
-Here are some of the most commonly used scripts:
+Voici quelques-uns des scripts les plus couramment utilisés :
 
 ```bash
-# Start development server after cleaning .next folder
+# Démarrer le serveur de développement après avoir nettoyé le dossier .next
 pnpm refresh
 
-# Clean .next folder and build the project
+# Nettoyer le dossier .next et construire le projet
 pnpm rebuild
 
-# Clean only the .next folder
+# Nettoyer uniquement le dossier .next
 pnpm clean
 
-# Reset project: clean .next, remove node_modules, and reinstall dependencies
+# Réinitialiser le projet : nettoyer .next, supprimer node_modules et réinstaller les dépendances
 pnpm reset
 
-# Translate specific Markdown files to French (outputs to docs/fr/)
-pnpm translate:fr <file1.md> <file2.md> ...
+# Traduire des fichiers Markdown spécifiques en français
+pnpm translate fr <fichier1.md> <fichier2.md> ...
 
-# Translate all predefined Markdown files to French
-pnpm translate:fr:all
+# Traduire tous les fichiers Markdown prédéfinis en français
+pnpm translate fr --all
 
-# Find and translate all Markdown files in the project
-pnpm translate:fr:find
+# Rechercher et traduire tous les fichiers Markdown du projet en français
+pnpm translate fr --find
 
-# Translate all Markdown files in the docs/ folder to English (outputs to docs/en/)
-pnpm translate:en
+# Traduire tous les fichiers Markdown du dossier docs/ en anglais
+pnpm translate en --all
 ```
 
-## Learn More
+## En savoir plus
 
-To learn more about Next.js, take a look at the following resources:
+Pour en savoir plus sur Next.js, consultez les ressources suivantes :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Documentation Next.js](https://nextjs.org/docs) - découvrez les fonctionnalités et l'API de Next.js.
+- [Apprendre Next.js](https://nextjs.org/learn) - un tutoriel interactif Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Vous pouvez consulter [le dépôt GitHub Next.js](https://github.com/vercel/next.js) - vos commentaires et contributions sont les bienvenus !
 
-## Deploy on Vercel
+## Déploiement sur Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Le moyen le plus simple de déployer votre application Next.js est d'utiliser la [Plateforme Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) des créateurs de Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Consultez notre [documentation de déploiement Next.js](https://nextjs.org/docs/app/building-your-application/deploying) pour plus de détails.

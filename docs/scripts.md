@@ -4,84 +4,90 @@ Ce document décrit tous les scripts disponibles dans ce projet Next.js. Utilise
 
 ## Scripts de démarrage
 
-- `dev` : Démarre le serveur de développement avec Turbopack
+- `dev`: Démarre le serveur de développement avec Turbopack
 
   ```bash
   pnpm dev
   ```
 
-- `start` : Démarre l'application en mode production
+- `start`: Démarre l'application en mode production
+
   ```bash
   pnpm start
   ```
 
 ## Scripts de build
 
-- `build` : Compile l'application pour la production
+- `build`: Compile l'application pour la production
 
   ```bash
   pnpm build
   ```
 
-- `rebuild` : Nettoie le dossier `.next` puis compile l'application
+- `rebuild`: Nettoie le dossier `.next` puis compile l'application
+
   ```bash
   pnpm rebuild
   ```
 
 ## Scripts de nettoyage
 
-- `clean` : Supprime le dossier `.next`
+- `clean`: Supprime le dossier `.next`
 
   ```bash
   pnpm clean
   ```
 
-- `clean:modules` : Supprime le dossier `node_modules`
+- `clean:modules`: Supprime le dossier `node_modules`
 
   ```bash
   pnpm clean:modules
   ```
 
-- `cache:clean` : Nettoie le cache de pnpm
+- `cache:clean`: Nettoie le cache de pnpm
+
   ```bash
   pnpm cache:clean
   ```
 
 ## Scripts de réinitialisation
 
-- `refresh` : Nettoie le dossier `.next` puis démarre le serveur de développement
+- `refresh`: Nettoie le dossier `.next` puis démarre le serveur de développement
 
   ```bash
   pnpm refresh
   ```
 
-- `reset` : Réinitialise complètement le projet (nettoie `.next`, supprime `node_modules` et réinstalle les dépendances)
+- `reset`: Réinitialise complètement le projet (nettoie `.next`, supprime `node_modules` et réinstalle les dépendances)
+
   ```bash
   pnpm reset
   ```
 
 ## Scripts d'installation
 
-- `update-lock` : Met à jour le fichier de verrouillage sans nettoyer le projet
+- `update-lock`: Met à jour le fichier de verrouillage sans nettoyer le projet
 
   ```bash
   pnpm update-lock
   ```
 
-- `install:timeout` : Installe les dépendances avec un délai réseau augmenté (pour les connexions lentes)
+- `install:timeout`: Installe les dépendances avec un délai réseau augmenté (pour les connexions lentes)
 
   ```bash
   pnpm install:timeout
   ```
 
-- `install:registry` : Installe les dépendances en utilisant le registre npm officiel
+- `install:registry`: Installe les dépendances en utilisant le registre npm officiel
+
   ```bash
   pnpm install:registry
   ```
 
 ## Scripts de linting
 
-- `lint` : Exécute ESLint pour vérifier le code
+- `lint`: Exécute ESLint pour vérifier le code
+
   ```bash
   pnpm lint
   ```
@@ -96,7 +102,7 @@ Ce document décrit tous les scripts disponibles dans ce projet Next.js. Utilise
 
 ### Script de traduction générique
 
-- `translate` : Script de base pour traduire des fichiers dans n'importe quelle langue supportée
+- `translate`: Script de base pour traduire des fichiers dans n'importe quelle langue supportée
 
   ```bash
   pnpm translate <langue> [options] [fichiers]
@@ -110,19 +116,19 @@ Ce document décrit tous les scripts disponibles dans ce projet Next.js. Utilise
 
 ### Traduction en français
 
-- `translate:fr` : Traduit des fichiers Markdown spécifiques en français
+- `translate:fr`: Traduit des fichiers Markdown spécifiques en français
 
   ```bash
   pnpm translate:fr <fichier1.md> <fichier2.md> ...
   ```
 
-- `translate:fr:all` : Traduit tous les fichiers Markdown prédéfinis en français
+- `translate:fr:all`: Traduit tous les fichiers Markdown prédéfinis en français
 
   ```bash
   pnpm translate:fr:all
   ```
 
-- `translate:fr:find` : Recherche et traduit tous les fichiers Markdown du projet en français
+- `translate:fr:find`: Recherche et traduit tous les fichiers Markdown du projet en français
 
   ```bash
   pnpm translate:fr:find
@@ -130,19 +136,19 @@ Ce document décrit tous les scripts disponibles dans ce projet Next.js. Utilise
 
 ### Traduction en anglais
 
-- `translate:en` : Traduit des fichiers Markdown spécifiques en anglais
+- `translate:en`: Traduit des fichiers Markdown spécifiques en anglais
 
   ```bash
   pnpm translate:en <fichier1.md> <fichier2.md> ...
   ```
 
-- `translate:en:all` : Traduit tous les fichiers Markdown prédéfinis en anglais
+- `translate:en:all`: Traduit tous les fichiers Markdown prédéfinis en anglais
 
   ```bash
   pnpm translate:en:all
   ```
 
-- `translate:en:find` : Recherche et traduit tous les fichiers Markdown du projet en anglais
+- `translate:en:find`: Recherche et traduit tous les fichiers Markdown du projet en anglais
 
   ```bash
   pnpm translate:en:find
