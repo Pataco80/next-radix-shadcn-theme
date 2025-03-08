@@ -29,14 +29,12 @@ Next-Radix-theme/
 │       ├── fluid-spacing.css     # Espacements CSS avec système fluide
 │       └── fluid-typography.css  # CSS pour la typographie à échelle fluide
 ├── docs/                         # Documentation détaillée du projet
-│   └── translations/             # Traductions pour la documentation
-│   |   |── en/                   # Traductions en anglais
-│   |   └── fr/                   # Traductions en français
 │   ├── index.md                  # Point d'entrée de la documentation
 │   ├── project-design.md         # Documentation de la conception du projet
 │   ├── project-structure.md      # Documentation de la structure du projet
 │   ├── scripts.md                # Documentation des scripts disponibles
-│   └── translation-guide.md      # Guide d'utilisation des fonctionnalités de traduction
+│   ├── en/                       # Traductions en anglais de la documentation
+│   └── fr/                       # Traductions en français de la documentation
 ├── next-env.d.ts                 # Déclarations TypeScript pour Next.js
 ├── next.config.ts                # Configuration Next.js
 ├── node_modules/                 # Dépendances (non suivies dans Git)
@@ -46,9 +44,6 @@ Next-Radix-theme/
 ├── postcss.config.mjs            # Configuration PostCSS
 ├── public/                       # Ressources statiques
 ├── scripts/                      # Scripts utilitaires
-|   └── translate                 # Scripts de traduction
-|       ├── translate.config.ts   # Configurations de traduction
-│       └── translate.ts          # Script de traduction des fichiers Markdown
 ├── tsconfig.json                 # Configuration principale TypeScript
 ├── tsconfig.node.json            # Configuration TypeScript pour Node.js
 └── tsconfig.scripts.json         # Configuration TypeScript pour les scripts
@@ -71,7 +66,6 @@ Ce dossier contient la documentation détaillée du projet, organisée en fichie
 
 - `index.md` : Point d'entrée de la documentation avec une table des matières
 - `scripts.md` : Documentation des scripts disponibles dans le projet
-- `translation-guide.md` : Guide d'utilisation des fonctionnalités de traduction
 - `project-structure.md` : Ce document décrivant la structure du projet
 
 ### `/public`
@@ -81,8 +75,6 @@ Ce dossier contient les ressources statiques qui seront servies à la racine du 
 ### `/scripts`
 
 Ce dossier contient des scripts utilitaires pour faciliter le développement et la maintenance du projet.
-
-- `translate/translate.ts` : Script TypeScript pour traduire les fichiers Markdown
 
 ## Fichiers de configuration
 

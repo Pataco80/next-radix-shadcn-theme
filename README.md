@@ -21,7 +21,6 @@ next-radix-theme/
 ├── docs/                       # Documentation détaillée du projet
 │   ├── index.md                # Point d'entrée de la documentation
 │   ├── scripts.md              # Documentation des scripts disponibles
-│   ├── translation-guide.md    # Guide des fonctionnalités de traduction
 │   ├── project-structure.md    # Structure détaillée du projet
 │   ├── project-design.md       # Conception détaillée du projet
 │   ├── en/                     # Traductions en anglais de la documentation
@@ -35,9 +34,6 @@ next-radix-theme/
 ├── postcss.config.mjs          # Configuration PostCSS
 ├── public/                     # Ressources statiques
 ├── scripts/                    # Scripts utilitaires
-│   └── translate/              # Scripts de traduction
-│       ├── translate.config.ts # Configuration centralisée des traductions
-│       └── translate.ts        # Script générique de traduction des fichiers Markdown
 ├── tsconfig.json               # Configuration principale TypeScript
 ├── tsconfig.node.json          # Configuration TypeScript pour Node.js
 └── tsconfig.scripts.json       # Configuration TypeScript pour les scripts
@@ -49,7 +45,6 @@ Ce projet inclut une documentation détaillée dans le répertoire `docs/` :
 
 - [Accueil de la documentation](./docs/index.md) - Point d'entrée avec table des matières
 - [Scripts disponibles](./docs/scripts.md) - Description détaillée de tous les scripts disponibles
-- [Guide de traduction](./docs/translation-guide.md) - Comment utiliser les fonctionnalités de traduction
 - [Structure du projet](./docs/project-structure.md) - Explication détaillée de la structure du projet
 
 ## Démarrage
@@ -90,18 +85,6 @@ pnpm clean
 
 # Réinitialiser le projet : nettoyer .next, supprimer node_modules et réinstaller les dépendances
 pnpm reset
-
-# Traduire des fichiers Markdown spécifiques en français
-pnpm translate fr <fichier1.md> <fichier2.md> ...
-
-# Traduire tous les fichiers Markdown prédéfinis en français
-pnpm translate fr --all
-
-# Rechercher et traduire tous les fichiers Markdown du projet en français
-pnpm translate fr --find
-
-# Traduire tous les fichiers Markdown du dossier docs/ en anglais
-pnpm translate en --all
 ```
 
 ## En savoir plus

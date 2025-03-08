@@ -15,14 +15,7 @@
 		"update-lock": "pnpm install --prefer-offline",
 		"install:timeout": "pnpm install --network-timeout 100000",
 		"install:registry": "pnpm install --registry=https://registry.npmjs.org/",
-		"cache:clean": "pnpm store prune",
-		"translate": "ts-node -P tsconfig.scripts.json scripts/translate/translate.ts",
-		"translate:fr": "ts-node -P tsconfig.scripts.json scripts/translate/translate.ts fr",
-		"translate:fr:all": "ts-node -P tsconfig.scripts.json scripts/translate/translate.ts fr --all",
-		"translate:fr:find": "ts-node -P tsconfig.scripts.json scripts/translate/translate.ts fr --find",
-		"translate:en": "ts-node -P tsconfig.scripts.json scripts/translate/translate.ts en",
-		"translate:en:all": "ts-node -P tsconfig.scripts.json scripts/translate/translate.ts en --all",
-		"translate:en:find": "ts-node -P tsconfig.scripts.json scripts/translate/translate.ts en --find"
+		"cache:clean": "pnpm store prune"
 	},
 	"dependencies": {
 		"@iamtraction/google-translate": "^2.0.1",
