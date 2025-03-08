@@ -40,6 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# private project
+.private/
+
 # resources project
-.private/ressources/
-.private/preserve/
+.ressources/
