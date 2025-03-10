@@ -5,48 +5,48 @@ Ce document décrit en détail la structure du projet Next.js Radix Theme, expli
 ## Aperçu
 
 ```
-Next-Radix-theme/
-├── .cursorrules.md               # Directives pour l'assistant IA Cursor
-├── .editorconfig                 # Configuration de l'éditeur pour un style de codage cohérent
-├── .cspell.json                  # Configuration pour la vérification orthographique
-├── .eslintrc.json                # Configuration ESLint
-├── .git/                         # Dépôt Git
-├── .gitignore                    # Modèles d'exclusion Git
-├── .npmrc                        # Configuration NPM/PNPM
-├── .prettierrc                   # Configuration du formateur de code Prettier
-├── .private/                     # Fichiers privés non validés dans le dépôt
-├── .vscode/                      # Paramètres spécifiques pour VS Code
-│   └── settings.json             # Paramètres VS Code
-├── README.md                     # Documentation principale du projet
-├── app/                          # Dossier principal de l'application Next.js (App Router)
-│   ├── favicon.ico               # Favicon du site web
-│   ├── globals.css               # Styles CSS globaux
-│   ├── layout.tsx                # Composant de mise en page racine
-│   └── page.tsx                  # Composant de la page d'accueil
-├── css/                          # Fichiers CSS pour l'application
-|   └── globals/                  # Variables globales
-│       ├── fluid-grid.css        # Grille CSS avec système fluide
-│       ├── fluid-spacing.css     # Espacements CSS avec système fluide
-│       └── fluid-typography.css  # CSS pour la typographie à échelle fluide
-├── docs/                         # Documentation détaillée du projet
-│   ├── index.md                  # Point d'entrée de la documentation
-│   ├── project-design.md         # Documentation de la conception du projet
-│   ├── project-structure.md      # Documentation de la structure du projet
-│   ├── scripts.md                # Documentation des scripts disponibles
-│   ├── en/                       # Traductions en anglais de la documentation
-│   └── fr/                       # Traductions en français de la documentation
-├── next-env.d.ts                 # Déclarations TypeScript pour Next.js
-├── next.config.ts                # Configuration Next.js
-├── node_modules/                 # Dépendances (non suivies dans Git)
-├── package.json                  # Métadonnées du projet et dépendances
-├── pnpm-lock.yaml                # Fichier de verrouillage PNPM
-├── pnpm-workspace.yaml           # Configuration de l'espace de travail PNPM
-├── postcss.config.mjs            # Configuration PostCSS
-├── public/                       # Ressources statiques
-├── scripts/                      # Scripts utilitaires
-├── tsconfig.json                 # Configuration principale TypeScript
-├── tsconfig.node.json            # Configuration TypeScript pour Node.js
-└── tsconfig.scripts.json         # Configuration TypeScript pour les scripts
+📁 Next-Radix-theme/
+├── 📄 .cursorrules.md               # Directives pour l'assistant IA Cursor
+├── 📄 .editorconfig                 # Configuration de l'éditeur pour un style de codage cohérent
+├── 📄 .cspell.json                  # Configuration pour la vérification orthographique
+├── 📄 .eslintrc.json                # Configuration ESLint
+├── 📁 .git/                         # Dépôt Git
+├── 📄 .gitignore                    # Modèles d'exclusion Git
+├── 📄 .npmrc                        # Configuration NPM/PNPM
+├── 📄 .prettierrc                   # Configuration du formateur de code Prettier
+├── 📁 .private/                     # Fichiers privés non validés dans le dépôt
+├── 📁 .vscode/                      # Paramètres spécifiques pour VS Code
+│   └── 📄 settings.json             # Paramètres VS Code
+├── 📄 README.md                     # Documentation principale du projet
+├── 📁 app/                          # Dossier principal de l'application Next.js (App Router)
+│   ├── 📄 favicon.ico               # Favicon du site web
+│   ├── 📄 globals.css               # Styles CSS globaux
+│   ├── 📄 layout.tsx                # Composant de mise en page racine
+│   └── 📄 page.tsx                  # Composant de la page d'accueil
+├── 📁 css/                          # Fichiers CSS pour l'application
+|   └── 📁 globals/                  # Variables globales
+│       ├── 📄 fluid-grid.css        # Grille CSS avec système fluide
+│       ├── 📄 fluid-spacing.css     # Espacements CSS avec système fluide
+│       └── 📄 fluid-typography.css  # CSS pour la typographie à échelle fluide
+├── 📁 docs/                         # Documentation détaillée du projet
+│   ├── 📄 index.md                  # Point d'entrée de la documentation
+│   ├── 📄 project-design.md         # Documentation de la conception du projet
+│   ├── 📄 project-structure.md      # Documentation de la structure du projet
+│   ├── 📄 scripts.md                # Documentation des scripts disponibles
+│   ├── 📁 en/                       # Traductions en anglais de la documentation
+│   └── 📁 fr/                       # Traductions en français de la documentation
+├── 📄 next-env.d.ts                 # Déclarations TypeScript pour Next.js
+├── 📄 next.config.ts                # Configuration Next.js
+├── 📁 node_modules/                 # Dépendances (non suivies dans Git)
+├── 📄 package.json                  # Métadonnées du projet et dépendances
+├── 📄 pnpm-lock.yaml                # Fichier de verrouillage PNPM
+├── 📄 pnpm-workspace.yaml           # Configuration de l'espace de travail PNPM
+├── 📄 postcss.config.mjs            # Configuration PostCSS
+├── 📁 public/                       # Ressources statiques
+├── 📁 scripts/                      # Scripts utilitaires
+├── 📄 tsconfig.json                 # Configuration principale TypeScript
+├── 📄 tsconfig.node.json            # Configuration TypeScript pour Node.js
+└── 📄 tsconfig.scripts.json         # Configuration TypeScript pour les scripts
 ```
 
 ## Fichiers principaux
