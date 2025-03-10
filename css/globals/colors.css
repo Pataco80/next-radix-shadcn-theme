@@ -1,0 +1,78 @@
+/**
+ * Colors Palette
+ * This is the main color palette for the project based on shadcn/ui OKLCH colors.
+ * Primary: hsl(266, 100%, 21%) - Bleu foncé
+ * Secondary: hsl(248, 100%, 97%) - Blanc légèrement bleuté
+ * Accent: hsl(248, 100%, 97%) - Blanc légèrement bleuté
+ * Muted: hsl(248, 100%, 97%) - Blanc légèrement bleuté
+ * Background: hsl(0, 0%, 100%) - Blanc
+ * Foreground: hsl(265, 100%, 13%) - Bleu très foncé
+ * Card: hsl(0, 0%, 100%) - Blanc
+ * Card Foreground: hsl(265, 100%, 13%) - Bleu très foncé
+ * Popover: hsl(0, 0%, 100%) - Blanc
+ * Popover Foreground: hsl(265, 100%, 13%) - Bleu très foncé
+ */
+:root {
+	/* Base colors */
+	--color-primary: hsl(266, 100%, 21%);
+	--color-primary-foreground: hsl(248, 100%, 98%);
+	--color-secondary: hsl(248, 100%, 97%);
+	--color-secondary-foreground: hsl(266, 100%, 21%);
+
+	/* UI colors */
+	--color-background: hsl(0, 0%, 100%);
+	--color-foreground: hsl(265, 100%, 13%);
+	--color-muted: hsl(248, 100%, 97%);
+	--color-muted-foreground: hsl(257, 30%, 55%);
+	--color-accent: hsl(248, 100%, 97%);
+	--color-accent-foreground: hsl(266, 100%, 21%);
+
+	/* Component colors */
+	--color-card: hsl(0, 0%, 100%);
+	--color-card-foreground: hsl(265, 100%, 13%);
+	--color-popover: hsl(0, 0%, 100%);
+	--color-popover-foreground: hsl(265, 100%, 13%);
+
+	/* Semantic colors */
+	--color-destructive: hsl(0, 84%, 60%);
+	--color-destructive-foreground: hsl(0, 0%, 100%);
+	--color-success: hsl(142, 76%, 36%);
+	--color-success-foreground: hsl(0, 0%, 100%);
+	--color-warning: hsl(38, 92%, 50%);
+	--color-warning-foreground: hsl(0, 0%, 100%);
+	--color-info: hsl(217, 91%, 60%);
+	--color-info-foreground: hsl(0, 0%, 100%);
+}
+
+/* Dark mode colors */
+.dark {
+	/* Base colors */
+	--color-primary: hsl(248, 100%, 98%);
+	--color-primary-foreground: hsl(266, 100%, 21%);
+	--color-secondary: hsl(266, 100%, 21%);
+	--color-secondary-foreground: hsl(248, 100%, 98%);
+
+	/* UI colors */
+	--color-background: hsl(265, 100%, 13%);
+	--color-foreground: hsl(0, 0%, 100%);
+	--color-muted: hsl(266, 40%, 17%);
+	--color-muted-foreground: hsl(257, 30%, 70%);
+	--color-accent: hsl(266, 40%, 17%);
+	--color-accent-foreground: hsl(248, 100%, 98%);
+
+	/* Component colors */
+	--color-card: hsl(266, 40%, 17%);
+	--color-card-foreground: hsl(0, 0%, 100%);
+	--color-popover: hsl(266, 40%, 17%);
+	--color-popover-foreground: hsl(0, 0%, 100%);
+
+	/* Semantic colors */
+	--color-destructive: hsl(0, 84%, 60%);
+	--color-destructive-foreground: hsl(0, 0%, 100%);
+	--color-success: hsl(142, 76%, 45%);
+	--color-success-foreground: hsl(0, 0%, 100%);
+	--color-warning: hsl(38, 92%, 60%);
+	--color-warning-foreground: hsl(0, 0%, 100%);
+	--color-info: hsl(217, 91%, 65%);
+	--color-info-foreground: hsl(0, 0%, 100%);
+}
