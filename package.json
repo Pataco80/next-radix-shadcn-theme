@@ -15,7 +15,9 @@
 		"update-lock": "pnpm install --prefer-offline",
 		"install:timeout": "pnpm install --network-timeout 100000",
 		"install:registry": "pnpm install --registry=https://registry.npmjs.org/",
-		"cache:clean": "pnpm store prune"
+		"cache:clean": "pnpm store prune",
+		"analyze": "ANALYZE=true next build",
+		"check-deps": "depcheck || true"
 	},
 	"dependencies": {
 		"@iamtraction/google-translate": "^2.0.1",
@@ -26,10 +28,13 @@
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
+		"@next/bundle-analyzer": "^15.2.1",
 		"@tailwindcss/postcss": "^4",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"bundle-buddy": "^0.2.2",
+		"depcheck": "^1.4.7",
 		"eslint": "^9",
 		"eslint-config-next": "15.2.1",
 		"eslint-config-prettier": "^10.0.2",

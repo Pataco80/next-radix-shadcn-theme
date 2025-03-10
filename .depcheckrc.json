@@ -1,0 +1,22 @@
+{
+	"ignorePatterns": ["node_modules", ".next", "public", "*.d.ts"],
+	"ignoreMatches": [
+		"@types/*",
+		"eslint-*",
+		"@eslint/*",
+		"typescript",
+		"@next/bundle-analyzer",
+		"tailwindcss",
+		"@tailwindcss/*"
+	],
+	"specials": [
+		"bin",
+		"eslint",
+		"tslint",
+		"webpack",
+		"jest",
+		"mocha",
+		"react",
+		"next"
+	]
+}
