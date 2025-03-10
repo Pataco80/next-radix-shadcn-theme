@@ -20,14 +20,14 @@ Notre échelle typographique est définie comme suit :
 
 | Niveau | Petit écran (330px) | Grand écran (1240px) | Variable CSS |
 | ------ | ------------------- | -------------------- | ------------ |
-| -2     | 12.5px              | 12.8px               | `--step--2`  |
-| -1     | 15px                | 16px                 | `--step--1`  |
-| 0      | 18px                | 20px                 | `--step-0`   |
-| 1      | 21.6px              | 25px                 | `--step-1`   |
-| 2      | 25.92px             | 31.25px              | `--step-2`   |
-| 3      | 31.104px            | 39.0625px            | `--step-3`   |
-| 4      | 37.3248px           | 48.8281px            | `--step-4`   |
-| 5      | 44.7898px           | 61.0352px            | `--step-5`   |
+| -2     | 12.5px              | 12.8px               | `--size--2`  |
+| -1     | 15px                | 16px                 | `--size--1`  |
+| 0      | 18px                | 20px                 | `--size-0`   |
+| 1      | 21.6px              | 25px                 | `--size-1`   |
+| 2      | 25.92px             | 31.25px              | `--size-2`   |
+| 3      | 31.104px            | 39.0625px            | `--size-3`   |
+| 4      | 37.3248px           | 48.8281px            | `--size-4`   |
+| 5      | 44.7898px           | 61.0352px            | `--size-5`   |
 
 ### Hauteurs de ligne (line-height)
 
@@ -55,7 +55,7 @@ Les hauteurs de ligne sont également fluides et adaptées à chaque niveau de t
 L'implémentation utilise la fonction `clamp()` de CSS pour créer une transition fluide entre les tailles minimales et maximales :
 
 ```css
---step-0: clamp(1.125rem, 1.0797rem + 0.2198vw, 1.25rem);
+--size-0: clamp(1.125rem, 1.0797rem + 0.2198vw, 1.25rem);
 --lh-0: clamp(1.575rem, 1.5141rem + 0.3044vw, 1.75rem);
 ```
 
@@ -196,20 +196,20 @@ Pour les mises en page responsives, vous pouvez utiliser des media queries ou de
 
 ### Texte de base
 
-Le texte de base du site utilise `--step-0` avec une hauteur de ligne de `--lh-0`.
+Le texte de base du site utilise `--size-0` avec une hauteur de ligne de `--lh-0`.
 
 ### Hiérarchie des titres
 
-- H1: `--step-5` / `--lh-5`
-- H2: `--step-4` / `--lh-4`
-- H3: `--step-3` / `--lh-3`
-- H4: `--step-2` / `--lh-2`
-- H5: `--step-1` / `--lh-1`
-- H6: `--step-0` / `--lh-0`
+- H1: `--size-5` / `--lh-5`
+- H2: `--size-4` / `--lh-4`
+- H3: `--size-3` / `--lh-3`
+- H4: `--size-2` / `--lh-2`
+- H5: `--size-1` / `--lh-1`
+- H6: `--size-0` / `--lh-0`
 
 ### Petit texte
 
-Le texte de petite taille (comme les notes de bas de page, les légendes) utilise `--step--1` avec une hauteur de ligne de `--lh--1`.
+Le texte de petite taille (comme les notes de bas de page, les légendes) utilise `--size--1` avec une hauteur de ligne de `--lh--1`.
 
 ### Espacement des composants
 
