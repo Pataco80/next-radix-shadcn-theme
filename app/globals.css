@@ -60,14 +60,14 @@
 	); /* HSL: hsl(265, 100%, 13%) - Bleu très foncé */
 
 	/* Fluid typography variables */
-	--step--2: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.8rem);
-	--step--1: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
-	--step-0: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
-	--step-1: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
-	--step-2: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
-	--step-3: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
-	--step-4: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
-	--step-5: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
+	--size--2: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.8rem);
+	--size--1: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
+	--size-0: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
+	--size-1: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
+	--size-2: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
+	--size-3: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
+	--size-4: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
+	--size-5: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
 
 	/* Fluid spacing variables */
 	--space-3xs: clamp(0.25rem, calc(0.23rem + 0.11vw), 0.31rem);
