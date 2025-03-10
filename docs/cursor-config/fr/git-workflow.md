@@ -37,6 +37,24 @@ test: add unit tests for auth service
 chore: update dependencies
 ```
 
+### Conventions pour les pages et layouts Next.js
+
+Pour maintenir une cohérence spécifique aux projets Next.js, utilisez les conventions suivantes :
+
+- `feat: add [page-name] page` - Pour la création d'une nouvelle page
+- `feat: create [layout-name] layout` - Pour la création d'un nouveau layout
+- `refactor: restructure [page/layout-name]` - Pour la restructuration d'une page ou d'un layout
+- `style: update [page/layout-name] design` - Pour les modifications purement esthétiques
+- `feat: enhance [page-name] with [feature]` - Pour l'ajout de fonctionnalités à une page existante
+- `fix: resolve [issue] in [page/layout-name]` - Pour la correction de problèmes
+
+Pour les routes API :
+
+- `feat(api): add [endpoint-name] endpoint` - Pour la création d'un nouvel endpoint API
+- `fix(api): resolve issue in [endpoint-name]` - Pour la correction d'un problème dans un endpoint API
+
+Ces conventions encouragent des commits plus fréquents et atomiques, facilitant le suivi des modifications spécifiques aux différentes parties de l'application.
+
 ## Workflow Git
 
 - Toujours tirer (pull) avant de pousser (push)

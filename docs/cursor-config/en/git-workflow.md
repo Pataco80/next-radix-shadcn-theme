@@ -15,7 +15,7 @@ Use the following Git-flow branch structure:
 
 ## Commit Conventions
 
-- Use commit messages in English, in present tense
+- Use commit messages in English, in the present tense
 - Prefix messages with the type of change:
   - `feat:` for new features
   - `fix:` for bug fixes
@@ -36,6 +36,24 @@ refactor: simplify user registration process
 test: add unit tests for auth service
 chore: update dependencies
 ```
+
+### Conventions for Next.js Pages and Layouts
+
+To maintain consistency specific to Next.js projects, use the following conventions:
+
+- `feat: add [page-name] page` - For creating a new page
+- `feat: create [layout-name] layout` - For creating a new layout
+- `refactor: restructure [page/layout-name]` - For restructuring a page or layout
+- `style: update [page/layout-name] design` - For purely aesthetic changes
+- `feat: enhance [page-name] with [feature]` - For adding features to an existing page
+- `fix: resolve [issue] in [page/layout-name]` - For fixing issues
+
+For API routes:
+
+- `feat(api): add [endpoint-name] endpoint` - For creating a new API endpoint
+- `fix(api): resolve issue in [endpoint-name]` - For fixing an issue in an API endpoint
+
+These conventions encourage more frequent and atomic commits, making it easier to track specific changes to different parts of the application.
 
 ## Git Workflow
 
