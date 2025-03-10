@@ -45,6 +45,7 @@ Pour maintenir une cohérence spécifique aux projets Next.js, utilisez les conv
 - `feat: create [layout-name] layout` - Pour la création d'un nouveau layout
 - `refactor: restructure [page/layout-name]` - Pour la restructuration d'une page ou d'un layout
 - `style: update [page/layout-name] design` - Pour les modifications purement esthétiques
+- `style: add [library-name]` - Pour l'ajout de libraries de styles et icônes.
 - `feat: enhance [page-name] with [feature]` - Pour l'ajout de fonctionnalités à une page existante
 - `fix: resolve [issue] in [page/layout-name]` - Pour la correction de problèmes
 
