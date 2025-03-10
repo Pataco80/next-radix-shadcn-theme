@@ -28,6 +28,7 @@ next-radix-shadcn-theme/
 │   ├── database-guidelines.md     # Requêtes de base de données et modèles
 │   ├── git-workflow.md            # Configuration Git-flow et conventions
 │   ├── project-setup.md           # Initialisation du projet
+│   ├── translate-guidelines.md    # Règles de traduction de documentation
 │   └── scripts/
 │       └── setup.sh               # Script d'initialisation interactif
 └── ...                            # Autres fichiers et dossiers du projet
@@ -43,6 +44,7 @@ next-radix-shadcn-theme/
 - [Requêtes de base de données et modèles](./database-guidelines.md)
 - [Configuration Git-flow et conventions](./git-workflow.md)
 - [Initialisation du projet](./project-setup.md)
+- [Règles de traduction de documentation](./translate-guidelines.md)
 
 ## Script d'initialisation
 
@@ -68,5 +70,6 @@ Ce script vous guidera à travers les choix de configuration pour :
 - Optimiser les performances et l'expérience utilisateur
 - Suivre les conventions Git-flow pour la gestion du code source
 - Utiliser des outils modernes pour le développement web
+- Maintenir une documentation bilingue (français et anglais) cohérente
 
 Consultez les fichiers individuels pour des directives détaillées sur chaque aspect du développement.
