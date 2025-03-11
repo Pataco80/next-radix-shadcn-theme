@@ -1,3 +1,4 @@
+@import 'tailwindcss';
 /**
  * Colors Palette
  * This is the main color palette for the project based on shadcn/ui OKLCH colors.
@@ -12,6 +13,8 @@
  * Popover: hsl(0, 0%, 100%) - Blanc
  * Popover Foreground: hsl(265, 100%, 13%) - Bleu très foncé
  */
+
+/* couleurs utilisées dans le projet en hsl (réservées uniquement à la visualisation pour les développeurs) */
 :root {
 	/* Base colors */
 	--color-primary: hsl(266, 100%, 21%);
@@ -76,3 +79,6 @@
 	--color-info: hsl(217, 91%, 65%);
 	--color-info-foreground: hsl(0, 0%, 100%);
 }
+/* /fin des couleurs utilisées dans le projet en hsl (réservées à la visualisation pour les développeurs) */
+
+/* place les couleurs ici (couleurs utilisées dans le projet) */

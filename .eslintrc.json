@@ -7,6 +7,15 @@
 			{ "avoidEscape": true, "allowTemplateLiterals": true }
 		],
 		"prefer-template": "error",
-		"no-useless-concat": "error"
+		"no-useless-concat": "error",
+		"react/no-unescaped-entities": "off",
+		"@next/next/no-html-link-for-pages": "off",
+		"jsx-quotes": ["error", "prefer-double"],
+		"@next/next/no-page-custom-font": "off"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
 	}
 }
