@@ -1,54 +1,232 @@
 /*
-Fluid spacing
+Espacements Fluides / Fluid Spacing
+Système d'espacement fluide basé sur Utopia.fyi
+Fluid spacing system based on Utopia.fyi
+https://utopia.fyi/space/calculator?c=330,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-This is a fluid spacing system that is flexible depending on the size of the viewport. Its use allows to obtain harmonious margin and padding in components, layout, pages, etc...
+@layer theme {
+	:root {
+		/* 
+		Les nominations des espacement sont modifiés pour une réutilisation dans les utilitaires.
+		La numérotation suit la convention Tailwind (de 1 à 6, puis 8, 10, 12) pour maintenir
+		une cohérence avec l'écosystème Tailwind et faciliter la transition entre les espacements
+		fixes et fluides. Par exemple : p-8 -> p-fl-8 */
 
-This grid uses the clamping function to create fluid spacing.
+		/* Space 3xs: 5px → 5px */
+		--fl-space-1: var(--space-3xs);
+		/* Space 2xs: 9px → 10px */
+		--fl-space-2: var(--space-2xs);
+		/* Space xs: 14px → 15px */
+		--fl-space-3: var(--space-xs);
+		/* Space s: 18px → 20px */
+		--fl-space-4: var(--space-s);
+		/* Space m: 27px → 30px */
+		--fl-space-5: var(--space-m);
+		/* Space l: 36px → 40px */
+		--fl-space-6: var(--space-l);
+		/* Space xl: 54px → 60px */
+		--fl-space-8: var(--space-xl);
+		/* Space 2xl: 72px → 80px */
+		--fl-space-10: var(--space-2xl);
+		/* Space 3xl: 108px → 120px */
+		--fl-space-12: var(--space-3xl);
 
-It is based on the same basic values ​​as the fluid type calculator of your project.
+		/* Demi-espacements fluides */
+		--fl-space-0\.5: calc(var(--space-3xs) * 0.5); /* 2.5px */
+		--fl-space-1\.5: var(--space-2xs); /* 10px */
+		--fl-space-2\.5: var(--space-s); /* 20px */
+		--fl-space-3\.5: var(--space-l); /* 40px */
+	}
+}
 
-This sytem is used Utopia.fyi
-Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+@layer utilities {
+	/* Padding utilities avec suffixe -fl- */
+	.p-fl-0\.5 {
+		padding: var(--fl-space-0\.5);
+	}
+	.p-fl-1 {
+		padding: var(--fl-space-1);
+	}
+	.p-fl-1\.5 {
+		padding: var(--fl-space-1\.5);
+	}
+	.p-fl-2 {
+		padding: var(--fl-space-2);
+	}
+	.p-fl-2\.5 {
+		padding: var(--fl-space-2\.5);
+	}
+	.p-fl-3 {
+		padding: var(--fl-space-3);
+	}
+	.p-fl-3\.5 {
+		padding: var(--fl-space-3\.5);
+	}
+	.p-fl-4 {
+		padding: var(--fl-space-4);
+	}
+	.p-fl-5 {
+		padding: var(--fl-space-5);
+	}
+	.p-fl-6 {
+		padding: var(--fl-space-6);
+	}
+	.p-fl-8 {
+		padding: var(--fl-space-8);
+	}
+	.p-fl-10 {
+		padding: var(--fl-space-10);
+	}
+	.p-fl-12 {
+		padding: var(--fl-space-12);
+	}
 
-:root {
-	/* Space 3xs: 5px → 5px */
-	--space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
-	/* Space 2xs: 9px → 10px */
-	--space-2xs: clamp(0.5625rem, 0.5398rem + 0.1099vw, 0.625rem);
-	/* Space xs: 14px → 15px */
-	--space-xs: clamp(0.875rem, 0.8523rem + 0.1099vw, 0.9375rem);
-	/* Space s: 18px → 20px */
-	--space-s: clamp(1.125rem, 1.0797rem + 0.2198vw, 1.25rem);
-	/* Space m: 27px → 30px */
-	--space-m: clamp(1.6875rem, 1.6195rem + 0.3297vw, 1.875rem);
-	/* Space l: 36px → 40px */
-	--space-l: clamp(2.25rem, 2.1593rem + 0.4396vw, 2.5rem);
-	/* Space xl: 54px → 60px */
-	--space-xl: clamp(3.375rem, 3.239rem + 0.6593vw, 3.75rem);
-	/* Space 2xl: 72px → 80px */
-	--space-2xl: clamp(4.5rem, 4.3187rem + 0.8791vw, 5rem);
-	/* Space 3xl: 108px → 120px */
-	--space-3xl: clamp(6.75rem, 6.478rem + 1.3187vw, 7.5rem);
+	/* Padding directionnels */
+	.pt-fl-0\.5,
+	.py-fl-0\.5 {
+		padding-top: var(--fl-space-0\.5);
+	}
+	.pr-fl-0\.5,
+	.px-fl-0\.5 {
+		padding-right: var(--fl-space-0\.5);
+	}
+	.pb-fl-0\.5,
+	.py-fl-0\.5 {
+		padding-bottom: var(--fl-space-0\.5);
+	}
+	.pl-fl-0\.5,
+	.px-fl-0\.5 {
+		padding-left: var(--fl-space-0\.5);
+	}
 
-	/* One-up pairs */
-	/* Space 3xs-2xs: 5px → 10px */
-	--space-3xs-2xs: clamp(0.3125rem, 0.1992rem + 0.5495vw, 0.625rem);
-	/* Space 2xs-xs: 9px → 15px */
-	--space-2xs-xs: clamp(0.5625rem, 0.4265rem + 0.6593vw, 0.9375rem);
-	/* Space xs-s: 14px → 20px */
-	--space-xs-s: clamp(0.875rem, 0.739rem + 0.6593vw, 1.25rem);
-	/* Space s-m: 18px → 30px */
-	--space-s-m: clamp(1.125rem, 0.853rem + 1.3187vw, 1.875rem);
-	/* Space m-l: 27px → 40px */
-	--space-m-l: clamp(1.6875rem, 1.3929rem + 1.4286vw, 2.5rem);
-	/* Space l-xl: 36px → 60px */
-	--space-l-xl: clamp(2.25rem, 1.706rem + 2.6374vw, 3.75rem);
-	/* Space xl-2xl: 54px → 80px */
-	--space-xl-2xl: clamp(3.375rem, 2.7857rem + 2.8571vw, 5rem);
-	/* Space 2xl-3xl: 72px → 120px */
-	--space-2xl-3xl: clamp(4.5rem, 3.4121rem + 5.2747vw, 7.5rem);
+	.pt-fl-1,
+	.py-fl-1 {
+		padding-top: var(--fl-space-1);
+	}
+	.pr-fl-1,
+	.px-fl-1 {
+		padding-right: var(--fl-space-1);
+	}
+	.pb-fl-1,
+	.py-fl-1 {
+		padding-bottom: var(--fl-space-1);
+	}
+	.pl-fl-1,
+	.px-fl-1 {
+		padding-left: var(--fl-space-1);
+	}
 
-	/* Custom pairs */
-	/* Space s-l: 18px → 40px */
-	--space-s-l: clamp(1.125rem, 0.6264rem + 2.4176vw, 2.5rem);
+	.pt-fl-1\.5,
+	.py-fl-1\.5 {
+		padding-top: var(--fl-space-1\.5);
+	}
+	.pr-fl-1\.5,
+	.px-fl-1\.5 {
+		padding-right: var(--fl-space-1\.5);
+	}
+	.pb-fl-1\.5,
+	.py-fl-1\.5 {
+		padding-bottom: var(--fl-space-1\.5);
+	}
+	.pl-fl-1\.5,
+	.px-fl-1\.5 {
+		padding-left: var(--fl-space-1\.5);
+	}
+
+	/* ... et ainsi de suite pour les autres tailles */
+
+	/* Margin utilities avec suffixe -fl- */
+	.m-fl-0\.5 {
+		margin: var(--fl-space-0\.5);
+	}
+	.m-fl-1 {
+		margin: var(--fl-space-1);
+	}
+	.m-fl-1\.5 {
+		margin: var(--fl-space-1\.5);
+	}
+	.m-fl-2 {
+		margin: var(--fl-space-2);
+	}
+	.m-fl-2\.5 {
+		margin: var(--fl-space-2\.5);
+	}
+	.m-fl-3 {
+		margin: var(--fl-space-3);
+	}
+	.m-fl-3\.5 {
+		margin: var(--fl-space-3\.5);
+	}
+	.m-fl-4 {
+		margin: var(--fl-space-4);
+	}
+	.m-fl-5 {
+		margin: var(--fl-space-5);
+	}
+	.m-fl-6 {
+		margin: var(--fl-space-6);
+	}
+	.m-fl-8 {
+		margin: var(--fl-space-8);
+	}
+	.m-fl-10 {
+		margin: var(--fl-space-10);
+	}
+	.m-fl-12 {
+		margin: var(--fl-space-12);
+	}
+
+	/* Margin directionnels */
+	.mt-fl-0\.5,
+	.my-fl-0\.5 {
+		margin-top: var(--fl-space-0\.5);
+	}
+	.mr-fl-0\.5,
+	.mx-fl-0\.5 {
+		margin-right: var(--fl-space-0\.5);
+	}
+	.mb-fl-0\.5,
+	.my-fl-0\.5 {
+		margin-bottom: var(--fl-space-0\.5);
+	}
+	.ml-fl-0\.5,
+	.mx-fl-0\.5 {
+		margin-left: var(--fl-space-0\.5);
+	}
+
+	.mt-fl-1,
+	.my-fl-1 {
+		margin-top: var(--fl-space-1);
+	}
+	.mr-fl-1,
+	.mx-fl-1 {
+		margin-right: var(--fl-space-1);
+	}
+	.mb-fl-1,
+	.my-fl-1 {
+		margin-bottom: var(--fl-space-1);
+	}
+	.ml-fl-1,
+	.mx-fl-1 {
+		margin-left: var(--fl-space-1);
+	}
+
+	.mt-fl-1\.5,
+	.my-fl-1\.5 {
+		margin-top: var(--fl-space-1\.5);
+	}
+	.mr-fl-1\.5,
+	.mx-fl-1\.5 {
+		margin-right: var(--fl-space-1\.5);
+	}
+	.mb-fl-1\.5,
+	.my-fl-1\.5 {
+		margin-bottom: var(--fl-space-1\.5);
+	}
+	.ml-fl-1\.5,
+	.mx-fl-1\.5 {
+		margin-left: var(--fl-space-1\.5);
+	}
+
+	/* ... et ainsi de suite pour les autres tailles */
 }

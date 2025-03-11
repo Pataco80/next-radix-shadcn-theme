@@ -1,36 +1,106 @@
 /*
-Fluid grid
-
-This is a fluid and flexible grid system depending on the size of the viewport.
-
-This grid use the clamp function to create a fluid grid.
-
-It is based on the same base values from the fluid type calculator from your project.
-
-This sytem is used Utopia.fyi
-Web page for parameters : https://utopia.fyi/grid/calculator?c=330,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+Grille Fluide / Fluid Grid
+Système de grille fluide basé sur Utopia.fyi
+Fluid grid system based on Utopia.fyi
+https://utopia.fyi/grid/calculator?c=330,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 */
 
-/*
-The grid calculator uses responsive tokens from your space palette to construct a series of gutters and columns for your designs to live within. Rather than creating different grids for a number of breakpoints, think of this as one grid which can be viewed from any perspective. If you’re not sure where to start, this blog post might help.
-*/
-
-:root {
-	--grid-max-width: 77.5rem;
-	--grid-gutter: var(
-		--space-s-l,
-		clamp(1.125rem, 0.6264rem + 2.4176vw, 2.5rem)
-	);
-	--grid-columns: 12;
+@layer theme {
+	:root {
+		--fl-grid-max-width: var(--grid-max-width);
+		--fl-grid-gutter: var(--grid-gutter);
+		--fl-grid-columns: var(--grid-columns);
+	}
 }
 
-.fluid-grid-container {
-	max-width: var(--grid-max-width);
-	padding-inline: var(--grid-gutter);
-	margin-inline: auto;
-}
+@layer utilities {
+	/* Classes de base pour le conteneur et la grille */
+	.grid-fl-container {
+		max-width: var(--fl-grid-max-width);
+		padding-inline: var(--fl-grid-gutter);
+		margin-inline: auto;
+	}
 
-.fluid-grid {
-	display: grid;
-	gap: var(--grid-gutter);
+	.grid-fl {
+		display: grid;
+		gap: var(--fl-grid-gutter);
+	}
+
+	/* Gaps fluides - Système unifié */
+	.gap-fl-0\.5,
+	.gap-x-fl-0\.5,
+	.gap-y-fl-0\.5 {
+		--gap-value: var(--fl-space-0\.5);
+	}
+	.gap-fl-1,
+	.gap-x-fl-1,
+	.gap-y-fl-1 {
+		--gap-value: var(--fl-space-1);
+	}
+	.gap-fl-1\.5,
+	.gap-x-fl-1\.5,
+	.gap-y-fl-1\.5 {
+		--gap-value: var(--fl-space-1\.5);
+	}
+	.gap-fl-2,
+	.gap-x-fl-2,
+	.gap-y-fl-2 {
+		--gap-value: var(--fl-space-2);
+	}
+	.gap-fl-2\.5,
+	.gap-x-fl-2\.5,
+	.gap-y-fl-2\.5 {
+		--gap-value: var(--fl-space-2\.5);
+	}
+	.gap-fl-3,
+	.gap-x-fl-3,
+	.gap-y-fl-3 {
+		--gap-value: var(--fl-space-3);
+	}
+	.gap-fl-3\.5,
+	.gap-x-fl-3\.5,
+	.gap-y-fl-3\.5 {
+		--gap-value: var(--fl-space-3\.5);
+	}
+	.gap-fl-4,
+	.gap-x-fl-4,
+	.gap-y-fl-4 {
+		--gap-value: var(--fl-space-4);
+	}
+	.gap-fl-5,
+	.gap-x-fl-5,
+	.gap-y-fl-5 {
+		--gap-value: var(--fl-space-5);
+	}
+	.gap-fl-6,
+	.gap-x-fl-6,
+	.gap-y-fl-6 {
+		--gap-value: var(--fl-space-6);
+	}
+	.gap-fl-8,
+	.gap-x-fl-8,
+	.gap-y-fl-8 {
+		--gap-value: var(--fl-space-8);
+	}
+	.gap-fl-10,
+	.gap-x-fl-10,
+	.gap-y-fl-10 {
+		--gap-value: var(--fl-space-10);
+	}
+	.gap-fl-12,
+	.gap-x-fl-12,
+	.gap-y-fl-12 {
+		--gap-value: var(--fl-space-12);
+	}
+
+	/* Application des gaps */
+	[class*='gap-fl-'] {
+		gap: var(--gap-value);
+	}
+	[class*='gap-x-fl-'] {
+		column-gap: var(--gap-value);
+	}
+	[class*='gap-y-fl-'] {
+		row-gap: var(--gap-value);
+	}
 }
