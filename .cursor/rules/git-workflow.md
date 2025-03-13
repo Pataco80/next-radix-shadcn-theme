@@ -17,6 +17,7 @@ Utiliser la structure de branches Git-flow suivante :
 
 - Utiliser des messages de commit en anglais, au présent
 - Préfixer les messages avec le type de modification :
+  - `struct:` création de layout et pages
   - `feat:` pour les nouvelles fonctionnalités
   - `fix:` pour les corrections de bugs
   - `docs:` pour les modifications de documentation
@@ -28,6 +29,7 @@ Utiliser la structure de branches Git-flow suivante :
 Exemples :
 
 ```
+struct: Creation of the main layout
 feat: add user authentication system
 fix: resolve issue with password reset
 docs: update API documentation
@@ -41,13 +43,13 @@ chore: update dependencies
 
 Pour maintenir une cohérence spécifique aux projets Next.js, utilisez les conventions suivantes :
 
-- `feat: add [page-name] page` - Pour la création d'une nouvelle page
-- `feat: create [layout-name] layout` - Pour la création d'un nouveau layout
+- `struct(page): add [page-name] page` - Pour la création d'une nouvelle page
+- `feat(ui): create [component-name] with [feature]` - Pour la création d'un composant
+- `feat(ui): enhance [page-name] with [feature]` - Pour l'ajout de fonctionnalités à une page existante
 - `refactor: restructure [page/layout-name]` - Pour la restructuration d'une page ou d'un layout
 - `style: update [page/layout-name] design` - Pour les modifications purement esthétiques
-- `style: add [library-name]` - Pour l'ajout de libraries de styles et icônes.
-- `feat: enhance [page-name] with [feature]` - Pour l'ajout de fonctionnalités à une page existante
-- `fix: resolve [issue] in [page/layout-name]` - Pour la correction de problèmes
+- `style(library): add [library-name]` - Pour l'ajout de libraries de styles et icônes.
+- `fix(issueID): resolve [issue] in [page/layout-name]` - Pour la correction de problèmes
 
 Pour les routes API :
 

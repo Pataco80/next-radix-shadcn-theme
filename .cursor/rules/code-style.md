@@ -1,5 +1,30 @@
 # Style et structure du code
 
+## Documentation
+
+La documentation du code suit des conventions strictes de nommage et de contenu :
+
+### Types de documentation
+
+1. **Documentation succincte** (`README.md`)
+
+   - Points essentiels uniquement
+   - Navigation claire
+   - Pas de détails techniques
+
+2. **Documentation descriptive** (`project-*.md`)
+
+   - Explications claires des concepts
+   - Exemples d'utilisation simples
+   - Guide pratique pour les développeurs
+
+3. **Documentation technique** (sans préfixe)
+   - Détails d'implémentation
+   - Cas d'utilisation avancés
+   - Exemples complets
+
+Pour plus de détails, voir [Règles de documentation](./documentation-guidelines.md)
+
 Ce document décrit les conventions de style et de structure du code pour le développement d'applications TypeScript, Node.js et Next.js.
 
 ## Principes généraux

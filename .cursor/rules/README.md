@@ -28,7 +28,7 @@ next-radix-shadcn-theme/
 │   ├── database-guidelines.md     # Requêtes de base de données et modèles
 │   ├── git-workflow.md            # Configuration Git-flow et conventions
 │   ├── project-setup.md           # Initialisation du projet
-│   ├── translate-guidelines.md    # Règles de traduction de documentation
+│   ├── documentation-guidelines.md # Règles de documentation et traduction
 │   └── scripts/
 │       └── setup.sh               # Script d'initialisation interactif
 └── ...                            # Autres fichiers et dossiers du projet
@@ -44,7 +44,7 @@ next-radix-shadcn-theme/
 - [Requêtes de base de données et modèles](./database-guidelines.md)
 - [Configuration Git-flow et conventions](./git-workflow.md)
 - [Initialisation du projet](./project-setup.md)
-- [Règles de traduction de documentation](./translate-guidelines.md)
+- [Règles de documentation et traduction](./documentation-guidelines.md)
 
 ## Script d'initialisation
 

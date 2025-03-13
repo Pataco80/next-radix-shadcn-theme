@@ -7,6 +7,9 @@ Ce document décrit les directives pour l'interface utilisateur et le style dans
 - Utiliser Shadcn UI pour les composants d'interface utilisateur
 - Utiliser Radix UI pour les composants primitifs accessibles
 - Utiliser Tailwind CSS pour le style
+- Utiliser `@layer theme` pour le css personalisé
+- Utiliser `@layer utilities` pour étendre les classes Tailwind CSS
+- Eviter la duplication de code si une classe Tailwind CSS éxiste déjà pour apliquer un style souhaité
 
 ## Design responsive
 
