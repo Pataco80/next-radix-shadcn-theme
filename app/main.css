@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+@layer base {
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html,
+	body {
+		font-size: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+	}
+
+	h1 {
+		font-size: clamp(2.7994rem, 2.1248rem + 3.2704vw, 4.5776rem);
+	}
+
+	h2 {
+		font-size: clamp(2.3328rem, 1.8286rem + 2.4447vw, 3.6621rem);
+	}
+
+	h3 {
+		font-size: clamp(1.944rem, 1.5701rem + 1.8128vw, 2.9297rem);
+	}
+
+	h4 {
+		font-size: clamp(1.62rem, 1.3455rem + 1.331vw, 2.3438rem);
+	}
+
+	h5 {
+		font-size: clamp(1.35rem, 1.1509rem + 0.9655vw, 1.875rem);
+	}
+
+	h6 {
+		font-size: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+	}
+
+	p {
+		font-size: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+	}
+
+	small {
+		font-size: clamp(0.9375rem, 0.8379rem + 0.4828vw, 1.2rem);
+	}
+}
