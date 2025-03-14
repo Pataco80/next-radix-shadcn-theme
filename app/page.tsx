@@ -11,10 +11,10 @@ export default function Home() {
 				<h4>Hello World</h4>
 				<h5>Hello World</h5>
 				<h6>Hello World</h6>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-				<p className='text-fl-lg'>Texte plus grand</p>
-				<p className='leading-fl-lg'>Texte avec le plus espacé</p>
-				<p className='fl-lg'>Texte plus grand avec hauteur de ligne adaptée</p>
+				<p className='text-fl-base'>text-fl-base Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+				<p className='text-fl-base/7'>text-fl-base/7 Texte plus grand</p>
+				<p className='text-fl-lg'>text-fl-lg Texte avec le plus espacé</p>
+				<p className='text-fl-lg/8'>text-fl-lg/8 Texte plus grand avec hauteur de ligne adaptée</p>
 				<small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</small>
 				<ol className='list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]'>
 					<li className='mb-2'>

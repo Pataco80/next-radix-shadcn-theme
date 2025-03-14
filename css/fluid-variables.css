@@ -1,0 +1,30 @@
+/* Fluid Typography Variables */
+:root {
+	/* Taille de base fixe */
+	font-size: 16px;
+
+	/* Ratios de hauteur de ligne */
+	--ratio-sm: 1.2; /* Pour le petit texte */
+	--ratio-base: 1.4; /* Pour le texte courant */
+	--ratio-lg: 1.6; /* Pour les grands titres */
+
+	/* Échelle typographique fluide */
+	/* Step -2: 12.5px → 15.36px */
+	--size--2: clamp(0.7813rem, 0.7134rem + 0.3287vw, 0.96rem);
+	/* Step -1: 15px → 19.2px */
+	--size--1: clamp(0.9375rem, 0.8379rem + 0.4828vw, 1.2rem);
+	/* Step 0: 18px → 24px */
+	--size-0: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+	/* Step 1: 21.6px → 30px */
+	--size-1: clamp(1.35rem, 1.1509rem + 0.9655vw, 1.875rem);
+	/* Step 2: 25.92px → 37.5px */
+	--size-2: clamp(1.62rem, 1.3455rem + 1.331vw, 2.3438rem);
+	/* Step 3: 31.104px → 46.875px */
+	--size-3: clamp(1.944rem, 1.5701rem + 1.8128vw, 2.9297rem);
+	/* Step 4: 37.3248px → 58.5938px */
+	--size-4: clamp(2.3328rem, 1.8286rem + 2.4447vw, 3.6621rem);
+	/* Step 5: 44.7898px → 73.2422px */
+	--size-5: clamp(2.7994rem, 2.1248rem + 3.2704vw, 4.5776rem);
+}
+
+/* Fluid Spacing Variables */

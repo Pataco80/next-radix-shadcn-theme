@@ -1,0 +1,274 @@
+/*
+Fluid typography
+
+This is a fluid typography system that allows you to create a typography that is fluid and responsive.
+
+It is based on the clamp function.
+This sytem is used Utopia.fyi
+
+https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
+*/
+
+@import './fluid-variables.css';
+
+/* Variables typographiques */
+:root {
+	/* Line Heights - Calculated using ratios */
+	/* Petit texte (--lh--2, --lh--1) → Ratio 1.2 (--ratio-sm) */
+	--fl-lh--2: calc(var(--size--2) * var(--ratio-sm));
+	--fl-lh--1: calc(var(--size--1) * var(--ratio-sm));
+
+	/* Texte normal (--lh-0, --lh-1) → Ratio 1.4 (--ratio-base) */
+	--fl-lh-0: calc(var(--size-0) * var(--ratio-base));
+	--fl-lh-1: calc(var(--size-1) * var(--ratio-base));
+
+	/* Titres (--lh-2 à --lh-5) → Ratio 1.6 (--ratio-lg) */
+	--fl-lh-2: calc(var(--size-2) * var(--ratio-lg));
+	--fl-lh-3: calc(var(--size-3) * var(--ratio-lg));
+	--fl-lh-4: calc(var(--size-4) * var(--ratio-lg));
+	--fl-lh-5: calc(var(--size-5) * var(--ratio-lg));
+
+	/* Extension des tailles Tailwind */
+	--fl-text-xs: var(--size--2);
+	--fl-text-sm: var(--size--1);
+	--fl-text-base: var(--size-0);
+	--fl-text-lg: var(--size-1);
+	--fl-text-xl: var(--size-2);
+	--fl-text-2xl: var(--size-3);
+	--fl-text-3xl: var(--size-4);
+	--fl-text-4xl: var(--size-5);
+
+	/* Extension des hauteurs de ligne Tailwind */
+	--fl-leading-3: var(--fl-lh--2); /* Ratio 1.2 */
+	--fl-leading-4: var(--fl-lh--1); /* Ratio 1.2 */
+	--fl-leading-5: var(--fl-lh-0); /* Ratio 1.4 */
+	--fl-leading-6: var(--fl-lh-1); /* Ratio 1.4 */
+	--fl-leading-7: var(--fl-lh-2); /* Ratio 1.6 */
+	--fl-leading-8: var(--fl-lh-3); /* Ratio 1.6 */
+	--fl-leading-9: var(--fl-lh-4); /* Ratio 1.6 */
+	--fl-leading-10: var(--fl-lh-5); /* Ratio 1.6 */
+}
+
+/* Reset de base */
+@layer base {
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		font-size: var(--fl-text-base);
+		line-height: var(--fl-leading-5);
+	}
+
+	h1 {
+		font-size: var(--fl-text-4xl);
+		line-height: var(--fl-leading-10);
+	}
+
+	h2 {
+		font-size: var(--fl-text-3xl);
+		line-height: var(--fl-leading-9);
+	}
+
+	h3 {
+		font-size: var(--fl-text-2xl);
+		line-height: var(--fl-leading-8);
+	}
+
+	h4 {
+		font-size: var(--fl-text-xl);
+		line-height: var(--fl-leading-7);
+	}
+
+	h5 {
+		font-size: var(--fl-text-lg);
+		line-height: var(--fl-leading-6);
+	}
+
+	h6 {
+		font-size: var(--fl-text-base);
+		line-height: var(--fl-leading-5);
+	}
+
+	small {
+		font-size: var(--fl-text-sm);
+		line-height: var(--fl-leading-4);
+	}
+}
+
+/* Classes utilitaires */
+@layer utilities {
+	/* Classes de hauteur de ligne fluide */
+	.leading-fl-3 {
+		line-height: var(--fl-leading-3);
+	}
+	.leading-fl-4 {
+		line-height: var(--fl-leading-4);
+	}
+	.leading-fl-5 {
+		line-height: var(--fl-leading-5);
+	}
+	.leading-fl-6 {
+		line-height: var(--fl-leading-6);
+	}
+	.leading-fl-7 {
+		line-height: var(--fl-leading-7);
+	}
+	.leading-fl-8 {
+		line-height: var(--fl-leading-8);
+	}
+	.leading-fl-9 {
+		line-height: var(--fl-leading-9);
+	}
+	.leading-fl-10 {
+		line-height: var(--fl-leading-10);
+	}
+
+	/* Classes de texte avec line-height par défaut */
+	.text-fl-xs {
+		font-size: var(--fl-text-xs);
+		line-height: var(--fl-leading-3);
+	}
+
+	.text-fl-sm {
+		font-size: var(--fl-text-sm);
+		line-height: var(--fl-leading-4);
+	}
+
+	.text-fl-base {
+		font-size: var(--fl-text-base);
+		line-height: var(--fl-leading-5);
+	}
+
+	.text-fl-lg {
+		font-size: var(--fl-text-lg);
+		line-height: var(--fl-leading-6);
+	}
+
+	.text-fl-xl {
+		font-size: var(--fl-text-xl);
+		line-height: var(--fl-leading-7);
+	}
+
+	.text-fl-2xl {
+		font-size: var(--fl-text-2xl);
+		line-height: var(--fl-leading-8);
+	}
+
+	.text-fl-3xl {
+		font-size: var(--fl-text-3xl);
+		line-height: var(--fl-leading-9);
+	}
+
+	.text-fl-4xl {
+		font-size: var(--fl-text-4xl);
+		line-height: var(--fl-leading-10);
+	}
+
+	/* Classes avec line-height personnalisé */
+	/* XS */
+	.text-fl-xs\/3 {
+		font-size: var(--fl-text-xs);
+		line-height: var(--fl-leading-3);
+	}
+	.text-fl-xs\/4 {
+		font-size: var(--fl-text-xs);
+		line-height: var(--fl-leading-4);
+	}
+	.text-fl-xs\/5 {
+		font-size: var(--fl-text-xs);
+		line-height: var(--fl-leading-5);
+	}
+
+	/* SM */
+	.text-fl-sm\/4 {
+		font-size: var(--fl-text-sm);
+		line-height: var(--fl-leading-4);
+	}
+	.text-fl-sm\/5 {
+		font-size: var(--fl-text-sm);
+		line-height: var(--fl-leading-5);
+	}
+	.text-fl-sm\/6 {
+		font-size: var(--fl-text-sm);
+		line-height: var(--fl-leading-6);
+	}
+
+	/* BASE */
+	.text-fl-base\/5 {
+		font-size: var(--fl-text-base);
+		line-height: var(--fl-leading-5);
+	}
+	.text-fl-base\/6 {
+		font-size: var(--fl-text-base);
+		line-height: var(--fl-leading-6);
+	}
+	.text-fl-base\/7 {
+		font-size: var(--fl-text-base);
+		line-height: var(--fl-leading-7);
+	}
+
+	/* LG */
+	.text-fl-lg\/6 {
+		font-size: var(--fl-text-lg);
+		line-height: var(--fl-leading-6);
+	}
+	.text-fl-lg\/7 {
+		font-size: var(--fl-text-lg);
+		line-height: var(--fl-leading-7);
+	}
+	.text-fl-lg\/8 {
+		font-size: var(--fl-text-lg);
+		line-height: var(--fl-leading-8);
+	}
+
+	/* XL */
+	.text-fl-xl\/7 {
+		font-size: var(--fl-text-xl);
+		line-height: var(--fl-leading-7);
+	}
+	.text-fl-xl\/8 {
+		font-size: var(--fl-text-xl);
+		line-height: var(--fl-leading-8);
+	}
+	.text-fl-xl\/9 {
+		font-size: var(--fl-text-xl);
+		line-height: var(--fl-leading-9);
+	}
+
+	/* 2XL */
+	.text-fl-2xl\/8 {
+		font-size: var(--fl-text-2xl);
+		line-height: var(--fl-leading-8);
+	}
+	.text-fl-2xl\/9 {
+		font-size: var(--fl-text-2xl);
+		line-height: var(--fl-leading-9);
+	}
+	.text-fl-2xl\/10 {
+		font-size: var(--fl-text-2xl);
+		line-height: var(--fl-leading-10);
+	}
+
+	/* 3XL */
+	.text-fl-3xl\/9 {
+		font-size: var(--fl-text-3xl);
+		line-height: var(--fl-leading-9);
+	}
+	.text-fl-3xl\/10 {
+		font-size: var(--fl-text-3xl);
+		line-height: var(--fl-leading-10);
+	}
+
+	/* 4XL */
+	.text-fl-4xl\/9 {
+		font-size: var(--fl-text-4xl);
+		line-height: var(--fl-leading-9);
+	}
+	.text-fl-4xl\/10 {
+		font-size: var(--fl-text-4xl);
+		line-height: var(--fl-leading-10);
+	}
+}
