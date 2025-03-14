@@ -39,27 +39,43 @@ const ColloutIcon = ({
 }
 
 const colloutVariants = cva(
-	'inline-flex items-center justify-center rounded-md border px-4 py-2 font-medium whitespace-normal break-words max-w-full gap-2 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',
+	'inline-flex items-center justify-center border px-fl-4 py-fl-2 font-medium whitespace-normal break-words gap-2 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',
 	{
 		variants: {
 			variant: {
-				default: 'bg-primary text-primary-foreground border-primary/50',
-				secondary: 'bg-secondary text-secondary-foreground border-secondary/50',
+				default: 'bg-primary border-primary/50 [&>*]:text-primary-foreground',
+				secondary:
+					'bg-secondary border-secondary/50 [&>*]:text-secondary-foreground',
 				destructive:
-					'bg-destructive text-destructive-foreground border-destructive/50',
-				info: 'bg-info text-info-foreground border-info/50',
-				success: 'bg-success text-success-foreground border-success/50',
-				warning: 'bg-warning text-warning-foreground border-warning/50',
+					'bg-destructive border-destructive/50 [&>*]:text-destructive-foreground',
+				info: 'bg-info border-info/50 [&>*]:text-info-foreground',
+				success: 'bg-success border-success/50 [&>*]:text-success-foreground',
+				warning: 'bg-warning border-warning/50 [&>*]:text-warning-foreground',
 			},
 			size: {
-				sm: 'text-xs',
-				md: 'text-sm',
-				lg: 'text-base',
+				sm: 'text-fl-xs',
+				md: 'text-fl-sm',
+				lg: 'text-fl-base',
+			},
+			width: {
+				full: 'w-full',
+				auto: 'w-auto',
+				default: '', // Aucune classe de largeur par défaut
+			},
+			rounded: {
+				none: 'rounded-none',
+				sm: 'rounded-sm',
+				md: 'rounded-md',
+				lg: 'rounded-lg',
+				xl: 'rounded-xl',
+				full: 'rounded-full',
 			},
 		},
 		defaultVariants: {
 			variant: 'default',
 			size: 'md',
+			width: 'full',
+			rounded: 'lg',
 		},
 	}
 )
@@ -67,19 +83,27 @@ const colloutVariants = cva(
 function Collout({
 	className,
 	variant,
+	size,
+	width,
+	rounded,
 	children,
 	...props
 }: React.ComponentProps<'div'> & VariantProps<typeof colloutVariants>) {
 	return (
 		<div
 			className={cn(
-				colloutVariants({ variant: variant || 'default' }),
+				colloutVariants({
+					variant: variant || 'default',
+					size: size || 'lg',
+					width: width || 'full',
+					rounded: rounded || 'md',
+				}),
 				className
 			)}
 			{...props}
 		>
 			<ColloutIcon variant={variant || 'default'} />
-			{children}
+			<div className="min-w-0">{children}</div>
 		</div>
 	)
 }

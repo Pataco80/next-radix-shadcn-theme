@@ -182,7 +182,7 @@ export default function ShadcnUiPage() {
 												Aliquam.
 											</p>
 										</Collout>
-										<Collout size="lg" variant="warning">
+										<Collout size="sm" variant="warning">
 											<p>
 												<strong>Warning:</strong> Lorem ipsum dolor sit amet,
 												consectetur adipiscing elit. Nullam pharetra sit amet
@@ -194,7 +194,7 @@ export default function ShadcnUiPage() {
 												Aliquam.
 											</p>
 										</Collout>
-										<Collout size="lg" variant="success">
+										<Collout size="md" variant="success">
 											<p>
 												<strong>Success:</strong> Lorem ipsum dolor sit amet,
 												consectetur adipiscing elit. Nullam pharetra sit amet
@@ -219,6 +219,17 @@ export default function ShadcnUiPage() {
 											</p>
 										</Collout>
 									</div>
+									<Collout size="sm" variant="warning">
+										<p>
+											<strong>Warning:</strong> Lorem ipsum dolor sit amet,
+											consectetur adipiscing elit. Nullam pharetra sit amet
+											purus et efficitur. Proin elementum, neque sit amet congue
+											blandit, urna lacus efficitur nulla, sed dignissim libero
+											elit ut nisl. Quisque dictum sem id nulla porttitor
+											lacinia. Nulla rhoncus elementum condimentum. Cras dictum
+											rutrum erat a porttitor. Aliquam.
+										</p>
+									</Collout>
 								</CardDescription>
 							</CardHeader>
 							<CardContent>
