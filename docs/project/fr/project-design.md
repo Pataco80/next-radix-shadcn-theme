@@ -1,237 +1,185 @@
 # Design du projet
 
-Ce document décrit les principes de design utilisés dans le projet Next.js Radix Theme, en mettant l'accent sur la typographie fluide et les choix stylistiques.
+Ce document décrit les principes de design utilisés dans le projet Next.js Radix Theme Shadcn, en utilisant les principes suivants :
 
-## Typographie fluide
+- Tailwind CSS
+- Typographie fluide et les choix stylistiques
+- Utilisation de Tailwind CSS avec des variables fluides
 
-Le projet utilise un système de typographie fluide basé sur la fonction `clamp()` de CSS, inspiré par [Utopia.fyi](https://utopia.fyi/). Cette approche permet d'adapter automatiquement la taille du texte en fonction de la largeur de l'écran, sans avoir besoin de définir de multiples points d'arrêt (breakpoints).
+## Aperçu de la structure CSS
 
-### Principes de base
+Le projet utilise une structure CSS modulaire organisée comme suit :
 
-La typographie fluide fonctionne en définissant :
+```
+css/
+└── globals/
+    ├── theme.css 				# Document de theme global
+    ├── fluid-variables.css    	# Variables fluides de base
+    ├── fluid-typography.css   	# Système typographique fluide
+    ├── fluid-spacing.css      	# Système d'espacement fluide
+    └── fluid-grid.css        	# Système de grille fluide
+```
 
-1. Une taille de police minimale pour les petits écrans (330px)
-2. Une taille de police maximale pour les grands écrans (1240px)
-3. Une interpolation fluide entre ces deux valeurs
-
-### Échelle typographique
-
-Notre échelle typographique est définie comme suit :
-
-| Niveau | Petit écran (330px) | Grand écran (1240px) | Variable CSS |
-| ------ | ------------------- | -------------------- | ------------ |
-| -2     | 12.5px              | 12.8px               | `--size--2`  |
-| -1     | 15px                | 16px                 | `--size--1`  |
-| 0      | 18px                | 20px                 | `--size-0`   |
-| 1      | 21.6px              | 25px                 | `--size-1`   |
-| 2      | 25.92px             | 31.25px              | `--size-2`   |
-| 3      | 31.104px            | 39.0625px            | `--size-3`   |
-| 4      | 37.3248px           | 48.8281px            | `--size-4`   |
-| 5      | 44.7898px           | 61.0352px            | `--size-5`   |
-
-### Hauteurs de ligne (line-height)
-
-Les hauteurs de ligne sont également fluides et adaptées à chaque niveau de texte :
-
-#### Petit texte (ratio 1.3)
-
-- `--lh--2`: 16.25px → 16.64px
-- `--lh--1`: 19.5px → 20.8px
-
-#### Texte normal (ratio 1.4)
-
-- `--lh-0`: 25.2px → 28px
-- `--lh-1`: 30.24px → 35px
-
-#### Titres (progression vers ratio 1.6)
-
-- `--lh-2`: 36.288px → 43.75px
-- `--lh-3`: 43.5456px → 54.6875px
-- `--lh-4`: 52.2547px → 68.3594px
-- `--lh-5`: 62.7057px → 85.4493px
-
-### Implémentation
-
-L'implémentation utilise la fonction `clamp()` de CSS pour créer une transition fluide entre les tailles minimales et maximales :
+Vous pouvez importer `theme.css` dans `app/globals.css` qui sert de point d'entrée pour tous les styles :
 
 ```css
---size-0: clamp(1.125rem, 1.0797rem + 0.2198vw, 1.25rem);
---lh-0: clamp(1.575rem, 1.5141rem + 0.3044vw, 1.75rem);
+/* app/globals.css */
+@import 'tailwindcss/base';
+@import '../css/globals/theme.css';
+
+/* ou */
+@import 'tailwindcss/base';
+@import '../css/globals/fluid-typography.css';
+@import '../css/globals/fluid-spacing.css';
+/* etc... */
+
+/* Autres fichiers */
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 ```
 
-Cette approche permet d'obtenir :
+## Tailwind CSS
 
-- Une typographie qui s'adapte proportionnellement à la taille de l'écran
-- Une meilleure lisibilité sur tous les appareils
-- Une réduction du code CSS (moins de media queries)
-- Une expérience utilisateur plus fluide
+Notre implémentation de Tailwind CSS (v4) est organisée pour fonctionner harmonieusement avec notre système fluide. Nous utilisons les couches (@layer) de Tailwind pour organiser notre code de manière logique et éviter les conflits.
 
-## Espacement fluide
-
-Notre système d'espacement fluide utilise également la fonction `clamp()` de CSS pour créer des marges et des rembourrages qui s'adaptent à la taille de l'écran. Ce système est basé sur les mêmes valeurs fondamentales que notre système typographique.
-
-### Échelle d'espacement
-
-Notre échelle d'espacement est définie comme suit :
-
-| Nom | Petit écran (330px) | Grand écran (1240px) | Variable CSS  |
-| --- | ------------------- | -------------------- | ------------- |
-| 3xs | 5px                 | 5px                  | `--space-3xs` |
-| 2xs | 9px                 | 10px                 | `--space-2xs` |
-| xs  | 14px                | 15px                 | `--space-xs`  |
-| s   | 18px                | 20px                 | `--space-s`   |
-| m   | 27px                | 30px                 | `--space-m`   |
-| l   | 36px                | 40px                 | `--space-l`   |
-| xl  | 54px                | 60px                 | `--space-xl`  |
-| 2xl | 72px                | 80px                 | `--space-2xl` |
-| 3xl | 108px               | 120px                | `--space-3xl` |
-
-### Paires d'espacement
-
-En plus des espacements fixes, nous avons défini des paires d'espacement qui permettent une transition fluide entre deux tailles d'espacement :
-
-| Nom     | Petit écran (330px) | Grand écran (1240px) | Variable CSS      |
-| ------- | ------------------- | -------------------- | ----------------- |
-| 3xs-2xs | 5px                 | 10px                 | `--space-3xs-2xs` |
-| 2xs-xs  | 9px                 | 15px                 | `--space-2xs-xs`  |
-| xs-s    | 14px                | 20px                 | `--space-xs-s`    |
-| s-m     | 18px                | 30px                 | `--space-s-m`     |
-| m-l     | 27px                | 40px                 | `--space-m-l`     |
-| l-xl    | 36px                | 60px                 | `--space-l-xl`    |
-| xl-2xl  | 54px                | 80px                 | `--space-xl-2xl`  |
-| 2xl-3xl | 72px                | 120px                | `--space-2xl-3xl` |
-
-### Paires personnalisées
-
-Nous avons également défini des paires personnalisées pour des cas d'utilisation spécifiques :
-
-| Nom | Petit écran (330px) | Grand écran (1240px) | Variable CSS  |
-| --- | ------------------- | -------------------- | ------------- |
-| s-l | 18px                | 40px                 | `--space-s-l` |
-
-### Utilisation
-
-Ces variables d'espacement peuvent être utilisées pour les marges, les rembourrages, les écarts de grille et d'autres propriétés spatiales :
+### Organisation des couches
 
 ```css
-.card {
-	padding: var(--space-m);
-	margin-bottom: var(--space-l);
+/* Configuration des variables de thème */
+@layer theme {
+	:root {
+		--primary: #007aff;
+		--secondary: #5856d6;
+		/* ... autres variables de thème ... */
+	}
 }
 
-.hero {
-	padding: var(--space-xl) 0;
+/* Styles de base */
+@layer base {
+	html {
+		font-family: var(--font-system);
+		background-color: var(--background);
+		color: var(--foreground);
+	}
+
+	/* Réinitialisation des styles de base */
+	body {
+		@apply antialiased;
+	}
 }
 
-.content-gap {
-	gap: var(--space-s-m);
+/* Composants personnalisés */
+@layer components {
+	.btn {
+		@apply px-4 py-2 rounded-lg;
+	}
+
+	.card {
+		@apply p-6 bg-white rounded-xl shadow-md;
+	}
+}
+
+/* Utilitaires personnalisés */
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
 }
 ```
 
-## Système de grille fluide
+### Intégration avec le système fluide
 
-Notre système de grille fluide est conçu pour s'adapter à différentes tailles d'écran tout en maintenant des proportions cohérentes.
+L'intégration entre Tailwind CSS et notre système fluide se fait de manière transparente grâce à :
 
-### Configuration de base
+1. L'utilisation de préfixes distincts (`-fl-`) pour nos classes fluides
+2. La définition de classes utilitaires fluides dans nos couches CSS
+3. L'organisation en couches qui respecte la cascade CSS
+
+Nos classes utilitaires fluides suivent une convention cohérente :
 
 ```css
-:root {
-	--grid-max-width: 77.5rem; /* 1240px */
-	--grid-gutter: var(
-		--space-s-l,
-		clamp(1.125rem, 0.6264rem + 2.4176vw, 2.5rem)
-	);
-	--grid-columns: 12;
+/* Classes de typographie fluide */
+.text-fl-xs    /* Taille XS avec line-height 3 par défaut */
+.text-fl-sm    /* Taille SM avec line-height 4 par défaut */
+.text-fl-base  /* Taille Base avec line-height 5 par défaut */
+.text-fl-lg    /* Taille LG avec line-height 6 par défaut */
+.text-fl-xl    /* Taille XL avec line-height 7 par défaut */
+.text-fl-2xl   /* Taille 2XL avec line-height 8 par défaut */
+.text-fl-3xl   /* Taille 3XL avec line-height 9 par défaut */
+.text-fl-4xl   /* Taille 4XL avec line-height 9 par défaut */
+
+/* Line-heights personnalisés disponibles */
+.text-fl-xs/3, .text-fl-xs/4, .text-fl-xs/5
+.text-fl-sm/4, .text-fl-sm/5, .text-fl-sm/6
+/* etc... */
+
+/* Espacement */
+.p-fl-4 {
+	/* Padding niveau 4 */
+}
+.m-fl-4 {
+	/* Margin niveau 4 */
+}
+.gap-fl-4 {
+	/* Gap niveau 4 */
 }
 ```
 
-### Conteneur de grille
-
-Le conteneur de grille définit la largeur maximale du contenu et ajoute des gouttières sur les côtés :
-
-```css
-.fluid-grid-container {
-	max-width: var(--grid-max-width);
-	padding-inline: var(--grid-gutter);
-	margin-inline: auto;
-}
-```
-
-### Grille
-
-La grille elle-même utilise CSS Grid avec des gouttières fluides :
-
-```css
-.fluid-grid {
-	display: grid;
-	gap: var(--grid-gutter);
-}
-```
-
-### Utilisation
-
-Voici comment utiliser le système de grille dans votre HTML :
-
-```html
-<div class="fluid-grid-container">
-	<div class="fluid-grid" style="grid-template-columns: repeat(12, 1fr);">
-		<div style="grid-column: span 4;">Colonne 1</div>
-		<div style="grid-column: span 4;">Colonne 2</div>
-		<div style="grid-column: span 4;">Colonne 3</div>
-	</div>
-</div>
-```
-
-Pour les mises en page responsives, vous pouvez utiliser des media queries ou des fonctions CSS modernes comme `minmax()` :
-
-```css
-.responsive-grid {
-	display: grid;
-	gap: var(--grid-gutter);
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-```
+Pour plus de détails sur le système fluide et son implémentation, consultez la [documentation du système fluide](./fluid-system.md).
 
 ## Application dans le projet
 
-### Texte de base
+### Composants de base
 
-Le texte de base du site utilise `--size-0` avec une hauteur de ligne de `--lh-0`.
+Les composants de base utilisent une combinaison de classes Tailwind et de classes fluides :
 
-### Hiérarchie des titres
+```jsx
+// Exemple de bouton
+<button className="
+	// Classes Tailwind
+	bg-primary hover:bg-primary/90 text-white
+	// Classes fluides avec line-height par défaut
+	p-fl-4 text-fl-base
+">
+	Bouton
+</button>
 
-- H1: `--size-5` / `--lh-5`
-- H2: `--size-4` / `--lh-4`
-- H3: `--size-3` / `--lh-3`
-- H4: `--size-2` / `--lh-2`
-- H5: `--size-1` / `--lh-1`
-- H6: `--size-0` / `--lh-0`
+// Exemple de carte
+<div className="
+	// Classes Tailwind
+	bg-white rounded-xl shadow-md
+	// Classes fluides
+	p-fl-6 gap-fl-4
+">
+	<h2 className="text-fl-xl mb-fl-2">Titre</h2>
+	<p className="text-fl-base">Contenu</p>
+	<small className="text-fl-sm">Note en petit texte</small>
+</div>
+```
 
-### Petit texte
+### Responsive Design
 
-Le texte de petite taille (comme les notes de bas de page, les légendes) utilise `--size--1` avec une hauteur de ligne de `--lh--1`.
+Le design responsive combine les breakpoints Tailwind avec notre système fluide :
 
-### Espacement des composants
-
-- Petits composants (cartes, boutons) : `--space-xs` à `--space-s`
-- Composants moyens (sections, formulaires) : `--space-m` à `--space-l`
-- Grands composants (héros, bannières) : `--space-xl` à `--space-3xl`
-- Espacement entre sections : `--space-l-xl` ou `--space-xl-2xl`
+```jsx
+<div
+	className="
+	// Mobile
+	p-4 text-fl-base
+	// Tablette et plus
+	md:p-fl-6 md:text-fl-lg
+	// Desktop
+	lg:p-fl-8 lg:text-fl-xl
+"
+>
+	Contenu adaptatif
+</div>
+```
 
 ## Avantages de cette approche
 
-1. **Cohérence** : Tous les éléments suivent la même échelle proportionnelle
-2. **Adaptabilité** : Le design s'adapte automatiquement à toutes les tailles d'écran
-3. **Maintenabilité** : Les modifications peuvent être effectuées à un seul endroit
-4. **Performance** : Moins de code CSS à charger et à traiter
-5. **Harmonie visuelle** : Les espacements et les tailles de texte sont proportionnels
-
-## Ressources
-
-Pour plus d'informations sur les systèmes fluides et les calculs utilisés, consultez :
-
-- [Utopia.fyi Type Calculator](https://utopia.fyi/type/calculator)
-- [Utopia.fyi Space Calculator](https://utopia.fyi/space/calculator)
-- [Utopia.fyi Grid Calculator](https://utopia.fyi/grid/calculator)
-- [CSS Tricks: Fluid Typography](https://css-tricks.com/snippets/css/fluid-typography/)
-- [Smashing Magazine: Fluid Typography](https://www.smashingmagazine.com/2016/05/fluid-typography/)
+1. **Flexibilité** : Combine la puissance de Tailwind avec la fluidité d'Utopia
+2. **Maintenabilité** : Organisation claire des styles en couches
+3. **Performance** : Optimisation automatique par Tailwind
+4. **Cohérence** : Système de design unifié
+5. **Développement rapide** : Utilisation intuitive des classes utilitaires

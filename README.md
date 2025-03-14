@@ -77,6 +77,48 @@ Ceci est un projet [Next.js](https://nextjs.org) créé avec [`create-next-app`]
 | [Dépendances du projet](./docs/project/fr/dependencies.md)    | [Project Dependencies](./docs/project/en/dependencies.md)   |
 | [Configuration Cursor](./docs/cursor-config/fr/)              | [Cursor Configuration](./docs/cursor-config/en/)            |
 
+## Directives de développement avec Cursor / Development Guidelines with Cursor
+
+**🇫🇷** Les directives de développement pour ce projet sont organisées dans le dossier `.cursor/rules/` et suivent une structure claire pour faciliter la maintenance et l'évolution du code :
+
+```
+.cursor/rules/
+├── README.md                  # Aperçu général et introduction
+├── code-style.md             # Style et structure du code
+├── naming-conventions.md     # Conventions de nommage
+├── typescript-guidelines.md  # Utilisation de TypeScript
+├── ui-style-guidelines.md    # UI et style
+├── performance-optimization.md # Optimisation des performances
+├── database-guidelines.md    # Requêtes de base de données et modèles
+├── git-workflow.md          # Configuration Git-flow et conventions
+├── project-setup.md         # Initialisation du projet
+├── documentation-guidelines.md # Règles de documentation et traduction
+└── scripts/
+    └── setup.sh             # Script d'initialisation interactif
+```
+
+### Principes fondamentaux / Fundamental Principles
+
+**🇫🇷**
+
+- Écrire du code TypeScript concis et technique
+- Privilégier les composants serveur et l'approche fonctionnelle
+- Optimiser les performances et l'expérience utilisateur
+- Suivre les conventions Git-flow pour la gestion du code source
+- Utiliser des outils modernes pour le développement web
+- Maintenir une documentation bilingue (français et anglais) cohérente
+
+**🇬🇧** Development guidelines for this project are organized in the `.cursor/rules/` folder and follow a clear structure to facilitate code maintenance and evolution:
+
+### Fundamental Principles
+
+- Write concise and technical TypeScript code
+- Favor server components and functional approach
+- Optimize performance and user experience
+- Follow Git-flow conventions for source code management
+- Use modern web development tools
+- Maintain consistent bilingual documentation (French and English)
+
 ## 🇫🇷 Français
 
 ## Démarrage

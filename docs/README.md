@@ -87,7 +87,19 @@
 | --------------------------------------------------- | ------------------------------------------------ |
 | [README principal](../README.md)                    | [Main README](../README.md)                      |
 | [Site officiel de Next.js](https://nextjs.org/docs) | [Next.js Official Site](https://nextjs.org/docs) |
-| [Radix UI](https://www.radix-ui.com/)               | [Radix UI](https://www.radix-ui.com/)            |
+
+### Autres Liens / Other Links
+
+- [Tailwind CSS](https://tailwindcss.com/)
+  🇫🇷 Un framework CSS axé sur des classes utilitaires
+  🇬🇧 A utility-driven CSS framework
+- [shadcn/ui](hhttps://ui.shadcn.com/)
+  🇫🇷 Bibliothèque de composants sur une plateforme de distribution de code, Open Source et Open Code
+  🇬🇧 Component library on a code distribution platform, Open Source and Open Code
+
+- [Radix UI](https://www.radix-ui.com/)
+  🇫🇷 Une bibliothèque de composants open source optimisée pour un développement rapide
+  🇬🇧 An open source component library optimized for rapid development
 
 ## Contribution / Contributing
 
