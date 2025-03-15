@@ -1,3 +1,13 @@
+/* Theme */
+/* 
+FR: Ce fichier importe les fichiers de configuration du thème afin d'opter pour une seule exportation dans le fichier globals.css
+EN: This file imports the theme configuration files in order to opt for a single export in the globals.css file
+*/
+
+/* Colors */
+/*@import './colors.css';*/
+
+/* Fluid System */
 @import './fluid-typography.css';
 @import './fluid-spacing.css';
 
