@@ -1,0 +1,5 @@
+/* Import Tailwind en premier */
+@import 'tailwindcss';
+
+/* Import du thème */
+@import '../css/theme.css';
