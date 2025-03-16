@@ -40,5 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# project files resources
+# private project
+.private/
+
+# resources project
 .ressources/
+
+# css
+components/ui_backup/
