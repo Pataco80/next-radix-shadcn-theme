@@ -1,16 +1,14 @@
-/* Define layer order explicitly */
-@layer tw, tw.theme, tw.base, tw.components, tw.utilities, custom;
-
-/* Import Tailwind as a whole first */
-@import 'tailwindcss' layer(tw);
-
-/* Import theme variables */
-@import '../css/globals/theme.css' layer(tw.theme);
-
+@import 'tailwindcss';
 @plugin "tailwindcss-animate";
 
-/* Custom utilities in the custom layer */
-@layer custom {
+/* Import fluid system */
+@import '../css/globals/fluid-typography.css';
+@import '../css/globals/fluid-spacing.css';
+@import '../css/globals/fluid-grid.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
 	:root {
 		--radius: 0.625rem;
 		--background: oklch(1 0 0);
@@ -138,7 +136,7 @@
 	}
 }
 
-@layer tw.base {
+@layer base {
 	* {
 		@apply border-border outline-ring/50;
 	}
