@@ -10,6 +10,7 @@ EN: This file imports the theme configuration files in order to opt for a single
 /* Fluid System */
 @import './fluid-typography.css';
 @import './fluid-spacing.css';
+@import './fluid-grid.css';
 
 /* Thème global */
 :root {

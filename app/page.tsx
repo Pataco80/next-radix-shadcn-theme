@@ -5,17 +5,19 @@ export default function Home() {
 		<div className='grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]'>
 			<main className='flex flex-col gap-8 row-start-2 items-center sm:items-start'>
 				<Image className='dark:invert' src='/next.svg' alt='Next.js logo' width={180} height={38} priority />
-				<h1>Hello World</h1>
-				<h2>Hello World</h2>
-				<h3>Hello World</h3>
-				<h4>Hello World</h4>
-				<h5>Hello World</h5>
-				<h6>Hello World</h6>
-				<p className='text-fl-base'>text-fl-base Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-				<p className='text-fl-base/7'>text-fl-base/7 Texte plus grand</p>
-				<p className='text-fl-lg'>text-fl-lg Texte avec le plus espacé</p>
-				<p className='text-fl-lg/8'>text-fl-lg/8 Texte plus grand avec hauteur de ligne adaptée</p>
-				<small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</small>
+				<h1 className='text-gray-900 dark:text-gray-100'>Hello World</h1>
+				<h2 className='text-gray-900 dark:text-gray-100'>Hello World</h2>
+				<h3 className='text-gray-900 dark:text-gray-100'>Hello World</h3>
+				<h4 className='text-gray-900 dark:text-gray-100'>Hello World</h4>
+				<h5 className='text-gray-900 dark:text-gray-100'>Hello World</h5>
+				<h6 className='text-gray-900 dark:text-gray-100'>Hello World</h6>
+				<p className='text-fl-base text-gray-700 dark:text-gray-300'>
+					text-fl-base Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+				</p>
+				<p className='text-fl-base/7 text-gray-700 dark:text-gray-300'>text-fl-base/7 Texte plus grand</p>
+				<p className='text-fl-lg text-gray-700 dark:text-gray-300'>text-fl-lg Texte avec le plus espacé</p>
+				<p className='text-fl-lg/8 text-gray-700 dark:text-gray-300'>text-fl-lg/8 Texte plus grand avec hauteur de ligne adaptée</p>
+				<small className='text-gray-600 dark:text-gray-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</small>
 				<ol className='list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]'>
 					<li className='mb-2'>
 						Get started by editing{' '}
@@ -41,12 +43,11 @@ export default function Home() {
 						Read our docs
 					</a>
 				</div>
-
 				{/* Section de test pour les espacements fluides */}
-				<section className='w-full max-w-4xl mt-fl-xl'>
-					<h2 className='text-fl-2xl mb-fl-lg'>Test des espacements fluides</h2>
-
+				<section className='w-full max-w-[1200px] mt-fl-xl'>
+					<h2 className='text-fl-2xl mb-fl-lg text-gray-900 dark:text-gray-100'>Test des espacements fluides</h2>
 					{/* Test des paddings */}
+
 					<div className='space-y-fl-md'>
 						<div className='border rounded'>
 							<div className='p-fl-xs bg-slate-100 dark:bg-slate-800'>Padding p-fl-xs</div>
@@ -63,14 +64,14 @@ export default function Home() {
 					</div>
 
 					{/* Test des margins */}
-					<h3 className='text-fl-xl mt-fl-xl mb-fl-md'>Margins</h3>
+					<h3 className='text-fl-xl mt-fl-xl mb-fl-md text-gray-900 dark:text-gray-100'>Margins</h3>
 					<div className='border rounded p-4'>
 						<div className='bg-slate-100 dark:bg-slate-800 p-2 m-fl-sm'>Margin m-fl-sm</div>
 						<div className='bg-slate-100 dark:bg-slate-800 p-2 m-fl-md'>Margin m-fl-md</div>
 					</div>
 
 					{/* Test des paddings directionnels */}
-					<h3 className='text-fl-xl mt-fl-xl mb-fl-md'>Paddings directionnels</h3>
+					<h3 className='text-fl-xl mt-fl-xl mb-fl-md text-gray-900 dark:text-gray-100'>Paddings directionnels</h3>
 					<div className='space-y-fl-md'>
 						<div className='border rounded'>
 							<div className='px-fl-md py-fl-sm bg-slate-100 dark:bg-slate-800'>Padding px-fl-md py-fl-sm</div>
@@ -83,7 +84,7 @@ export default function Home() {
 					</div>
 
 					{/* Test des paires fluides */}
-					<h3 className='text-fl-xl mt-fl-xl mb-fl-md'>Paires fluides</h3>
+					<h3 className='text-fl-xl mt-fl-xl mb-fl-md text-gray-900 dark:text-gray-100'>Paires fluides</h3>
 					<div className='space-y-fl-md'>
 						<div className='border rounded'>
 							<div className='p-fl-xs-sm bg-slate-100 dark:bg-slate-800'>xs-sm: 9px → 15px</div>
@@ -103,7 +104,7 @@ export default function Home() {
 					</div>
 
 					{/* Test des grands espacements */}
-					<h3 className='text-fl-xl mt-fl-xl mb-fl-md'>Grands espacements</h3>
+					<h3 className='text-fl-xl mt-fl-xl mb-fl-md text-gray-900 dark:text-gray-100'>Grands espacements</h3>
 					<div className='space-y-fl-md'>
 						<div className='border rounded'>
 							<div className='p-fl-xl bg-slate-100 dark:bg-slate-800'>Padding p-fl-xl</div>
@@ -117,12 +118,12 @@ export default function Home() {
 					</div>
 
 					{/* Exemple d&apos;utilisation pratique */}
-					<h3 className='text-fl-xl mt-fl-xl mb-fl-md'>Exemple d&apos;utilisation pratique</h3>
+					<h3 className='text-fl-xl mt-fl-xl mb-fl-md text-gray-900 dark:text-gray-100'>Exemple d&apos;utilisation pratique</h3>
 					<div className='border rounded'>
 						<div className='bg-slate-100 dark:bg-slate-800'>
-							<h4 className='text-fl-lg mb-fl-sm p-fl-md'>Exemple d&apos;utilisation pratique</h4>
+							<h4 className='text-fl-lg mb-fl-sm p-fl-md text-gray-900 dark:text-gray-100'>Exemple d&apos;utilisation pratique</h4>
 							<div className='p-fl-base-md bg-white dark:bg-slate-900 border-t'>
-								<p className='text-fl-base'>
+								<p className='text-fl-base text-gray-700 dark:text-gray-300'>
 									Cette section utilise un espacement personnalisé qui passe de 18px à 30px de manière fluide selon la taille de
 									l&apos;écran. C&apos;est particulièrement utile pour les sections de contenu qui nécessitent plus d&apos;espace sur les
 									grands écrans.
@@ -141,6 +142,41 @@ export default function Home() {
 						</div>
 						<div className='border rounded'>
 							<div className='p-fl-base-lg bg-slate-100 dark:bg-slate-800'>Espacement fluide (18px → 48px)</div>
+						</div>
+					</div>
+				</section>
+
+				{/* Section de test pour la grille fluide */}
+				<section className='w-full max-w-[1200px] mt-fl-xl'>
+					<h2 className='text-fl-2xl mb-fl-lg text-gray-900 dark:text-gray-100'>Test des gaps fluides</h2>
+					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-fl-base-lg'>
+						<div className='border rounded'>
+							<div className='p-fl-base-md bg-slate-100 dark:bg-slate-800'>
+								<p className='p-fl-base text-gray-700 dark:text-gray-300'>
+									Gaps fluides (18px → 30px) lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+								</p>
+							</div>
+						</div>
+						<div className='border rounded'>
+							<div className='p-fl-base-md bg-slate-100 dark:bg-slate-800'>
+								<p className='p-fl-base text-gray-700 dark:text-gray-300'>
+									Gaps fluides (18px → 30px) lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+								</p>
+							</div>
+						</div>
+						<div className='border rounded'>
+							<div className='p-fl-base-md bg-slate-100 dark:bg-slate-800'>
+								<p className='p-fl-base text-gray-700 dark:text-gray-300'>
+									Gaps fluides (18px → 30px) lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+								</p>
+							</div>
+						</div>
+						<div className='border rounded'>
+							<div className='p-fl-base-md bg-slate-100 dark:bg-slate-800'>
+								<p className='p-fl-base text-gray-700 dark:text-gray-300'>
+									Gaps fluides (18px → 30px) lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+								</p>
+							</div>
 						</div>
 					</div>
 				</section>
