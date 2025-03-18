@@ -1,123 +1,209 @@
 # Structure du projet
 
-Ce document décrit en détail la structure du projet Next.js Radix Theme, expliquant le rôle de chaque dossier et des fichiers importants.
+Ce document décrit l'organisation et la structure du projet.
 
 ## Aperçu
 
 ```
-📁 Next-Radix-theme/
-├── 📄 .cursorrules.md               # Directives pour l'assistant IA Cursor
-├── 📄 .editorconfig                 # Configuration de l'éditeur pour un style de codage cohérent
-├── 📄 .cspell.json                  # Configuration pour la vérification orthographique
-├── 📄 .eslintrc.json                # Configuration ESLint
-├── 📁 .git/                         # Dépôt Git
-├── 📄 .gitignore                    # Modèles d'exclusion Git
-├── 📄 .npmrc                        # Configuration NPM/PNPM
-├── 📄 .prettierrc                   # Configuration du formateur de code Prettier
-├── 📁 .private/                     # Fichiers privés non validés dans le dépôt
-├── 📁 .vscode/                      # Paramètres spécifiques pour VS Code
-│   └── 📄 settings.json             # Paramètres VS Code
-├── 📄 README.md                     # Documentation principale du projet
-├── 📁 app/                          # Dossier principal de l'application Next.js (App Router)
-│   ├── 📄 favicon.ico               # Favicon du site web
-│   ├── 📄 globals.css               # Styles CSS globaux
-│   ├── 📄 layout.tsx                # Composant de mise en page racine
-│   └── 📄 page.tsx                  # Composant de la page d'accueil
-├── 📁 css/                          # Fichiers CSS pour l'application
-|   └── 📁 globals/                  # Variables globales
-│       ├── 📄 fluid-grid.css        # Grille CSS avec système fluide
-│       ├── 📄 fluid-spacing.css     # Espacements CSS avec système fluide
-│       └── 📄 fluid-typography.css  # CSS pour la typographie à échelle fluide
-├── 📁 docs/                         # Documentation détaillée du projet
-│   ├── 📄 index.md                  # Point d'entrée de la documentation
-│   ├── 📄 project-design.md         # Documentation de la conception du projet
-│   ├── 📄 project-structure.md      # Documentation de la structure du projet
-│   ├── 📄 scripts.md                # Documentation des scripts disponibles
-│   ├── 📁 en/                       # Traductions en anglais de la documentation
-│   └── 📁 fr/                       # Traductions en français de la documentation
-├── 📄 next-env.d.ts                 # Déclarations TypeScript pour Next.js
-├── 📄 next.config.ts                # Configuration Next.js
-├── 📁 node_modules/                 # Dépendances (non suivies dans Git)
-├── 📄 package.json                  # Métadonnées du projet et dépendances
-├── 📄 pnpm-lock.yaml                # Fichier de verrouillage PNPM
-├── 📄 pnpm-workspace.yaml           # Configuration de l'espace de travail PNPM
-├── 📄 postcss.config.mjs            # Configuration PostCSS
-├── 📁 public/                       # Ressources statiques
-├── 📁 scripts/                      # Scripts utilitaires
-├── 📄 tsconfig.json                 # Configuration principale TypeScript
-├── 📄 tsconfig.node.json            # Configuration TypeScript pour Node.js
-└── 📄 tsconfig.scripts.json         # Configuration TypeScript pour les scripts
+.
+├── app/                    # Application Next.js
+│   ├── components/        # Composants React réutilisables
+│   ├── lib/              # Utilitaires et helpers
+│   ├── styles/           # Styles spécifiques aux pages
+│   ├── (routes)/        # Routes de l'application
+│   ├── layout.tsx       # Layout principal
+│   └── globals.css      # Styles globaux
+│
+├── css/                   # Styles globaux et système de design
+│   ├── theme.css        # Configuration du thème
+│   ├── fluid-typography.css  # Système typographique fluide
+│   ├── fluid-grid.css    # Système de grille fluide
+│   ├── fluid-spacing.css # Système d'espacement fluide
+│   └── colors.css       # Système de couleurs
+│
+├── public/               # Assets statiques
+│   ├── fonts/          # Polices de caractères
+│   └── images/         # Images
+│
+├── docs/                 # Documentation
+│   └── project/
+│       └── fr/          # Documentation en français
+│
+├── components/           # Composants partagés
+│   ├── ui/             # Composants UI de base
+│   └── shared/         # Composants métier
+│
+└── config/              # Configuration
+    ├── site.ts        # Configuration du site
+    └── theme.ts       # Configuration du thème
 ```
 
-## Fichiers principaux
+## Détails des répertoires
 
 ### `/app`
 
-Ce dossier contient les composants principaux de l'application Next.js utilisant l'App Router. C'est ici que se trouve la logique principale de l'application.
+Structure Next.js App Router avec :
 
-- `layout.tsx` : Composant de mise en page racine qui enveloppe toutes les pages
-- `page.tsx` : Composant de la page d'accueil
-- `globals.css` : Styles CSS globaux appliqués à toute l'application
-- `favicon.ico` : Icône du site web
+- `components/` : Composants spécifiques aux pages
+- `lib/` : Utilitaires et helpers
+- `styles/` : Styles spécifiques aux pages
+- `(routes)/` : Organisation des routes
+- `layout.tsx` : Layout principal avec providers
+- `globals.css` : Styles globaux et imports
 
-### `/docs`
+### `/css`
 
-Ce dossier contient la documentation détaillée du projet, organisée en fichiers Markdown thématiques.
+Système de design avec :
 
-- `index.md` : Point d'entrée de la documentation avec une table des matières
-- `scripts.md` : Documentation des scripts disponibles dans le projet
-- `project-structure.md` : Ce document décrivant la structure du projet
+- `theme.css` : Configuration Tailwind CSS v4
 
-### `/public`
+  - Variables CSS
+  - Thèmes clair/sombre
+  - Configuration Shadcn UI
 
-Ce dossier contient les ressources statiques qui seront servies à la racine du domaine. Placez ici les images, polices et autres fichiers statiques.
+- `fluid-typography.css` : Système typographique
 
-### `/scripts`
+  - Échelles fluides
+  - Line-heights
+  - Espacements
 
-Ce dossier contient des scripts utilitaires pour faciliter le développement et la maintenance du projet.
+- `fluid-grid.css` : Système de grille
 
-## Fichiers de configuration
+  - Container
+  - Breakpoints
+  - Grilles fluides
 
-### Configuration Next.js
+- `fluid-spacing.css` : Système d'espacement
 
-- `next.config.ts` : Configuration principale de Next.js
-- `next-env.d.ts` : Types TypeScript pour Next.js
+  - Marges
+  - Rembourrages
+  - Espacements fluides
 
-### Configuration TypeScript
+- `colors.css` : Système de couleurs
+  - Palette de couleurs
+  - Variables sémantiques
+  - Thèmes clair/sombre
 
-- `tsconfig.json` : Configuration TypeScript pour le projet
-- `tsconfig.node.json` : Configuration TypeScript pour Node.js
-- `tsconfig.scripts.json` : Configuration TypeScript pour les scripts
+### `/components`
 
-### Configuration des outils de développement
+Composants React organisés en :
 
-- `.cspell.json` : Configuration pour la vérification orthographique
-- `.editorconfig` : Configuration de l'éditeur pour un style de codage cohérent
-- `.eslintrc.json` : Configuration pour le linting du code
-- `.prettierrc` : Configuration Prettier pour le formatage du code
+- `ui/` : Composants de base
 
-### Configuration de gestion des packages
+  - Boutons
+  - Cartes
+  - Formulaires
+  - Navigation
 
-- `package.json` : Métadonnées du projet et dépendances
-- `pnpm-lock.yaml` : Fichier de verrouillage PNPM
-- `pnpm-workspace.yaml` : Configuration de l'espace de travail PNPM
-- `.npmrc` : Configuration NPM/PNPM
+- `shared/` : Composants métier
+  - Sections
+  - Layouts
+  - Features
 
-### Autres fichiers de configuration
+### `/config`
 
-- `postcss.config.mjs` : Configuration PostCSS pour le traitement CSS
-- `.gitignore` : Modèles d'exclusion Git
+Configuration centralisée :
+
+- `site.ts` : Configuration globale
+
+  - Métadonnées
+  - Navigation
+  - SEO
+
+- `theme.ts` : Configuration du thème
+  - Couleurs
+  - Typographie
+  - Breakpoints
+  - Animations
 
 ## Conventions de nommage
 
-- Les fichiers utilisent des noms en minuscules avec des tirets si nécessaire (ex : `next-radix-shadcn-theme`)
-- Les composants React utilisent le PascalCase (ex : `Layout.tsx`, `Page.tsx`)
-- Les fichiers de configuration utilisent généralement des noms en minuscules avec des points (ex : `.eslintrc.json`)
-- Les fichiers cachés commencent par un point (ex : `.gitignore`)
+### Fichiers
 
-## Organisation du code
+- Components: `PascalCase.tsx`
+- Utilitaires: `camelCase.ts`
+- Styles: `kebab-case.css`
+- Config: `kebab-case.ts`
 
-- Les composants React sont organisés selon la structure de l'App Router de Next.js
-- Les fichiers de documentation sont regroupés dans le dossier `/docs`
-- Les scripts utilitaires sont regroupés dans le dossier `/scripts`
-- Les ressources statiques sont placées dans le dossier `/public`
+### Composants
+
+```tsx
+// Button.tsx
+export interface ButtonProps {
+	variant?: 'default' | 'outline'
+	size?: 'sm' | 'md' | 'lg'
+}
+
+export function Button({ variant, size }: ButtonProps) {
+	return (
+		<button className={cn('button', `button--${variant}`, `button--${size}`)}>
+			{children}
+		</button>
+	)
+}
+```
+
+### Styles
+
+```css
+/* theme.css */
+@layer theme {
+	:root {
+		/* Variables de thème */
+		--primary: #007aff;
+		--radius: 0.5rem;
+	}
+}
+
+/* components/Button.css */
+@layer components {
+	.button {
+		@apply rounded-lg px-4 py-2;
+	}
+}
+```
+
+## Organisation des imports
+
+```tsx
+// 1. Imports React/Next
+import { useState } from 'react'
+import Image from 'next/image'
+
+// 2. Imports de composants
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+
+// 3. Imports d'utilitaires
+import { cn } from '@/lib/utils'
+import { formatDate } from '@/lib/date'
+
+// 4. Imports de types
+import type { ButtonProps } from '@/components/ui/button'
+```
+
+## Scripts disponibles
+
+```json
+{
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write .",
+		"test": "jest",
+		"test:watch": "jest --watch"
+	}
+}
+```
+
+## Dépendances principales
+
+- Next.js v15.x
+- React v19.x
+- Tailwind CSS v4.0.0
+- Shadcn UI (version canary - compatible Tailwind v4)
+- Radix UI v2.0.0
+
+Pour plus de détails sur les dépendances, voir [dependencies.md](./dependencies.md).

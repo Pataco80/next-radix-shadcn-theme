@@ -1,124 +1,142 @@
 # Dépendances du projet
 
-Ce document décrit les principales dépendances utilisées dans le projet Next.js Radix Theme et leur rôle.
+Ce document liste les principales dépendances utilisées dans le projet et explique leur rôle.
 
-## Dépendances de production
+## Dépendances principales
 
-### Framework et UI
+### Framework et Runtime
 
-- **next**: Framework React pour le développement d'applications web
-- **react**: Bibliothèque JavaScript pour construire des interfaces utilisateur
-- **react-dom**: Package pour manipuler le DOM dans les applications React
+- **Next.js** (v15.x)
 
-### Utilitaires
+  - Framework React pour la production
+  - Support du SSR (Server Side Rendering)
+  - Routing intégré
+  - Optimisation des performances
 
-- **ts-node**: Exécution de TypeScript directement sans compilation préalable
+- **React** (v19.x)
+  - Bibliothèque UI
+  - Support des Hooks
+  - Virtual DOM
+  - Composants réutilisables
 
-### Traduction (en attente)
+### Styling et UI
 
-- **@iamtraction/google-translate**: Bibliothèque pour l'intégration avec l'API Google Translate
-  > **Note**: Cette dépendance est actuellement en attente des travaux qui seront effectués sur la branche `feature/translate`. Elle sera utilisée pour automatiser la traduction de la documentation du français vers l'anglais.
+- **Tailwind CSS** (v4.0.0)
+
+  - Framework CSS utilitaire
+  - Configuration via CSS natif
+  - Support des variables CSS
+  - Système de plugins
+
+- **Shadcn UI** (version canary - compatible Tailwind v4)
+
+  - Bibliothèque de composants
+  - Basée sur Radix UI
+  - Hautement personnalisable
+  - Accessible par défaut
+
+- **Radix UI** (v2.0.0)
+  - Primitives de composants accessibles
+  - Support des thèmes
+  - API cohérente
+  - Focus sur l'accessibilité
+
+### Outils de développement
+
+- **TypeScript** (v5.x)
+
+  - Typage statique
+  - Support IDE amélioré
+  - Meilleure maintenabilité
+  - Détection d'erreurs précoce
+
+- **ESLint** (dernière version)
+
+  - Linting du code
+  - Règles personnalisables
+  - Intégration IDE
+  - Maintien de la qualité du code
+
+- **Prettier** (dernière version)
+  - Formatage du code
+  - Configuration cohérente
+  - Intégration IDE
+  - Maintien du style de code
 
 ## Dépendances de développement
 
-### Linting et formatage
+### Tests
 
-- **eslint**: Outil d'analyse statique pour identifier les problèmes dans le code JavaScript
-- **eslint-config-next**: Configuration ESLint recommandée pour les projets Next.js
-- **eslint-config-prettier**: Désactive les règles ESLint qui pourraient entrer en conflit avec Prettier
+- **Jest**
 
-### TypeScript
+  - Framework de test
+  - Support des snapshots
+  - Tests unitaires
+  - Tests d'intégration
 
-- **typescript**: Langage de programmation qui ajoute des types statiques à JavaScript
-- **@types/node**: Types TypeScript pour Node.js
-- **@types/react**: Types TypeScript pour React
-- **@types/react-dom**: Types TypeScript pour React DOM
+- **Testing Library**
+  - Tests de composants React
+  - Tests d'intégration
+  - Focus sur l'accessibilité
+  - Tests orientés utilisateur
 
-### CSS et UI
+### Build et Bundling
 
-- **tailwindcss**: Framework CSS utilitaire
-- **@tailwindcss/postcss**: Plugins PostCSS pour Tailwind CSS
+- **PostCSS**
 
-### Analyse de bundle et dépendances
+  - Transformation CSS
+  - Support des plugins
+  - Optimisation CSS
+  - Compatibilité navigateurs
 
-- **@next/bundle-analyzer**: Plugin officiel Next.js pour analyser les bundles JavaScript
-  > **Utilisation**: Exécutez `pnpm analyze` pour générer une analyse visuelle du bundle de l'application
-- **bundle-buddy**: Outil complémentaire pour analyser les duplications dans les bundles JavaScript
-- **depcheck**: Outil pour identifier les dépendances inutilisées dans le projet
-  > **Utilisation**: Exécutez `pnpm check-deps` pour obtenir une liste des dépendances non utilisées
+- **Autoprefixer**
+  - Préfixes CSS automatiques
+  - Compatibilité navigateurs
+  - Intégration PostCSS
+  - Maintenance simplifiée
 
-## Scripts disponibles
+## Notes sur les versions
 
-### Analyse des bundles
+- Les versions majeures sont maintenues à jour
+- Les mises à jour de sécurité sont appliquées rapidement
+- La compatibilité entre les dépendances est vérifiée
+- Les versions sont synchronisées avec le système de CI/CD
 
-```bash
-# Analyse le bundle de l'application
-pnpm analyze
-```
+## Gestion des dépendances
 
-Ce script génère une analyse visuelle du bundle de l'application dans votre navigateur, vous permettant d'identifier :
-
-- La taille des différents modules
-- Les dépendances les plus volumineuses
-- Les opportunités d'optimisation
-- La composition détaillée de chaque bundle
-
-### Vérification des dépendances inutilisées
+### Installation
 
 ```bash
-# Vérifie les dépendances inutilisées
-pnpm check-deps
+npm install   # Installation des dépendances
+npm run dev   # Démarrage du serveur de développement
 ```
 
-Ce script analyse le code source du projet et identifie :
+### Mise à jour
 
-- Les dépendances de production inutilisées
-- Les dépendances de développement inutilisées
-- Les fichiers qui pourraient être importés mais ne le sont pas
-
-### Configuration de l'analyseur de bundle
-
-L'analyseur de bundle est configuré dans le fichier `next.config.mjs` :
-
-```javascript
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-	enabled: process.env.ANALYZE === 'true',
-})
-
-const nextConfig = {
-	// Configuration Next.js
-}
-
-export default withBundleAnalyzer(nextConfig)
+```bash
+npm update    # Mise à jour des dépendances
+npm outdated  # Vérification des versions obsolètes
 ```
 
-### Configuration de depcheck
+### Scripts disponibles
 
-Depcheck est configuré dans le fichier `.depcheckrc.json` :
+Voir le fichier [scripts.md](./scripts.md) pour plus de détails sur les scripts disponibles.
 
-```json
-{
-	"ignorePatterns": ["node_modules", ".next", "public", "*.d.ts"],
-	"ignoreMatches": [
-		"@types/*",
-		"eslint-*",
-		"@eslint/*",
-		"typescript",
-		"@next/bundle-analyzer",
-		"tailwindcss",
-		"@tailwindcss/*"
-	],
-	"specials": [
-		"bin",
-		"eslint",
-		"tslint",
-		"webpack",
-		"jest",
-		"mocha",
-		"react",
-		"next"
-	]
-}
-```
+## Dépendances avec --legacy-peer-deps
+
+Certaines dépendances nécessitent l'utilisation de l'option `--legacy-peer-deps` en raison de conflits de versions avec React 19. Voici la liste :
+
+### UI et Animation
+
+- **tailwind-animate**
+  - Conflit avec React 19
+  - Installation : `npm install tailwind-animate --legacy-peer-deps`
+  - Utilisé pour les animations fluides
+  - Compatible avec Tailwind CSS v4
+
+### Notes sur --legacy-peer-deps
+
+- Cette option est utilisée pour contourner les vérifications strictes de compatibilité des dépendances
+- Nécessaire principalement pour les packages qui n'ont pas encore mis à jour leurs peer dependencies pour React 19
+- À utiliser avec précaution et uniquement pour les packages connus comme fonctionnels
+- Les mises à jour futures devraient résoudre ces conflits

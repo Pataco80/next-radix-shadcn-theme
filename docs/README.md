@@ -91,15 +91,14 @@
 ### Autres Liens / Other Links
 
 - [Tailwind CSS](https://tailwindcss.com/)
-  🇫🇷 Un framework CSS axé sur des classes utilitaires
-  🇬🇧 A utility-driven CSS framework
-- [shadcn/ui](hhttps://ui.shadcn.com/)
-  🇫🇷 Bibliothèque de composants sur une plateforme de distribution de code, Open Source et Open Code
-  🇬🇧 Component library on a code distribution platform, Open Source and Open Code
-
+  🇫🇷 Un framework CSS axé sur des classes utilitaires (v4.0.0)
+  🇬🇧 A utility-driven CSS framework (v4.0.0)
+- [shadcn/ui](https://ui.shadcn.com/)
+  🇫🇷 Bibliothèque de composants sur une plateforme de distribution de code, Open Source et Open Code (version canary - compatible Tailwind v4)
+  🇬🇧 Component library on a code distribution platform, Open Source and Open Code (canary version - Tailwind v4 compatible)
 - [Radix UI](https://www.radix-ui.com/)
-  🇫🇷 Une bibliothèque de composants open source optimisée pour un développement rapide
-  🇬🇧 An open source component library optimized for rapid development
+  🇫🇷 Une bibliothèque de composants open source optimisée pour un développement rapide (v2.0.0)
+  🇬🇧 An open source component library optimized for rapid development (v2.0.0)
 
 ## Contribution / Contributing
 

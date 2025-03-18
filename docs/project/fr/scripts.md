@@ -1,93 +1,276 @@
 # Scripts disponibles
 
-Ce document décrit tous les scripts disponibles dans ce projet Next.js. Utilisez ces scripts avec votre gestionnaire de paquets préféré (npm, yarn, pnpm ou bun).
+Ce document décrit les scripts disponibles dans le projet et leur utilisation.
 
-## Scripts de démarrage
+## Scripts de développement
 
-- `dev`: Démarre le serveur de développement avec Turbopack
+### `npm run dev`
 
-  ```bash
-  pnpm dev
-  ```
+Lance le serveur de développement Next.js.
 
-- `start`: Démarre l'application en mode production
+```bash
+npm run dev
+# ou
+pnpm dev
+```
 
-  ```bash
-  pnpm start
-  ```
+- Port par défaut : 3000
+- Hot reloading activé
+- Mode développement avec debugging
 
-## Scripts de build
+### `npm run build`
 
-- `build`: Compile l'application pour la production
+Compile l'application pour la production.
 
-  ```bash
-  pnpm build
-  ```
+```bash
+npm run build
+# ou
+pnpm build
+```
 
-- `rebuild`: Nettoie le dossier `.next` puis compile l'application
+- Optimisation des assets
+- Génération des pages statiques
+- Vérification des types TypeScript
+- Analyse des performances
 
-  ```bash
-  pnpm rebuild
-  ```
+### `npm run start`
 
-## Scripts de nettoyage
+Lance l'application en mode production.
 
-- `clean`: Supprime le dossier `.next`
+```bash
+npm run start
+# ou
+pnpm start
+```
 
-  ```bash
-  pnpm clean
-  ```
+- Port par défaut : 3000
+- Optimisé pour la production
+- Nécessite un build préalable
 
-- `clean:modules`: Supprime le dossier `node_modules`
+## Scripts de qualité de code
 
-  ```bash
-  pnpm clean:modules
-  ```
+### `npm run lint`
 
-- `cache:clean`: Nettoie le cache de pnpm
+Lance ESLint pour vérifier le code.
 
-  ```bash
-  pnpm cache:clean
-  ```
+```bash
+npm run lint
+# ou
+pnpm lint
+```
 
-## Scripts de réinitialisation
+- Vérifie la syntaxe
+- Applique les règles de style
+- Détecte les problèmes potentiels
 
-- `refresh`: Nettoie le dossier `.next` puis démarre le serveur de développement
+### `npm run format`
 
-  ```bash
-  pnpm refresh
-  ```
+Formate le code avec Prettier.
 
-- `reset`: Réinitialise complètement le projet (nettoie `.next`, supprime `node_modules` et réinstalle les dépendances)
+```bash
+npm run format
+# ou
+pnpm format
+```
 
-  ```bash
-  pnpm reset
-  ```
+- Formate tous les fichiers supportés
+- Applique les règles de style
+- Met à jour les fichiers in-place
 
-## Scripts d'installation
+## Scripts de test
 
-- `update-lock`: Met à jour le fichier de verrouillage sans nettoyer le projet
+### `npm run test`
 
-  ```bash
-  pnpm update-lock
-  ```
+Lance les tests unitaires avec Jest.
 
-- `install:timeout`: Installe les dépendances avec un délai réseau augmenté (pour les connexions lentes)
+```bash
+npm run test
+# ou
+pnpm test
+```
 
-  ```bash
-  pnpm install:timeout
-  ```
+- Exécute tous les tests
+- Génère un rapport de couverture
+- Mode CI par défaut
 
-- `install:registry`: Installe les dépendances en utilisant le registre npm officiel
+### `npm run test:watch`
 
-  ```bash
-  pnpm install:registry
-  ```
+Lance les tests en mode watch.
 
-## Scripts de linting
+```bash
+npm run test:watch
+# ou
+pnpm test:watch
+```
 
-- `lint`: Exécute ESLint pour vérifier le code
+- Surveille les changements
+- Relance les tests automatiquement
+- Idéal pour le développement
 
-  ```bash
-  pnpm lint
-  ```
+## Scripts de gestion des dépendances
+
+### `npm run update`
+
+Met à jour les dépendances.
+
+```bash
+npm run update
+# ou
+pnpm update
+```
+
+- Met à jour package.json
+- Met à jour le lockfile
+- Vérifie les compatibilités
+
+### `npm run clean`
+
+Nettoie les fichiers générés.
+
+```bash
+npm run clean
+# ou
+pnpm clean
+```
+
+- Supprime node_modules
+- Supprime .next
+- Supprime les caches
+
+## Scripts personnalisés
+
+### `npm run analyze`
+
+Analyse la taille du bundle.
+
+```bash
+npm run analyze
+# ou
+pnpm analyze
+```
+
+- Génère un rapport visuel
+- Identifie les gros modules
+- Suggestions d'optimisation
+
+### `npm run type-check`
+
+Vérifie les types TypeScript.
+
+```bash
+npm run type-check
+# ou
+pnpm type-check
+```
+
+- Vérifie tous les fichiers
+- Sans émission de fichiers
+- Rapide pour le CI
+
+## Environnements
+
+Les scripts peuvent être exécutés dans différents environnements :
+
+### Développement
+
+```bash
+NODE_ENV=development npm run dev
+```
+
+- Variables d'environnement de dev
+- Outils de développement activés
+- Logs détaillés
+
+### Production
+
+```bash
+NODE_ENV=production npm run build
+NODE_ENV=production npm run start
+```
+
+- Variables d'environnement de prod
+- Optimisations activées
+- Logs minimaux
+
+### Test
+
+```bash
+NODE_ENV=test npm run test
+```
+
+- Variables d'environnement de test
+- Base de données de test
+- Mocks activés
+
+## Configuration
+
+Les scripts peuvent être configurés via :
+
+1. `.env` files
+2. Arguments en ligne de commande
+3. Variables d'environnement
+
+Exemple :
+
+```bash
+# Port personnalisé
+PORT=4000 npm run dev
+
+# Base URL personnalisée
+NEXT_PUBLIC_API_URL=http://api.local npm run dev
+
+# Mode debug
+DEBUG=* npm run dev
+```
+
+## Bonnes pratiques
+
+1. Toujours utiliser `npm run` ou `pnpm`
+2. Vérifier le statut de sortie des scripts
+3. Utiliser les variables d'environnement
+4. Documenter les modifications
+
+## Dépannage
+
+### Problèmes courants
+
+1. **Port déjà utilisé**
+
+   ```bash
+   PORT=3001 npm run dev
+   ```
+
+2. **Erreurs de mémoire**
+
+   ```bash
+   NODE_OPTIONS="--max-old-space-size=4096" npm run build
+   ```
+
+3. **Cache corrompu**
+   ```bash
+   npm run clean && npm install
+   ```
+
+### Logs
+
+- `npm run dev` : Console du navigateur
+- `npm run build` : Terminal
+- `npm run test` : Sortie Jest
+
+## Intégration continue
+
+Les scripts sont utilisés dans le CI/CD :
+
+```yaml
+# .github/workflows/ci.yml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build
+```

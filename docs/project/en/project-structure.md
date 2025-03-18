@@ -24,10 +24,11 @@ This document describes in detail the structure of the Next.js Radix Theme proje
 │   ├── 📄 layout.tsx                # Root layout component
 │   └── 📄 page.tsx                  # Home page component
 ├── 📁 css/                          # CSS files for the application
-|   └── 📁 globals/                  # Global variables
-│       ├── 📄 fluid-grid.css        # CSS grid with fluid system
-│       ├── 📄 fluid-spacing.css     # CSS spacing with fluid system
-│       └── 📄 fluid-typography.css  # CSS for fluid scale typography
+│   ├── 📄 theme.css                 # Theme configuration
+│   ├── 📄 fluid-typography.css      # CSS for fluid scale typography
+│   ├── 📄 fluid-grid.css           # CSS grid with fluid system
+│   ├── 📄 fluid-spacing.css        # CSS spacing with fluid system
+│   └── 📄 colors.css               # Color system configuration
 ├── 📁 docs/                         # Detailed project documentation
 │   ├── 📄 index.md                  # Documentation entry point
 │   ├── 📄 project-design.md         # Project design documentation
@@ -59,6 +60,39 @@ This folder contains the main components of the Next.js application using the Ap
 - `page.tsx`: Home page component
 - `globals.css`: Global CSS styles applied to the entire application
 - `favicon.ico`: Website icon
+
+### `/css`
+
+This folder contains the design system files:
+
+- `theme.css`: Theme configuration
+
+  - CSS variables
+  - Light/dark themes
+  - Shadcn UI configuration
+
+- `fluid-typography.css`: Typography system
+
+  - Fluid scales
+  - Line heights
+  - Spacing
+
+- `fluid-grid.css`: Grid system
+
+  - Container
+  - Breakpoints
+  - Fluid grids
+
+- `fluid-spacing.css`: Spacing system
+
+  - Margins
+  - Padding
+  - Fluid spacing
+
+- `colors.css`: Color system
+  - Color palette
+  - Semantic variables
+  - Light/dark themes
 
 ### `/docs`
 
