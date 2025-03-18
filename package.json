@@ -16,7 +16,6 @@
 		"install:timeout": "pnpm install --network-timeout 100000",
 		"install:registry": "pnpm install --registry=https://registry.npmjs.org/",
 		"cache:clean": "pnpm store prune",
-		"analyze": "ANALYZE=true next build",
 		"check-deps": "depcheck || true"
 	},
 	"dependencies": {
@@ -72,8 +71,6 @@
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
-		"@next/bundle-analyzer": "^15.2.1",
-		"@tailwindcss/postcss": "4",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
