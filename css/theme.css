@@ -1,35 +1,138 @@
-/* Theme */
-/* 
-FR: Ce fichier importe les fichiers de configuration du thème afin d'opter pour une seule exportation dans le fichier globals.css
-EN: This file imports the theme configuration files in order to opt for a single export in the globals.css file
-*/
+/**
+ * Theme principal
+ * Configuration pour :
+ * - Tailwind CSS v4.0.0
+ * - Shadcn UI v0.8.0 (compatible Tailwind v4)
+ * 
+ * Hiérarchie des couches CSS (du plus bas au plus haut niveau) :
+ * 1. @layer theme
+ *    - Variables globales (couleurs, radius, etc.)
+ *    - Thème clair/sombre
+ *    - Variables Shadcn UI
+ * 2. @layer base
+ *    - Reset CSS
+ *    - Styles de base (body, typography)
+ *    - Styles Shadcn UI de base
+ * 3. @layer components
+ *    - Styles des composants réutilisables
+ *    - Composants Shadcn UI
+ * 4. @layer utilities
+ *    - Classes utilitaires personnalisées
+ *    - Extensions Tailwind
+ *    - Utilitaires Shadcn UI
+ * 
+ * Note: Les variables définies ici sont utilisées par les composants Shadcn UI
+ * et peuvent être personnalisées pour correspondre à votre charte graphique
+ */
 
-/* Colors */
-/*@import './colors.css';*/
+@import 'tailwindcss';
+@import 'tailwindcss-animate';
 
-/* Fluid System */
-@import './fluid-typography.css';
-@import './fluid-spacing.css';
-@import './fluid-grid.css';
-
-/* Thème global */
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
-}
-
-/* Thème sombre */
-@media (prefers-color-scheme: dark) {
+/* Variables globales du thème */
+@layer theme {
 	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
+		--background: 0 0% 100%;
+		--foreground: 240 10% 3.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 240 10% 3.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 240 10% 3.9%;
+		--primary: 240 5.9% 10%;
+		--primary-foreground: 0 0% 98%;
+		--secondary: 240 4.8% 95.9%;
+		--secondary-foreground: 240 5.9% 10%;
+		--muted: 240 4.8% 95.9%;
+		--muted-foreground: 240 3.8% 46.1%;
+		--accent: 240 4.8% 95.9%;
+		--accent-foreground: 240 5.9% 10%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 5.9% 90%;
+		--input: 240 5.9% 90%;
+		--ring: 240 5.9% 10%;
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 240 10% 3.9%;
+		--foreground: 0 0% 98%;
+		--card: 240 10% 3.9%;
+		--card-foreground: 0 0% 98%;
+		--popover: 240 10% 3.9%;
+		--popover-foreground: 0 0% 98%;
+		--primary: 0 0% 98%;
+		--primary-foreground: 240 5.9% 10%;
+		--secondary: 240 3.7% 15.9%;
+		--secondary-foreground: 0 0% 98%;
+		--muted: 240 3.7% 15.9%;
+		--muted-foreground: 240 5% 64.9%;
+		--accent: 240 3.7% 15.9%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 3.7% 15.9%;
+		--input: 240 3.7% 15.9%;
+		--ring: 240 4.9% 83.9%;
 	}
 }
 
 /* Styles de base */
 @layer base {
-	body {
-		background: var(--background);
-		color: var(--foreground);
+	* {
+		@apply border-border;
 	}
+	body {
+		@apply bg-background text-foreground;
+	}
+
+	/* Styles de typographie */
+	h1 {
+		font-size: var(--font-size-4xl);
+		line-height: var(--line-height-4xl);
+	}
+
+	h2 {
+		font-size: var(--font-size-3xl);
+		line-height: var(--line-height-3xl);
+	}
+
+	h3 {
+		font-size: var(--font-size-2xl);
+		line-height: var(--line-height-2xl);
+	}
+
+	h4 {
+		font-size: var(--font-size-xl);
+		line-height: var(--line-height-xl);
+	}
+
+	h5 {
+		font-size: var(--font-size-lg);
+		line-height: var(--line-height-lg);
+	}
+
+	h6 {
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-base);
+	}
+
+	p {
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-base);
+	}
+
+	small {
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-sm);
+	}
+}
+
+/* Composants personnalisés */
+@layer components {
+	/* Styles spécifiques aux composants ici */
+}
+
+/* Classes utilitaires personnalisées */
+@layer utilities {
+	/* Extensions des utilitaires Tailwind ici */
 }

@@ -1,3 +1,109 @@
+/**
+ * Système de typographie fluide
+ * Configuration pour :
+ * - Tailwind CSS v4.0.0
+ * - Shadcn UI v0.8.0 (compatible Tailwind v4)
+ * Basé sur le calculateur Utopia.fyi
+ * 
+ * Hiérarchie des couches CSS (du plus bas au plus haut niveau) :
+ * 1. @layer theme
+ *    - Variables de typographie fluide
+ *    - Échelles typographiques
+ *    - Hauteurs de ligne
+ *    - Variables typographiques Shadcn UI
+ * 2. @layer base
+ *    - Reset typographique
+ *    - Styles de base des éléments textuels
+ *    - Styles typographiques Shadcn UI
+ * 3. @layer utilities
+ *    - Classes de taille de texte (.text-fl-*)
+ *    - Classes de hauteur de ligne (.leading-fl-*)
+ *    - Classes combinées (taille + hauteur)
+ *    - Utilitaires typographiques Shadcn UI
+ * 
+ * Note: Les classes utilitaires définies ici sont compatibles avec
+ * les composants Shadcn UI et peuvent être utilisées pour personnaliser
+ * la typographie de vos composants
+ */
+
+/* Variables de typographie fluide */
+@layer theme {
+	:root {
+		/* Tailles de police fluides */
+		--fl-min-width: 320;
+		--fl-max-width: 1240;
+		--fl-min-scale: 1.125;
+		--fl-max-scale: 1.25;
+
+		/* Échelle typographique */
+		--fl-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+		--fl-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+		--fl-base: clamp(1rem, 0.925rem + 0.375vw, 1.125rem);
+		--fl-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+		--fl-xl: clamp(1.25rem, 1.125rem + 0.625vw, 1.5rem);
+		--fl-2xl: clamp(1.5rem, 1.375rem + 0.625vw, 1.875rem);
+		--fl-3xl: clamp(1.875rem, 1.75rem + 0.625vw, 2.25rem);
+		--fl-4xl: clamp(2.25rem, 2rem + 1.25vw, 3rem);
+		--fl-5xl: clamp(3rem, 2.75rem + 1.25vw, 4rem);
+
+		/* Hauteurs de ligne */
+		--fl-leading-none: 1;
+		--fl-leading-tight: 1.25;
+		--fl-leading-snug: 1.375;
+		--fl-leading-normal: 1.5;
+		--fl-leading-relaxed: 1.625;
+		--fl-leading-loose: 2;
+	}
+}
+
+/* Classes utilitaires de typographie */
+@layer utilities {
+	.text-fl-xs {
+		font-size: var(--fl-xs);
+		line-height: var(--fl-leading-normal);
+	}
+
+	.text-fl-sm {
+		font-size: var(--fl-sm);
+		line-height: var(--fl-leading-normal);
+	}
+
+	.text-fl-base {
+		font-size: var(--fl-base);
+		line-height: var(--fl-leading-normal);
+	}
+
+	.text-fl-lg {
+		font-size: var(--fl-lg);
+		line-height: var(--fl-leading-normal);
+	}
+
+	.text-fl-xl {
+		font-size: var(--fl-xl);
+		line-height: var(--fl-leading-normal);
+	}
+
+	.text-fl-2xl {
+		font-size: var(--fl-2xl);
+		line-height: var(--fl-leading-tight);
+	}
+
+	.text-fl-3xl {
+		font-size: var(--fl-3xl);
+		line-height: var(--fl-leading-tight);
+	}
+
+	.text-fl-4xl {
+		font-size: var(--fl-4xl);
+		line-height: var(--fl-leading-tight);
+	}
+
+	.text-fl-5xl {
+		font-size: var(--fl-5xl);
+		line-height: var(--fl-leading-tight);
+	}
+}
+
 /*
 Fluid typography
 
