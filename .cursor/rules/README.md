@@ -29,6 +29,7 @@ next-radix-shadcn-theme/
 │   ├── git-workflow.md            # Configuration Git-flow et conventions
 │   ├── project-setup.md           # Initialisation du projet
 │   ├── documentation-guidelines.md # Règles de documentation et traduction
+│   ├── package-versions.md        # Gestion des versions des packages
 │   └── scripts/
 │       └── setup.sh               # Script d'initialisation interactif
 └── ...                            # Autres fichiers et dossiers du projet
@@ -45,6 +46,7 @@ next-radix-shadcn-theme/
 - [Configuration Git-flow et conventions](./git-workflow.md)
 - [Initialisation du projet](./project-setup.md)
 - [Règles de documentation et traduction](./documentation-guidelines.md)
+- [Gestion des versions des packages](./package-versions.md)
 
 ## Script d'initialisation
 
