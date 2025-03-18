@@ -1,52 +1,60 @@
 /**
- * Système de typographie fluide
- * Configuration pour :
+ * Système de typographie fluide / Fluid Typography System
+ * Configuration pour / Configuration for :
  * - Tailwind CSS v4.0.0
- * - Shadcn UI v0.8.0 (compatible Tailwind v4)
- * Basé sur le calculateur Utopia.fyi
+ * - Shadcn UI (version canary - compatible Tailwind v4)
+ * Basé sur le calculateur Utopia.fyi / Based on the Utopia.fyi calculator
  * 
- * Hiérarchie des couches CSS (du plus bas au plus haut niveau) :
+ * Note: Shadcn UI est actuellement en version canary pour la compatibilité
+ * avec Tailwind v4. Utilisez `npx shadcn@canary init` pour l'installation.
+ * / Note: Shadcn UI is currently in canary version for compatibility
+ * with Tailwind v4. Use `npx shadcn@canary init` for installation.
+ * 
+ * Hiérarchie des couches CSS (du plus bas au plus haut niveau) /
+ * CSS Layer Hierarchy (from lowest to highest level):
  * 1. @layer theme
- *    - Variables de typographie fluide
- *    - Échelles typographiques
- *    - Hauteurs de ligne
- *    - Variables typographiques Shadcn UI
+ *    - Variables de typographie fluide / Fluid typography variables
+ *    - Échelles typographiques / Typographic scales
+ *    - Hauteurs de ligne / Line heights
+ *    - Variables typographiques Shadcn UI / Shadcn UI typography variables
  * 2. @layer base
- *    - Reset typographique
- *    - Styles de base des éléments textuels
- *    - Styles typographiques Shadcn UI
+ *    - Reset typographique / Typographic reset
+ *    - Styles de base des éléments textuels / Base styles for text elements
+ *    - Styles typographiques Shadcn UI / Shadcn UI typography styles
  * 3. @layer utilities
- *    - Classes de taille de texte (.text-fl-*)
- *    - Classes de hauteur de ligne (.leading-fl-*)
- *    - Classes combinées (taille + hauteur)
- *    - Utilitaires typographiques Shadcn UI
+ *    - Classes de taille de texte (.text-fl-*) / Text size classes (.text-fl-*)
+ *    - Classes de hauteur de ligne (.leading-fl-*) / Line height classes (.leading-fl-*)
+ *    - Classes combinées (taille + hauteur) / Combined classes (size + height)
+ *    - Utilitaires typographiques Shadcn UI / Shadcn UI typography utilities
  * 
  * Note: Les classes utilitaires définies ici sont compatibles avec
  * les composants Shadcn UI et peuvent être utilisées pour personnaliser
  * la typographie de vos composants
+ * / Note: The utility classes defined here are compatible with
+ * Shadcn UI components and can be used to customize
+ * the typography of your components
  */
 
-/* Variables de typographie fluide */
+/* Variables de typographie fluide / Fluid typography variables */
 @layer theme {
 	:root {
-		/* Tailles de police fluides */
+		/* Tailles de police fluides / Fluid font sizes */
 		--fl-min-width: 320;
 		--fl-max-width: 1240;
 		--fl-min-scale: 1.125;
 		--fl-max-scale: 1.25;
 
-		/* Échelle typographique */
-		--fl-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-		--fl-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
-		--fl-base: clamp(1rem, 0.925rem + 0.375vw, 1.125rem);
-		--fl-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
-		--fl-xl: clamp(1.25rem, 1.125rem + 0.625vw, 1.5rem);
-		--fl-2xl: clamp(1.5rem, 1.375rem + 0.625vw, 1.875rem);
-		--fl-3xl: clamp(1.875rem, 1.75rem + 0.625vw, 2.25rem);
-		--fl-4xl: clamp(2.25rem, 2rem + 1.25vw, 3rem);
-		--fl-5xl: clamp(3rem, 2.75rem + 1.25vw, 4rem);
+		/* Échelle typographique / Typographic scale */
+		--fl-xs: var(--size--2);
+		--fl-sm: var(--size--1);
+		--fl-base: var(--size-0);
+		--fl-lg: var(--size-1);
+		--fl-xl: var(--size-2);
+		--fl-2xl: var(--size-3);
+		--fl-3xl: var(--size-4);
+		--fl-4xl: var(--size-5);
 
-		/* Hauteurs de ligne */
+		/* Hauteurs de ligne / Line heights */
 		--fl-leading-none: 1;
 		--fl-leading-tight: 1.25;
 		--fl-leading-snug: 1.375;
@@ -56,7 +64,7 @@
 	}
 }
 
-/* Classes utilitaires de typographie */
+/* Classes utilitaires de typographie / Typography utility classes */
 @layer utilities {
 	.text-fl-xs {
 		font-size: var(--fl-xs);
@@ -105,36 +113,37 @@
 }
 
 /*
-Fluid typography
+Fluid typography / Typographie fluide
 
 This is a fluid typography system that allows you to create a typography that is fluid and responsive.
+/ C'est un système de typographie fluide qui permet de créer une typographie fluide et responsive.
 
 It is based on the clamp function.
-This sytem is used Utopia.fyi
+This system is used Utopia.fyi
+/ Il est basé sur la fonction clamp.
+Ce système est utilisé par Utopia.fyi
 
 https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
 */
 
-@import './fluid-variables.css';
-
-/* Variables typographiques */
+/* Variables typographiques / Typographic variables */
 :root {
-	/* Line Heights - Calculated using ratios */
-	/* Petit texte (--lh--2, --lh--1) → Ratio 1.2 (--ratio-sm) */
+	/* Line Heights - Calculated using ratios / Hauteurs de ligne - Calculées avec des ratios */
+	/* Petit texte (--lh--2, --lh--1) → Ratio 1.2 (--ratio-sm) / Small text (--lh--2, --lh--1) → Ratio 1.2 (--ratio-sm) */
 	--fl-lh--2: calc(var(--size--2) * var(--ratio-sm));
 	--fl-lh--1: calc(var(--size--1) * var(--ratio-sm));
 
-	/* Texte normal (--lh-0, --lh-1) → Ratio 1.4 (--ratio-base) */
+	/* Texte normal (--lh-0, --lh-1) → Ratio 1.4 (--ratio-base) / Normal text (--lh-0, --lh-1) → Ratio 1.4 (--ratio-base) */
 	--fl-lh-0: calc(var(--size-0) * var(--ratio-base));
 	--fl-lh-1: calc(var(--size-1) * var(--ratio-base));
 
-	/* Titres (--lh-2 à --lh-5) → Ratio 1.6 (--ratio-lg) */
+	/* Titres (--lh-2 à --lh-5) → Ratio 1.6 (--ratio-lg) / Headings (--lh-2 to --lh-5) → Ratio 1.6 (--ratio-lg) */
 	--fl-lh-2: calc(var(--size-2) * var(--ratio-lg));
 	--fl-lh-3: calc(var(--size-3) * var(--ratio-lg));
 	--fl-lh-4: calc(var(--size-4) * var(--ratio-lg));
 	--fl-lh-5: calc(var(--size-5) * var(--ratio-lg));
 
-	/* Extension des tailles Tailwind */
+	/* Extension des tailles Tailwind / Tailwind size extensions */
 	--fl-text-xs: var(--size--2);
 	--fl-text-sm: var(--size--1);
 	--fl-text-base: var(--size-0);
@@ -144,7 +153,7 @@ https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7
 	--fl-text-3xl: var(--size-4);
 	--fl-text-4xl: var(--size-5);
 
-	/* Extension des hauteurs de ligne Tailwind */
+	/* Extension des hauteurs de ligne Tailwind / Tailwind line height extensions */
 	--fl-leading-3: var(--fl-lh--2); /* Ratio 1.2 */
 	--fl-leading-4: var(--fl-lh--1); /* Ratio 1.2 */
 	--fl-leading-5: var(--fl-lh-0); /* Ratio 1.4 */
@@ -155,7 +164,7 @@ https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7
 	--fl-leading-10: var(--fl-lh-5); /* Ratio 1.6 */
 }
 
-/* Reset de base */
+/* Reset de base / Base reset */
 @layer base {
 	* {
 		margin: 0;
@@ -204,9 +213,9 @@ https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7
 	}
 }
 
-/* Classes utilitaires */
+/* Classes utilitaires / Utility classes */
 @layer utilities {
-	/* Classes de hauteur de ligne fluide */
+	/* Classes de hauteur de ligne fluide / Fluid line height classes */
 	.leading-fl-3 {
 		line-height: var(--fl-leading-3);
 	}
@@ -232,7 +241,7 @@ https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7
 		line-height: var(--fl-leading-10);
 	}
 
-	/* Classes de texte avec line-height par défaut */
+	/* Classes de texte avec line-height par défaut / Text classes with default line-height */
 	.text-fl-xs {
 		font-size: var(--fl-text-xs);
 		line-height: var(--fl-leading-3);
@@ -269,111 +278,6 @@ https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7
 	}
 
 	.text-fl-4xl {
-		font-size: var(--fl-text-4xl);
-		line-height: var(--fl-leading-10);
-	}
-
-	/* Classes avec line-height personnalisé */
-	/* XS */
-	.text-fl-xs\/3 {
-		font-size: var(--fl-text-xs);
-		line-height: var(--fl-leading-3);
-	}
-	.text-fl-xs\/4 {
-		font-size: var(--fl-text-xs);
-		line-height: var(--fl-leading-4);
-	}
-	.text-fl-xs\/5 {
-		font-size: var(--fl-text-xs);
-		line-height: var(--fl-leading-5);
-	}
-
-	/* SM */
-	.text-fl-sm\/4 {
-		font-size: var(--fl-text-sm);
-		line-height: var(--fl-leading-4);
-	}
-	.text-fl-sm\/5 {
-		font-size: var(--fl-text-sm);
-		line-height: var(--fl-leading-5);
-	}
-	.text-fl-sm\/6 {
-		font-size: var(--fl-text-sm);
-		line-height: var(--fl-leading-6);
-	}
-
-	/* BASE */
-	.text-fl-base\/5 {
-		font-size: var(--fl-text-base);
-		line-height: var(--fl-leading-5);
-	}
-	.text-fl-base\/6 {
-		font-size: var(--fl-text-base);
-		line-height: var(--fl-leading-6);
-	}
-	.text-fl-base\/7 {
-		font-size: var(--fl-text-base);
-		line-height: var(--fl-leading-7);
-	}
-
-	/* LG */
-	.text-fl-lg\/6 {
-		font-size: var(--fl-text-lg);
-		line-height: var(--fl-leading-6);
-	}
-	.text-fl-lg\/7 {
-		font-size: var(--fl-text-lg);
-		line-height: var(--fl-leading-7);
-	}
-	.text-fl-lg\/8 {
-		font-size: var(--fl-text-lg);
-		line-height: var(--fl-leading-8);
-	}
-
-	/* XL */
-	.text-fl-xl\/7 {
-		font-size: var(--fl-text-xl);
-		line-height: var(--fl-leading-7);
-	}
-	.text-fl-xl\/8 {
-		font-size: var(--fl-text-xl);
-		line-height: var(--fl-leading-8);
-	}
-	.text-fl-xl\/9 {
-		font-size: var(--fl-text-xl);
-		line-height: var(--fl-leading-9);
-	}
-
-	/* 2XL */
-	.text-fl-2xl\/8 {
-		font-size: var(--fl-text-2xl);
-		line-height: var(--fl-leading-8);
-	}
-	.text-fl-2xl\/9 {
-		font-size: var(--fl-text-2xl);
-		line-height: var(--fl-leading-9);
-	}
-	.text-fl-2xl\/10 {
-		font-size: var(--fl-text-2xl);
-		line-height: var(--fl-leading-10);
-	}
-
-	/* 3XL */
-	.text-fl-3xl\/9 {
-		font-size: var(--fl-text-3xl);
-		line-height: var(--fl-leading-9);
-	}
-	.text-fl-3xl\/10 {
-		font-size: var(--fl-text-3xl);
-		line-height: var(--fl-leading-10);
-	}
-
-	/* 4XL */
-	.text-fl-4xl\/9 {
-		font-size: var(--fl-text-4xl);
-		line-height: var(--fl-leading-9);
-	}
-	.text-fl-4xl\/10 {
 		font-size: var(--fl-text-4xl);
 		line-height: var(--fl-leading-10);
 	}

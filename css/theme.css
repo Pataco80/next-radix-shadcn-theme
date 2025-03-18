@@ -1,36 +1,75 @@
 /**
- * Theme principal
- * Configuration pour :
+ * Theme principal / Main Theme
+ * Configuration pour / Configuration for:
  * - Tailwind CSS v4.0.0
- * - Shadcn UI v0.8.0 (compatible Tailwind v4)
+ * - Shadcn UI (version canary - compatible Tailwind v4)
  * 
- * Hiérarchie des couches CSS (du plus bas au plus haut niveau) :
+ * Note: Shadcn UI est actuellement en version canary pour la compatibilité
+ * avec Tailwind v4. Utilisez `npx shadcn@canary init` pour l'installation.
+ * / Note: Shadcn UI is currently in canary version for compatibility
+ * with Tailwind v4. Use `npx shadcn@canary init` for installation.
+ * 
+ * Hiérarchie des couches CSS (du plus bas au plus haut niveau) /
+ * CSS Layer Hierarchy (from lowest to highest level):
  * 1. @layer theme
- *    - Variables globales (couleurs, radius, etc.)
- *    - Thème clair/sombre
- *    - Variables Shadcn UI
+ *    - Variables globales (couleurs, radius, etc.) / Global variables (colors, radius, etc.)
+ *    - Variables fluides (typographie, espacement, grille) / Fluid variables (typography, spacing, grid)
+ *    - Thème clair/sombre / Light/Dark theme
+ *    - Variables Shadcn UI / Shadcn UI variables
  * 2. @layer base
- *    - Reset CSS
- *    - Styles de base (body, typography)
- *    - Styles Shadcn UI de base
+ *    - Reset CSS / CSS Reset
+ *    - Styles de base (body, typography) / Base styles (body, typography)
+ *    - Styles Shadcn UI de base / Base Shadcn UI styles
  * 3. @layer components
- *    - Styles des composants réutilisables
- *    - Composants Shadcn UI
+ *    - Styles des composants réutilisables / Reusable component styles
+ *    - Composants Shadcn UI / Shadcn UI components
  * 4. @layer utilities
- *    - Classes utilitaires personnalisées
- *    - Extensions Tailwind
- *    - Utilitaires Shadcn UI
+ *    - Classes utilitaires personnalisées / Custom utility classes
+ *    - Extensions Tailwind / Tailwind extensions
+ *    - Utilitaires Shadcn UI / Shadcn UI utilities
  * 
  * Note: Les variables définies ici sont utilisées par les composants Shadcn UI
  * et peuvent être personnalisées pour correspondre à votre charte graphique
+ * / Note: The variables defined here are used by Shadcn UI components
+ * and can be customized to match your design system
  */
 
 @import 'tailwindcss';
-@import 'tailwindcss-animate';
 
-/* Variables globales du thème */
+/* Variables globales du thème / Global theme variables */
 @layer theme {
 	:root {
+		/* Couleurs de base / Base colors */
+		--primary: hsl(var(--primary));
+		--primary-foreground: hsl(var(--primary-foreground));
+		--secondary: hsl(var(--secondary));
+		--secondary-foreground: hsl(var(--secondary-foreground));
+
+		/* Couleurs de l'interface / UI colors */
+		--background: hsl(var(--background));
+		--foreground: hsl(var(--foreground));
+		--muted: hsl(var(--muted));
+		--muted-foreground: hsl(var(--muted-foreground));
+		--accent: hsl(var(--accent));
+		--accent-foreground: hsl(var(--accent-foreground));
+
+		/* Couleurs des composants / Component colors */
+		--card: hsl(var(--card));
+		--card-foreground: hsl(var(--card-foreground));
+		--popover: hsl(var(--popover));
+		--popover-foreground: hsl(var(--popover-foreground));
+
+		/* Couleurs sémantiques / Semantic colors */
+		--destructive: hsl(var(--destructive));
+		--destructive-foreground: hsl(var(--destructive-foreground));
+		--success: hsl(var(--success));
+		--success-foreground: hsl(var(--success-foreground));
+		--warning: hsl(var(--warning));
+		--warning-foreground: hsl(var(--warning-foreground));
+		--info: hsl(var(--info));
+		--info-foreground: hsl(var(--info-foreground));
+
+		/* Variables de base / Base variables */
 		--background: 0 0% 100%;
 		--foreground: 240 10% 3.9%;
 		--card: 0 0% 100%;
@@ -51,6 +90,38 @@
 		--input: 240 5.9% 90%;
 		--ring: 240 5.9% 10%;
 		--radius: 0.5rem;
+
+		/* Variables fluides / Fluid variables */
+		/* Ratios de hauteur de ligne / Line height ratios */
+		--ratio-sm: 1.2;
+		--ratio-base: 1.5;
+		--ratio-lg: 1.8;
+
+		/* Tailles de typographie fluides / Fluid typography sizes */
+		--size--2: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+		--size--1: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+		--size-0: clamp(1rem, 0.925rem + 0.375vw, 1.125rem);
+		--size-1: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+		--size-2: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+		--size-3: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+		--size-4: clamp(3rem, 2rem + 5vw, 4rem);
+		--size-5: clamp(4rem, 2.5rem + 7.5vw, 5rem);
+
+		/* Espacements fluides / Fluid spacing */
+		--space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
+		--space-2xs: clamp(0.5rem, 0.5rem + 0vw, 0.5rem);
+		--space-xs: clamp(0.75rem, 0.75rem + 0vw, 0.75rem);
+		--space-sm: clamp(1rem, 1rem + 0vw, 1rem);
+		--space-md: clamp(1.5rem, 1.5rem + 0vw, 1.5rem);
+		--space-lg: clamp(2rem, 2rem + 0vw, 2rem);
+		--space-xl: clamp(3rem, 3rem + 0vw, 3rem);
+		--space-2xl: clamp(4rem, 4rem + 0vw, 4rem);
+		--space-3xl: clamp(6rem, 6rem + 0vw, 6rem);
+
+		/* Grille fluide / Fluid grid */
+		--grid-max-width: 80rem;
+		--grid-gutter: clamp(1rem, 1rem + 0vw, 1rem);
+		--grid-columns: 12;
 	}
 
 	.dark {
@@ -76,16 +147,17 @@
 	}
 }
 
-/* Styles de base */
+/* Styles de base / Base styles */
 @layer base {
 	* {
-		@apply border-border;
+		@apply border-border outline-ring/50;
 	}
 	body {
 		@apply bg-background text-foreground;
+		font-feature-settings: 'rlig' 1, 'calt' 1;
 	}
 
-	/* Styles de typographie */
+	/* Styles de typographie / Typography styles */
 	h1 {
 		font-size: var(--font-size-4xl);
 		line-height: var(--line-height-4xl);
@@ -127,12 +199,12 @@
 	}
 }
 
-/* Composants personnalisés */
+/* Composants personnalisés / Custom components */
 @layer components {
-	/* Styles spécifiques aux composants ici */
+	/* Styles spécifiques aux composants ici / Component-specific styles here */
 }
 
-/* Classes utilitaires personnalisées */
+/* Classes utilitaires personnalisées / Custom utility classes */
 @layer utilities {
-	/* Extensions des utilitaires Tailwind ici */
+	/* Extensions des utilitaires Tailwind ici / Tailwind utility extensions here */
 }

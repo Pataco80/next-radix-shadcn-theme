@@ -1,45 +1,75 @@
 /*
-Fluid spacing
+Espacement fluide / Fluid spacing
 
-This is a fluid spacing system that is flexible depending on the size of the viewport. Its use allows to obtain harmonious margin and padding in components, layout, pages, etc...
+Ce système d'espacement est flexible en fonction de la taille de la fenêtre.
+Son utilisation permet d'obtenir des marges et des rembourrages harmonieux
+dans les composants, la mise en page, les pages, etc.
 
-This grid uses the clamping function to create fluid spacing.
+This spacing system is flexible depending on the viewport size.
+Its use allows for harmonious margins and padding in components,
+layout, pages, etc.
 
-It is based on the same basic values as the fluid type calculator of your project.
+Ce système utilise la fonction clamp pour créer des espacements fluides.
+Il est basé sur les mêmes valeurs de base que le calculateur de type fluide de votre projet.
 
-This sytem is used Utopia.fyi
-Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
+This system uses the clamp function to create fluid spacing.
+It is based on the same base values as your project's fluid type calculator.
+
+Ce système est utilisé par Utopia.fyi
+Page web pour les paramètres / Web page for parameters:
+https://utopia.fyi/space/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
 */
-@import './fluid-variables.css';
 
 :root {
-	/* Espacements basés sur l'échelle typographique */
+	/* Espacements basés sur l'échelle typographique / Spacing based on typographic scale */
 	--fl-space-2xs: var(--space-3xs); /* 5px → 6px (Utopia 3xs → Tailwind 2xs) */
 	--fl-space-xs: var(--space-2xs); /* 9px → 12px (Utopia 2xs → Tailwind xs) */
 	--fl-space-sm: var(--space-xs); /* 14px → 18px (Utopia xs → Tailwind sm) */
-	--fl-space-base: var(--space-s); /* 18px → 24px (Utopia s → Tailwind base) */
-	--fl-space-md: var(--space-m); /* 27px → 36px (Utopia m → Tailwind md) */
-	--fl-space-lg: var(--space-l); /* 36px → 48px (Utopia l → Tailwind lg) */
+	--fl-space-base: var(--space-sm); /* 18px → 24px (Utopia s → Tailwind base) */
+	--fl-space-md: var(--space-md); /* 27px → 36px (Utopia m → Tailwind md) */
+	--fl-space-lg: var(--space-lg); /* 36px → 48px (Utopia l → Tailwind lg) */
 	--fl-space-xl: var(--space-xl); /* 54px → 72px (Utopia xl → Tailwind xl) */
-	--fl-space-2xl: var(--space-2xl); /* 72px → 96px (Utopia 2xl → Tailwind 2xl) */
-	--fl-space-3xl: var(--space-3xl); /* 108px → 144px (Utopia 3xl → Tailwind 3xl) */
+	--fl-space-2xl: var(
+		--space-2xl
+	); /* 72px → 96px (Utopia 2xl → Tailwind 2xl) */
+	--fl-space-3xl: var(
+		--space-3xl
+	); /* 108px → 144px (Utopia 3xl → Tailwind 3xl) */
 
-	/* Paires pour les transitions fluides */
-	--fl-space-2xs-xs: var(--space-3xs-2xs); /* 5px → 12px (Utopia 3xs-2xs → Tailwind 2xs-xs) */
-	--fl-space-xs-sm: var(--space-2xs-xs); /* 9px → 18px (Utopia 2xs-xs → Tailwind xs-sm) */
-	--fl-space-sm-base: var(--space-xs-s); /* 14px → 24px (Utopia xs-s → Tailwind sm-base) */
-	--fl-space-base-md: var(--space-s-m); /* 18px → 36px (Utopia s-m → Tailwind base-md) */
-	--fl-space-md-lg: var(--space-m-l); /* 27px → 48px (Utopia m-l → Tailwind md-lg) */
-	--fl-space-lg-xl: var(--space-l-xl); /* 36px → 72px (Utopia l-xl → Tailwind lg-xl) */
-	--fl-space-xl-2xl: var(--space-xl-2xl); /* 54px → 96px (Utopia xl-2xl → Tailwind xl-2xl) */
-	--fl-space-2xl-3xl: var(--space-2xl-3xl); /* 72px → 144px (Utopia 2xl-3xl → Tailwind 2xl-3xl) */
+	/* Paires pour les transitions fluides / Pairs for fluid transitions */
+	--fl-space-2xs-xs: var(
+		--space-3xs
+	); /* 5px → 12px (Utopia 3xs-2xs → Tailwind 2xs-xs) */
+	--fl-space-xs-sm: var(
+		--space-2xs
+	); /* 9px → 18px (Utopia 2xs-xs → Tailwind xs-sm) */
+	--fl-space-sm-base: var(
+		--space-xs
+	); /* 14px → 24px (Utopia xs-s → Tailwind sm-base) */
+	--fl-space-base-md: var(
+		--space-sm
+	); /* 18px → 36px (Utopia s-m → Tailwind base-md) */
+	--fl-space-md-lg: var(
+		--space-md
+	); /* 27px → 48px (Utopia m-l → Tailwind md-lg) */
+	--fl-space-lg-xl: var(
+		--space-lg
+	); /* 36px → 72px (Utopia l-xl → Tailwind lg-xl) */
+	--fl-space-xl-2xl: var(
+		--space-xl
+	); /* 54px → 96px (Utopia xl-2xl → Tailwind xl-2xl) */
+	--fl-space-2xl-3xl: var(
+		--space-2xl
+	); /* 72px → 144px (Utopia 2xl-3xl → Tailwind 2xl-3xl) */
 
-	/* Paires personnalisées */
-	--fl-space-base-lg: var(--space-s-l); /* 18px → 48px (Utopia s-l → Tailwind base-lg) */
+	/* Paires personnalisées / Custom pairs */
+	--fl-space-base-lg: var(
+		--space-sm
+	); /* 18px → 48px (Utopia s-l → Tailwind base-lg) */
 }
 
 @layer utilities {
-	/* Padding utilities */
+	/* Classes utilitaires de padding / Padding utility classes */
 	.p-fl-2xs {
 		padding: var(--fl-space-2xs);
 	}
@@ -68,7 +98,7 @@ Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,
 		padding: var(--fl-space-3xl);
 	}
 
-	/* Padding paires */
+	/* Paires de padding / Padding pairs */
 	.p-fl-xs-sm {
 		padding: var(--fl-space-xs-sm);
 	}
@@ -91,12 +121,12 @@ Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,
 		padding: var(--fl-space-2xl-3xl);
 	}
 
-	/*Custom pairs */
+	/* Paires personnalisées / Custom pairs */
 	.p-fl-base-lg {
 		padding: var(--fl-space-base-lg);
 	}
 
-	/* Margin utilities */
+	/* Classes utilitaires de margin / Margin utility classes */
 	.m-fl-2xs {
 		margin: var(--fl-space-2xs);
 	}
@@ -125,7 +155,7 @@ Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,
 		margin: var(--fl-space-3xl);
 	}
 
-	/* Margin paires */
+	/* Paires de margin / Margin pairs */
 	.m-fl-xs-sm {
 		margin: var(--fl-space-xs-sm);
 	}
@@ -148,12 +178,12 @@ Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,
 		margin: var(--fl-space-2xl-3xl);
 	}
 
-	/* Custom pairs */
+	/* Paires personnalisées / Custom pairs */
 	.m-fl-base-lg {
 		margin: var(--fl-space-base-lg);
 	}
 
-	/* Padding directionnels */
+	/* Padding directionnel / Directional padding */
 	/* 2xs */
 	.pt-fl-2xs,
 	.py-fl-2xs {
@@ -316,7 +346,7 @@ Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,
 		padding-left: var(--fl-space-3xl);
 	}
 
-	/* Padding directionnels - Paires */
+	/* Paires de padding directionnel / Directional padding pairs */
 	/* xs-sm */
 	.pt-fl-xs-sm,
 	.py-fl-xs-sm {
@@ -443,7 +473,7 @@ Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,
 		padding-left: var(--fl-space-2xl-3xl);
 	}
 
-	/* Custom pairs */
+	/* Paire personnalisée / Custom pair */
 	/* base-lg */
 	.pt-fl-base-lg,
 	.py-fl-base-lg {
@@ -462,7 +492,7 @@ Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,
 		padding-left: var(--fl-space-base-lg);
 	}
 
-	/* Margin directionnels */
+	/* Margin directionnel / Directional margin */
 	/* 2xs */
 	.mt-fl-2xs,
 	.my-fl-2xs {
@@ -625,7 +655,7 @@ Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,
 		margin-left: var(--fl-space-3xl);
 	}
 
-	/* Margin directionnels - Paires */
+	/* Paires de margin directionnel / Directional margin pairs */
 	/* xs-sm */
 	.mt-fl-xs-sm,
 	.my-fl-xs-sm {
@@ -752,7 +782,7 @@ Web page for parameters : https://utopia.fyi/space/calculator?c=330,18,1.2,1200,
 		margin-left: var(--fl-space-2xl-3xl);
 	}
 
-	/* Custom pairs */
+	/* Paire personnalisée / Custom pair */
 	/* base-lg */
 	.mt-fl-base-lg,
 	.my-fl-base-lg {

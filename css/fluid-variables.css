@@ -1,14 +1,14 @@
-/* Fluid Typography Variables */
+/* Variables de typographie fluide / Fluid Typography Variables */
 :root {
-	/* Taille de base fixe */
+	/* Taille de base fixe / Base fixed size */
 	font-size: 16px;
 
-	/* Ratios de hauteur de ligne */
-	--ratio-sm: 1.2; /* Pour le petit texte */
-	--ratio-base: 1.4; /* Pour le texte courant */
-	--ratio-lg: 1.6; /* Pour les grands titres */
+	/* Ratios de hauteur de ligne / Line height ratios */
+	--ratio-sm: 1.2; /* Pour le petit texte / For small text */
+	--ratio-base: 1.4; /* Pour le texte courant / For body text */
+	--ratio-lg: 1.6; /* Pour les grands titres / For headings */
 
-	/* Échelle typographique fluide ne pas modifier */
+	/* Échelle typographique fluide - ne pas modifier / Fluid typographic scale - do not modify */
 	/* Step -2: 12.5px → 15.36px */
 	--size--2: clamp(0.7813rem, 0.7134rem + 0.3287vw, 0.96rem);
 	/* Step -1: 15px → 19.2px */
@@ -26,45 +26,45 @@
 	/* Step 5: 44.7898px → 73.2422px */
 	--size-5: clamp(2.7994rem, 2.1248rem + 3.2704vw, 4.5776rem);
 
-	/* Fluid Spacing Variables - Base */
-	/* Space 3xs: 5px → 6px 2xs*/
+	/* Variables d'espacement fluide - Base / Fluid Spacing Variables - Base */
+	/* Espace 3xs: 5px → 6px 2xs / Space 3xs: 5px → 6px 2xs */
 	--space-3xs: clamp(0.3125rem, 0.2888rem + 0.1149vw, 0.375rem);
-	/* Space 2xs: 9px → 12px xs*/
+	/* Espace 2xs: 9px → 12px xs / Space 2xs: 9px → 12px xs */
 	--space-2xs: clamp(0.5625rem, 0.4914rem + 0.3448vw, 0.75rem);
-	/* Space xs: 14px → 18px sm */
+	/* Espace xs: 14px → 18px sm / Space xs: 14px → 18px sm */
 	--space-xs: clamp(0.875rem, 0.7802rem + 0.4598vw, 1.125rem);
-	/* Space s: 18px → 24px base*/
+	/* Espace s: 18px → 24px base / Space s: 18px → 24px base */
 	--space-s: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
-	/* Space m: 27px → 36px md*/
+	/* Espace m: 27px → 36px md / Space m: 27px → 36px md */
 	--space-m: clamp(1.6875rem, 1.4741rem + 1.0345vw, 2.25rem);
-	/* Space l: 36px → 48px lg*/
+	/* Espace l: 36px → 48px lg / Space l: 36px → 48px lg */
 	--space-l: clamp(2.25rem, 1.9655rem + 1.3793vw, 3rem);
-	/* Space xl: 54px → 72px xl*/
+	/* Espace xl: 54px → 72px xl / Space xl: 54px → 72px xl */
 	--space-xl: clamp(3.375rem, 2.9483rem + 2.069vw, 4.5rem);
-	/* Space 2xl: 72px → 96px 2xl*/
+	/* Espace 2xl: 72px → 96px 2xl / Space 2xl: 72px → 96px 2xl */
 	--space-2xl: clamp(4.5rem, 3.931rem + 2.7586vw, 6rem);
-	/* Space 3xl: 108px → 144px 3xl*/
+	/* Espace 3xl: 108px → 144px 3xl / Space 3xl: 108px → 144px 3xl */
 	--space-3xl: clamp(6.75rem, 5.8966rem + 4.1379vw, 9rem);
 
-	/* One-up pairs */
-	/* Space 3xs-2xs: 5px → 12px 2xs-xs*/
+	/* Paires d'espacement / Spacing pairs */
+	/* Espace 3xs-2xs: 5px → 12px 2xs-xs / Space 3xs-2xs: 5px → 12px 2xs-xs */
 	--space-3xs-2xs: clamp(0.3125rem, 0.1466rem + 0.8046vw, 0.75rem);
-	/* Space 2xs-xs: 9px → 18px xs-sm*/
+	/* Espace 2xs-xs: 9px → 18px xs-sm / Space 2xs-xs: 9px → 18px xs-sm */
 	--space-2xs-xs: clamp(0.5625rem, 0.3491rem + 1.0345vw, 1.125rem);
-	/* Space xs-s: 14px → 24px sm-base*/
+	/* Espace xs-s: 14px → 24px sm-base / Space xs-s: 14px → 24px sm-base */
 	--space-xs-s: clamp(0.875rem, 0.6379rem + 1.1494vw, 1.5rem);
-	/* Space s-m: 18px → 36px base-md*/
+	/* Espace s-m: 18px → 36px base-md / Space s-m: 18px → 36px base-md */
 	--space-s-m: clamp(1.125rem, 0.6983rem + 2.069vw, 2.25rem);
-	/* Space m-l: 27px → 48px md-lg*/
+	/* Espace m-l: 27px → 48px md-lg / Space m-l: 27px → 48px md-lg */
 	--space-m-l: clamp(1.6875rem, 1.1897rem + 2.4138vw, 3rem);
-	/* Space l-xl: 36px → 72px lg-xl*/
+	/* Espace l-xl: 36px → 72px lg-xl / Space l-xl: 36px → 72px lg-xl */
 	--space-l-xl: clamp(2.25rem, 1.3966rem + 4.1379vw, 4.5rem);
-	/* Space xl-2xl: 54px → 96px xl-2xl*/
+	/* Espace xl-2xl: 54px → 96px xl-2xl / Space xl-2xl: 54px → 96px xl-2xl */
 	--space-xl-2xl: clamp(3.375rem, 2.3793rem + 4.8276vw, 6rem);
-	/* Space 2xl-3xl: 72px → 144px 2xl-3xl*/
+	/* Espace 2xl-3xl: 72px → 144px 2xl-3xl / Space 2xl-3xl: 72px → 144px 2xl-3xl */
 	--space-2xl-3xl: clamp(4.5rem, 2.7931rem + 8.2759vw, 9rem);
 
-	/* Custom pairs */
-	/* Space s-l: 18px → 48px base-lg*/
+	/* Paires personnalisées / Custom pairs */
+	/* Espace s-l: 18px → 48px base-lg / Space s-l: 18px → 48px base-lg */
 	--space-s-l: clamp(1.125rem, 0.4138rem + 3.4483vw, 3rem);
 }

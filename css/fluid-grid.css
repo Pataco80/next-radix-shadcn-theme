@@ -1,43 +1,65 @@
 /*
-Fluid Grid System
+Système de grille fluide / Fluid Grid System
 
 Ce système utilise les mêmes valeurs que notre système d'espacement fluide
 pour créer des gaps cohérents dans les grilles et flexbox.
 Il s'intègre parfaitement avec Tailwind CSS tout en offrant la fluidité d'Utopia.
 
-Basé sur les valeurs de : https://utopia.fyi/space/calculator
+This system uses the same values as our fluid spacing system
+to create consistent gaps in grids and flexbox.
+It integrates perfectly with Tailwind CSS while offering Utopia's fluidity.
+
+Basé sur les valeurs de / Based on values from: https://utopia.fyi/space/calculator
 */
 
-@import './fluid-variables.css';
-
 :root {
-	/* Grid Gaps - Basés sur notre système d'espacement */
+	/* Grid Gaps - Basés sur notre système d'espacement / Based on our spacing system */
 	--fl-gap-2xs: var(--space-3xs); /* 5px → 6px (Utopia 3xs → Tailwind 2xs) */
 	--fl-gap-xs: var(--space-2xs); /* 9px → 12px (Utopia 2xs → Tailwind xs) */
 	--fl-gap-sm: var(--space-xs); /* 14px → 18px (Utopia xs → Tailwind sm) */
-	--fl-gap-base: var(--space-s); /* 18px → 24px (Utopia s → Tailwind base) */
-	--fl-gap-md: var(--space-m); /* 27px → 36px (Utopia m → Tailwind md) */
-	--fl-gap-lg: var(--space-l); /* 36px → 48px (Utopia l → Tailwind lg) */
+	--fl-gap-base: var(--space-sm); /* 18px → 24px (Utopia s → Tailwind base) */
+	--fl-gap-md: var(--space-md); /* 27px → 36px (Utopia m → Tailwind md) */
+	--fl-gap-lg: var(--space-lg); /* 36px → 48px (Utopia l → Tailwind lg) */
 	--fl-gap-xl: var(--space-xl); /* 54px → 72px (Utopia xl → Tailwind xl) */
 	--fl-gap-2xl: var(--space-2xl); /* 72px → 96px (Utopia 2xl → Tailwind 2xl) */
-	--fl-gap-3xl: var(--space-3xl); /* 108px → 144px (Utopia 3xl → Tailwind 3xl) */
+	--fl-gap-3xl: var(
+		--space-3xl
+	); /* 108px → 144px (Utopia 3xl → Tailwind 3xl) */
 
-	/* Paires fluides pour les transitions */
-	--fl-gap-2xs-xs: var(--space-3xs-2xs); /* 5px → 12px (Utopia 3xs-2xs → Tailwind 2xs-xs) */
-	--fl-gap-xs-sm: var(--space-2xs-xs); /* 9px → 18px (Utopia 2xs-xs → Tailwind xs-sm) */
-	--fl-gap-sm-base: var(--space-xs-s); /* 14px → 24px (Utopia xs-s → Tailwind sm-base) */
-	--fl-gap-base-md: var(--space-s-m); /* 18px → 36px (Utopia s-m → Tailwind base-md) */
-	--fl-gap-md-lg: var(--space-m-l); /* 27px → 48px (Utopia m-l → Tailwind md-lg) */
-	--fl-gap-lg-xl: var(--space-l-xl); /* 36px → 72px (Utopia l-xl → Tailwind lg-xl) */
-	--fl-gap-xl-2xl: var(--space-xl-2xl); /* 54px → 96px (Utopia xl-2xl → Tailwind xl-2xl) */
-	--fl-gap-2xl-3xl: var(--space-2xl-3xl); /* 72px → 144px (Utopia 2xl-3xl → Tailwind 2xl-3xl) */
+	/* Paires fluides pour les transitions / Fluid pairs for transitions */
+	--fl-gap-2xs-xs: var(
+		--space-3xs
+	); /* 5px → 12px (Utopia 3xs-2xs → Tailwind 2xs-xs) */
+	--fl-gap-xs-sm: var(
+		--space-2xs
+	); /* 9px → 18px (Utopia 2xs-xs → Tailwind xs-sm) */
+	--fl-gap-sm-base: var(
+		--space-xs
+	); /* 14px → 24px (Utopia xs-s → Tailwind sm-base) */
+	--fl-gap-base-md: var(
+		--space-sm
+	); /* 18px → 36px (Utopia s-m → Tailwind base-md) */
+	--fl-gap-md-lg: var(
+		--space-md
+	); /* 27px → 48px (Utopia m-l → Tailwind md-lg) */
+	--fl-gap-lg-xl: var(
+		--space-lg
+	); /* 36px → 72px (Utopia l-xl → Tailwind lg-xl) */
+	--fl-gap-xl-2xl: var(
+		--space-xl
+	); /* 54px → 96px (Utopia xl-2xl → Tailwind xl-2xl) */
+	--fl-gap-2xl-3xl: var(
+		--space-2xl
+	); /* 72px → 144px (Utopia 2xl-3xl → Tailwind 2xl-3xl) */
 
-	/* Paire personnalisée */
-	--fl-gap-base-lg: var(--space-s-l); /* 18px → 48px (Utopia s-l → Tailwind base-lg) */
+	/* Paire personnalisée / Custom pair */
+	--fl-gap-base-lg: var(
+		--space-sm
+	); /* 18px → 48px (Utopia s-l → Tailwind base-lg) */
 }
 
 @layer utilities {
-	/* Classes pour Grid Gap */
+	/* Classes pour Grid Gap / Grid Gap Classes */
 	.gap-fl-2xs {
 		gap: var(--fl-gap-2xs);
 	}
@@ -66,7 +88,7 @@ Basé sur les valeurs de : https://utopia.fyi/space/calculator
 		gap: var(--fl-gap-3xl);
 	}
 
-	/* Classes pour les paires fluides */
+	/* Classes pour les paires fluides / Fluid pair classes */
 	.gap-fl-2xs-xs {
 		gap: var(--fl-gap-2xs-xs);
 	}
@@ -92,12 +114,12 @@ Basé sur les valeurs de : https://utopia.fyi/space/calculator
 		gap: var(--fl-gap-2xl-3xl);
 	}
 
-	/* Paire personnalisée */
+	/* Paire personnalisée / Custom pair */
 	.gap-fl-base-lg {
 		gap: var(--fl-gap-base-lg);
 	}
 
-	/* Classes pour Column Gap */
+	/* Classes pour Column Gap / Column Gap Classes */
 	.gap-x-fl-2xs {
 		column-gap: var(--fl-gap-2xs);
 	}
@@ -126,7 +148,7 @@ Basé sur les valeurs de : https://utopia.fyi/space/calculator
 		column-gap: var(--fl-gap-3xl);
 	}
 
-	/* Classes pour Row Gap */
+	/* Classes pour Row Gap / Row Gap Classes */
 	.gap-y-fl-2xs {
 		row-gap: var(--fl-gap-2xs);
 	}
@@ -155,7 +177,7 @@ Basé sur les valeurs de : https://utopia.fyi/space/calculator
 		row-gap: var(--fl-gap-3xl);
 	}
 
-	/* Classes pour Column Gap avec paires fluides */
+	/* Classes pour Column Gap avec paires fluides / Column Gap Classes with fluid pairs */
 	.gap-x-fl-2xs-xs {
 		column-gap: var(--fl-gap-2xs-xs);
 	}
@@ -181,12 +203,12 @@ Basé sur les valeurs de : https://utopia.fyi/space/calculator
 		column-gap: var(--fl-gap-2xl-3xl);
 	}
 
-	/* Paire personnalisée pour column-gap */
+	/* Paire personnalisée pour column-gap / Custom pair for column-gap */
 	.gap-x-fl-base-lg {
 		column-gap: var(--fl-gap-base-lg);
 	}
 
-	/* Classes pour Row Gap avec paires fluides */
+	/* Classes pour Row Gap avec paires fluides / Row Gap Classes with fluid pairs */
 	.gap-y-fl-2xs-xs {
 		row-gap: var(--fl-gap-2xs-xs);
 	}
@@ -212,7 +234,7 @@ Basé sur les valeurs de : https://utopia.fyi/space/calculator
 		row-gap: var(--fl-gap-2xl-3xl);
 	}
 
-	/* Paire personnalisée pour row-gap */
+	/* Paire personnalisée pour row-gap / Custom pair for row-gap */
 	.gap-y-fl-base-lg {
 		row-gap: var(--fl-gap-base-lg);
 	}

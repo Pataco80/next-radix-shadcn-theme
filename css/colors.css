@@ -1,0 +1,93 @@
+/**
+ * Colors Palette / Palette de couleurs
+ * This is the main color palette for the project based on shadcn/ui OKLCH colors.
+ * Primary: hsl(266, 100%, 21%) - Dark blue / Bleu foncé
+ * Secondary: hsl(248, 100%, 97%) - Slightly blue-tinted white / Blanc légèrement bleuté
+ * Accent: hsl(248, 100%, 97%) - Slightly blue-tinted white / Blanc légèrement bleuté
+ * Muted: hsl(248, 100%, 97%) - Slightly blue-tinted white / Blanc légèrement bleuté
+ * Background: hsl(0, 0%, 100%) - White / Blanc
+ * Foreground: hsl(265, 100%, 13%) - Very dark blue / Bleu très foncé
+ * Card: hsl(0, 0%, 100%) - White / Blanc
+ * Card Foreground: hsl(265, 100%, 13%) - Very dark blue / Bleu très foncé
+ * Popover: hsl(0, 0%, 100%) - White / Blanc
+ * Popover Foreground: hsl(265, 100%, 13%) - Very dark blue / Bleu très foncé
+ */
+
+/**
+ * Variables de couleurs / Color Variables
+ * Configuration pour / Configuration for:
+ * - Tailwind CSS v4.0.0
+ * - Shadcn UI (version canary - compatible Tailwind v4)
+ * 
+ * Note: Les variables sont utilisées dans theme.css
+ * pour définir le thème de l'application.
+ */
+
+:root {
+	/* Couleurs de base / Base colors */
+	--primary: 266 100% 21%; /* Dark blue / Bleu foncé */
+	--primary-foreground: 0 0% 100%;
+	--secondary: 248 100% 97%; /* Slightly blue-tinted white / Blanc légèrement bleuté */
+	--secondary-foreground: 266 100% 21%;
+
+	/* Couleurs de l'interface / UI colors */
+	--background: 0 0% 100%; /* White / Blanc */
+	--foreground: 265 100% 13%; /* Very dark blue / Bleu très foncé */
+	--muted: 248 100% 97%;
+	--muted-foreground: 265 100% 13%;
+	--accent: 248 100% 97%;
+	--accent-foreground: 266 100% 21%;
+
+	/* Couleurs des composants / Component colors */
+	--card: 0 0% 100%;
+	--card-foreground: 265 100% 13%;
+	--popover: 0 0% 100%;
+	--popover-foreground: 265 100% 13%;
+
+	/* Couleurs sémantiques / Semantic colors */
+	--destructive: 0 84.2% 60.2%;
+	--destructive-foreground: 0 0% 98%;
+	--success: 142.1 76.2% 36.3%;
+	--success-foreground: 355.7 100% 97.3%;
+	--warning: 38 92% 50%;
+	--warning-foreground: 48 96% 89%;
+	--info: 200 98% 39.2%;
+	--info-foreground: 0 0% 98%;
+}
+
+/* Mode sombre / Dark mode */
+.dark {
+	/* Couleurs de base / Base colors */
+	--primary: 266 100% 21%;
+	--primary-foreground: 0 0% 100%;
+	--secondary: 248 100% 97%;
+	--secondary-foreground: 266 100% 21%;
+
+	/* Couleurs de l'interface / UI colors */
+	--background: 265 100% 13%;
+	--foreground: 0 0% 100%;
+	--muted: 248 100% 97%;
+	--muted-foreground: 265 100% 13%;
+	--accent: 248 100% 97%;
+	--accent-foreground: 266 100% 21%;
+
+	/* Couleurs des composants / Component colors */
+	--card: 265 100% 13%;
+	--card-foreground: 0 0% 100%;
+	--popover: 265 100% 13%;
+	--popover-foreground: 0 0% 100%;
+
+	/* Couleurs sémantiques / Semantic colors */
+	--destructive: 0 62.8% 30.6%;
+	--destructive-foreground: 0 0% 98%;
+	--success: 142.1 70.6% 45.3%;
+	--success-foreground: 355.7 100% 97.3%;
+	--warning: 38 92% 50%;
+	--warning-foreground: 48 96% 89%;
+	--info: 200 98% 39.2%;
+	--info-foreground: 0 0% 98%;
+}
+
+/* Project colors in HSL (for developers only) / Couleurs du projet en HSL (pour les développeurs uniquement) */
+
+/* Place colors here (project colors) / Placez les couleurs ici (couleurs du projet) */
