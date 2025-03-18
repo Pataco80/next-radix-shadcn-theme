@@ -52,11 +52,7 @@ const colloutVariants = cva(
 				success: 'bg-success border-success/50 [&>*]:text-success-foreground',
 				warning: 'bg-warning border-warning/50 [&>*]:text-warning-foreground',
 			},
-			size: {
-				sm: 'text-fl-xs',
-				md: 'text-fl-sm',
-				lg: 'text-fl-base',
-			},
+
 			width: {
 				full: 'w-full',
 				auto: 'w-auto',
@@ -73,7 +69,6 @@ const colloutVariants = cva(
 		},
 		defaultVariants: {
 			variant: 'default',
-			size: 'md',
 			width: 'full',
 			rounded: 'lg',
 		},
@@ -83,7 +78,6 @@ const colloutVariants = cva(
 function Collout({
 	className,
 	variant,
-	size,
 	width,
 	rounded,
 	children,
@@ -94,7 +88,6 @@ function Collout({
 			className={cn(
 				colloutVariants({
 					variant: variant || 'default',
-					size: size || 'lg',
 					width: width || 'full',
 					rounded: rounded || 'md',
 				}),
