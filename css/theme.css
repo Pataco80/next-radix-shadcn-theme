@@ -39,36 +39,6 @@
 /* Variables globales du thème / Global theme variables */
 @layer theme {
 	:root {
-		/* Couleurs de base / Base colors */
-		--primary: hsl(var(--primary));
-		--primary-foreground: hsl(var(--primary-foreground));
-		--secondary: hsl(var(--secondary));
-		--secondary-foreground: hsl(var(--secondary-foreground));
-
-		/* Couleurs de l'interface / UI colors */
-		--background: hsl(var(--background));
-		--foreground: hsl(var(--foreground));
-		--muted: hsl(var(--muted));
-		--muted-foreground: hsl(var(--muted-foreground));
-		--accent: hsl(var(--accent));
-		--accent-foreground: hsl(var(--accent-foreground));
-
-		/* Couleurs des composants / Component colors */
-		--card: hsl(var(--card));
-		--card-foreground: hsl(var(--card-foreground));
-		--popover: hsl(var(--popover));
-		--popover-foreground: hsl(var(--popover-foreground));
-
-		/* Couleurs sémantiques / Semantic colors */
-		--destructive: hsl(var(--destructive));
-		--destructive-foreground: hsl(var(--destructive-foreground));
-		--success: hsl(var(--success));
-		--success-foreground: hsl(var(--success-foreground));
-		--warning: hsl(var(--warning));
-		--warning-foreground: hsl(var(--warning-foreground));
-		--info: hsl(var(--info));
-		--info-foreground: hsl(var(--info-foreground));
-
 		/* Variables de base / Base variables */
 		--background: 0 0% 100%;
 		--foreground: 240 10% 3.9%;
@@ -92,33 +62,46 @@
 		--radius: 0.5rem;
 
 		/* Variables fluides / Fluid variables */
-		/* Ratios de hauteur de ligne / Line height ratios */
+		/* Ratios de hauteur de ligne */
 		--ratio-sm: 1.2;
 		--ratio-base: 1.5;
 		--ratio-lg: 1.8;
 
-		/* Tailles de typographie fluides / Fluid typography sizes */
-		--size--2: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-		--size--1: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
-		--size-0: clamp(1rem, 0.925rem + 0.375vw, 1.125rem);
-		--size-1: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
-		--size-2: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
-		--size-3: clamp(2rem, 1.5rem + 2.5vw, 3rem);
-		--size-4: clamp(3rem, 2rem + 5vw, 4rem);
-		--size-5: clamp(4rem, 2.5rem + 7.5vw, 5rem);
+		/* Tailles de typographie fluides */
+		--size--2: clamp(0.7813rem, 0.7134rem + 0.3287vw, 0.96rem);
+		--size--1: clamp(0.9375rem, 0.8379rem + 0.4828vw, 1.2rem);
+		--size-0: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+		--size-1: clamp(1.35rem, 1.1509rem + 0.9655vw, 1.875rem);
+		--size-2: clamp(1.62rem, 1.3455rem + 1.331vw, 2.3438rem);
+		--size-3: clamp(1.944rem, 1.5701rem + 1.8128vw, 2.9297rem);
+		--size-4: clamp(2.3328rem, 1.8286rem + 2.4447vw, 3.6621rem);
+		--size-5: clamp(2.7994rem, 2.1248rem + 3.2704vw, 4.5776rem);
 
-		/* Espacements fluides / Fluid spacing */
-		--space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
-		--space-2xs: clamp(0.5rem, 0.5rem + 0vw, 0.5rem);
-		--space-xs: clamp(0.75rem, 0.75rem + 0vw, 0.75rem);
-		--space-sm: clamp(1rem, 1rem + 0vw, 1rem);
-		--space-md: clamp(1.5rem, 1.5rem + 0vw, 1.5rem);
-		--space-lg: clamp(2rem, 2rem + 0vw, 2rem);
-		--space-xl: clamp(3rem, 3rem + 0vw, 3rem);
-		--space-2xl: clamp(4rem, 4rem + 0vw, 4rem);
-		--space-3xl: clamp(6rem, 6rem + 0vw, 6rem);
+		/* Espacements fluides */
+		--space-3xs: clamp(0.3125rem, 0.2888rem + 0.1149vw, 0.375rem);
+		--space-2xs: clamp(0.5625rem, 0.4914rem + 0.3448vw, 0.75rem);
+		--space-xs: clamp(0.875rem, 0.7802rem + 0.4598vw, 1.125rem);
+		--space-sm: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+		--space-md: clamp(1.6875rem, 1.4741rem + 1.0345vw, 2.25rem);
+		--space-lg: clamp(2.25rem, 1.9655rem + 1.3793vw, 3rem);
+		--space-xl: clamp(3.375rem, 2.9483rem + 2.069vw, 4.5rem);
+		--space-2xl: clamp(4.5rem, 3.931rem + 2.7586vw, 6rem);
+		--space-3xl: clamp(6.75rem, 5.8966rem + 4.1379vw, 9rem);
 
-		/* Grille fluide / Fluid grid */
+		/* Paires d'espacement */
+		--space-3xs-2xs: clamp(0.3125rem, 0.1466rem + 0.8046vw, 0.75rem);
+		--space-2xs-xs: clamp(0.5625rem, 0.3491rem + 1.0345vw, 1.125rem);
+		--space-xs-s: clamp(0.875rem, 0.6379rem + 1.1494vw, 1.5rem);
+		--space-s-m: clamp(1.125rem, 0.6983rem + 2.069vw, 2.25rem);
+		--space-m-l: clamp(1.6875rem, 1.1897rem + 2.4138vw, 3rem);
+		--space-l-xl: clamp(2.25rem, 1.3966rem + 4.1379vw, 4.5rem);
+		--space-xl-2xl: clamp(3.375rem, 2.3793rem + 4.8276vw, 6rem);
+		--space-2xl-3xl: clamp(4.5rem, 2.7931rem + 8.2759vw, 9rem);
+
+		/* Paires personnalisées */
+		--space-s-l: clamp(1.125rem, 0.4138rem + 3.4483vw, 3rem);
+
+		/* Grille fluide */
 		--grid-max-width: 80rem;
 		--grid-gutter: clamp(1rem, 1rem + 0vw, 1rem);
 		--grid-columns: 12;
@@ -149,54 +132,6 @@
 
 /* Styles de base / Base styles */
 @layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-background text-foreground;
-		font-feature-settings: 'rlig' 1, 'calt' 1;
-	}
-
-	/* Styles de typographie / Typography styles */
-	h1 {
-		font-size: var(--font-size-4xl);
-		line-height: var(--line-height-4xl);
-	}
-
-	h2 {
-		font-size: var(--font-size-3xl);
-		line-height: var(--line-height-3xl);
-	}
-
-	h3 {
-		font-size: var(--font-size-2xl);
-		line-height: var(--line-height-2xl);
-	}
-
-	h4 {
-		font-size: var(--font-size-xl);
-		line-height: var(--line-height-xl);
-	}
-
-	h5 {
-		font-size: var(--font-size-lg);
-		line-height: var(--line-height-lg);
-	}
-
-	h6 {
-		font-size: var(--font-size-base);
-		line-height: var(--line-height-base);
-	}
-
-	p {
-		font-size: var(--font-size-base);
-		line-height: var(--line-height-base);
-	}
-
-	small {
-		font-size: var(--font-size-sm);
-		line-height: var(--line-height-sm);
-	}
 }
 
 /* Composants personnalisés / Custom components */

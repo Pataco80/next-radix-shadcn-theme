@@ -1,4 +1,3 @@
-import { AppSidebar } from '@/components/AppSidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 export default function ShadcnUiLayout({
 	children,
@@ -7,7 +6,7 @@ export default function ShadcnUiLayout({
 }) {
 	return (
 		<SidebarProvider className="sidebar-provider">
-			<AppSidebar />
+			{/* <AppSidebar /> */}
 			<SidebarTrigger className="sidebar-trigger" />
 			{children}
 		</SidebarProvider>

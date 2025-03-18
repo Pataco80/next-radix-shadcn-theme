@@ -20,14 +20,14 @@ import { Textarea } from '@/components/ui/textarea'
 import { Toggle } from '@/components/ui/toggle'
 import Link from 'next/link'
 
-export default function ShadcnUiPage() {
+export default function ShadcnUI() {
 	return (
-		<div className="min-h-screen bg-gray-50 w-full">
+		<div className="min-h-screen w-full">
 			{/* En-tête */}
-			<header className="py-8 bg-white border-b">
+			<header className="py-8 border-b">
 				<div className="container">
 					<h1 className="text-4xl font-bold">Composants Shadcn UI</h1>
-					<p className="mt-2 text-gray-600">
+					<p className="mt-2 text-muted-foreground">
 						Démonstration des composants disponibles
 					</p>
 				</div>
@@ -145,8 +145,8 @@ export default function ShadcnUiPage() {
 								<CardTitle>Composants de feedback</CardTitle>
 								<CardDescription>
 									Éléments pour informer et interagir avec l&apos;utilisateur
-									<div className="grid grid-cols-3 gap-4">
-										<Collout size="sm" variant="default">
+									<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+										<Collout variant="default">
 											<p>
 												<strong>Default:</strong> Lorem ipsum dolor sit amet,
 												consectetur adipiscing elit. Nullam pharetra sit amet
@@ -158,7 +158,7 @@ export default function ShadcnUiPage() {
 												Aliquam.
 											</p>
 										</Collout>
-										<Collout size="md" variant="secondary">
+										<Collout variant="secondary">
 											<p>
 												<strong>Secondary:</strong> Lorem ipsum dolor sit amet,
 												consectetur adipiscing elit. Nullam pharetra sit amet
@@ -170,7 +170,7 @@ export default function ShadcnUiPage() {
 												Aliquam.
 											</p>
 										</Collout>
-										<Collout size="lg" variant="info">
+										<Collout variant="info">
 											<p>
 												<strong>Info:</strong> Lorem ipsum dolor sit amet,
 												consectetur adipiscing elit. Nullam pharetra sit amet
@@ -182,7 +182,7 @@ export default function ShadcnUiPage() {
 												Aliquam.
 											</p>
 										</Collout>
-										<Collout size="sm" variant="warning">
+										<Collout variant="warning">
 											<p>
 												<strong>Warning:</strong> Lorem ipsum dolor sit amet,
 												consectetur adipiscing elit. Nullam pharetra sit amet
@@ -194,7 +194,7 @@ export default function ShadcnUiPage() {
 												Aliquam.
 											</p>
 										</Collout>
-										<Collout size="md" variant="success">
+										<Collout variant="success">
 											<p>
 												<strong>Success:</strong> Lorem ipsum dolor sit amet,
 												consectetur adipiscing elit. Nullam pharetra sit amet
@@ -206,7 +206,7 @@ export default function ShadcnUiPage() {
 												Aliquam.
 											</p>
 										</Collout>
-										<Collout size="lg" variant="destructive">
+										<Collout variant="destructive">
 											<p>
 												<strong>Destructive:</strong> Lorem ipsum dolor sit
 												amet, consectetur adipiscing elit. Nullam pharetra sit
@@ -219,7 +219,7 @@ export default function ShadcnUiPage() {
 											</p>
 										</Collout>
 									</div>
-									<Collout size="sm" variant="warning">
+									<Collout variant="warning">
 										<p>
 											<strong>Warning:</strong> Lorem ipsum dolor sit amet,
 											consectetur adipiscing elit. Nullam pharetra sit amet

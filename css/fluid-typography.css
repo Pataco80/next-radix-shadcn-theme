@@ -35,187 +35,121 @@
  * the typography of your components
  */
 
+@import 'tailwindcss/theme';
+@import 'tailwindcss/utilities';
+
 /* Variables de typographie fluide / Fluid typography variables */
 @layer theme {
+	/* Variables de typographie fluide */
 	:root {
-		/* Tailles de police fluides / Fluid font sizes */
-		--fl-min-width: 320;
-		--fl-max-width: 1240;
-		--fl-min-scale: 1.125;
-		--fl-max-scale: 1.25;
+		/* Ratios de hauteur de ligne */
+		--ratio-sm: 1.2;
+		--ratio-base: 1.5;
+		--ratio-lg: 1.8;
 
-		/* Échelle typographique / Typographic scale */
-		--fl-xs: var(--size--2);
-		--fl-sm: var(--size--1);
-		--fl-base: var(--size-0);
-		--fl-lg: var(--size-1);
-		--fl-xl: var(--size-2);
-		--fl-2xl: var(--size-3);
-		--fl-3xl: var(--size-4);
-		--fl-4xl: var(--size-5);
+		/* Tailles de typographie fluides */
+		--size--2: clamp(0.7813rem, 0.7134rem + 0.3287vw, 0.96rem);
+		--size--1: clamp(0.9375rem, 0.8379rem + 0.4828vw, 1.2rem);
+		--size-0: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+		--size-1: clamp(1.35rem, 1.1509rem + 0.9655vw, 1.875rem);
+		--size-2: clamp(1.62rem, 1.3455rem + 1.331vw, 2.3438rem);
+		--size-3: clamp(1.944rem, 1.5701rem + 1.8128vw, 2.9297rem);
+		--size-4: clamp(2.3328rem, 1.8286rem + 2.4447vw, 3.6621rem);
+		--size-5: clamp(2.7994rem, 2.1248rem + 3.2704vw, 4.5776rem);
 
-		/* Hauteurs de ligne / Line heights */
-		--fl-leading-none: 1;
-		--fl-leading-tight: 1.25;
-		--fl-leading-snug: 1.375;
-		--fl-leading-normal: 1.5;
-		--fl-leading-relaxed: 1.625;
-		--fl-leading-loose: 2;
-	}
-}
+		/* Hauteurs de ligne fluides */
+		--fl-lh--2: calc(var(--size--2) * var(--ratio-sm));
+		--fl-lh--1: calc(var(--size--1) * var(--ratio-sm));
+		--fl-lh-0: calc(var(--size-0) * var(--ratio-base));
+		--fl-lh-1: calc(var(--size-1) * var(--ratio-base));
+		--fl-lh-2: calc(var(--size-2) * var(--ratio-lg));
+		--fl-lh-3: calc(var(--size-3) * var(--ratio-lg));
+		--fl-lh-4: calc(var(--size-4) * var(--ratio-lg));
+		--fl-lh-5: calc(var(--size-5) * var(--ratio-lg));
 
-/* Classes utilitaires de typographie / Typography utility classes */
-@layer utilities {
-	.text-fl-xs {
-		font-size: var(--fl-xs);
-		line-height: var(--fl-leading-normal);
-	}
+		/* Extension des tailles Tailwind */
+		--fl-text-xs: var(--size--2);
+		--fl-text-sm: var(--size--1);
+		--fl-text-base: var(--size-0);
+		--fl-text-lg: var(--size-1);
+		--fl-text-xl: var(--size-2);
+		--fl-text-2xl: var(--size-3);
+		--fl-text-3xl: var(--size-4);
+		--fl-text-4xl: var(--size-5);
 
-	.text-fl-sm {
-		font-size: var(--fl-sm);
-		line-height: var(--fl-leading-normal);
-	}
-
-	.text-fl-base {
-		font-size: var(--fl-base);
-		line-height: var(--fl-leading-normal);
-	}
-
-	.text-fl-lg {
-		font-size: var(--fl-lg);
-		line-height: var(--fl-leading-normal);
+		/* Extension des hauteurs de ligne Tailwind */
+		--fl-leading-3: var(--fl-lh--2);
+		--fl-leading-4: var(--fl-lh--1);
+		--fl-leading-5: var(--fl-lh-0);
+		--fl-leading-6: var(--fl-lh-1);
+		--fl-leading-7: var(--fl-lh-2);
+		--fl-leading-8: var(--fl-lh-3);
+		--fl-leading-9: var(--fl-lh-4);
+		--fl-leading-10: var(--fl-lh-5);
 	}
 
-	.text-fl-xl {
-		font-size: var(--fl-xl);
-		line-height: var(--fl-leading-normal);
-	}
-
-	.text-fl-2xl {
-		font-size: var(--fl-2xl);
-		line-height: var(--fl-leading-tight);
-	}
-
-	.text-fl-3xl {
-		font-size: var(--fl-3xl);
-		line-height: var(--fl-leading-tight);
-	}
-
-	.text-fl-4xl {
-		font-size: var(--fl-4xl);
-		line-height: var(--fl-leading-tight);
-	}
-
-	.text-fl-5xl {
-		font-size: var(--fl-5xl);
-		line-height: var(--fl-leading-tight);
-	}
-}
-
-/*
-Fluid typography / Typographie fluide
-
-This is a fluid typography system that allows you to create a typography that is fluid and responsive.
-/ C'est un système de typographie fluide qui permet de créer une typographie fluide et responsive.
-
-It is based on the clamp function.
-This system is used Utopia.fyi
-/ Il est basé sur la fonction clamp.
-Ce système est utilisé par Utopia.fyi
-
-https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
-*/
-
-/* Variables typographiques / Typographic variables */
-:root {
-	/* Line Heights - Calculated using ratios / Hauteurs de ligne - Calculées avec des ratios */
-	/* Petit texte (--lh--2, --lh--1) → Ratio 1.2 (--ratio-sm) / Small text (--lh--2, --lh--1) → Ratio 1.2 (--ratio-sm) */
-	--fl-lh--2: calc(var(--size--2) * var(--ratio-sm));
-	--fl-lh--1: calc(var(--size--1) * var(--ratio-sm));
-
-	/* Texte normal (--lh-0, --lh-1) → Ratio 1.4 (--ratio-base) / Normal text (--lh-0, --lh-1) → Ratio 1.4 (--ratio-base) */
-	--fl-lh-0: calc(var(--size-0) * var(--ratio-base));
-	--fl-lh-1: calc(var(--size-1) * var(--ratio-base));
-
-	/* Titres (--lh-2 à --lh-5) → Ratio 1.6 (--ratio-lg) / Headings (--lh-2 to --lh-5) → Ratio 1.6 (--ratio-lg) */
-	--fl-lh-2: calc(var(--size-2) * var(--ratio-lg));
-	--fl-lh-3: calc(var(--size-3) * var(--ratio-lg));
-	--fl-lh-4: calc(var(--size-4) * var(--ratio-lg));
-	--fl-lh-5: calc(var(--size-5) * var(--ratio-lg));
-
-	/* Extension des tailles Tailwind / Tailwind size extensions */
-	--fl-text-xs: var(--size--2);
-	--fl-text-sm: var(--size--1);
-	--fl-text-base: var(--size-0);
-	--fl-text-lg: var(--size-1);
-	--fl-text-xl: var(--size-2);
-	--fl-text-2xl: var(--size-3);
-	--fl-text-3xl: var(--size-4);
-	--fl-text-4xl: var(--size-5);
-
-	/* Extension des hauteurs de ligne Tailwind / Tailwind line height extensions */
-	--fl-leading-3: var(--fl-lh--2); /* Ratio 1.2 */
-	--fl-leading-4: var(--fl-lh--1); /* Ratio 1.2 */
-	--fl-leading-5: var(--fl-lh-0); /* Ratio 1.4 */
-	--fl-leading-6: var(--fl-lh-1); /* Ratio 1.4 */
-	--fl-leading-7: var(--fl-lh-2); /* Ratio 1.6 */
-	--fl-leading-8: var(--fl-lh-3); /* Ratio 1.6 */
-	--fl-leading-9: var(--fl-lh-4); /* Ratio 1.6 */
-	--fl-leading-10: var(--fl-lh-5); /* Ratio 1.6 */
-}
-
-/* Reset de base / Base reset */
-@layer base {
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-
+	/* Styles de typographie de base */
 	body {
 		font-size: var(--fl-text-base);
 		line-height: var(--fl-leading-5);
 	}
 
+	/* Styles des titres */
 	h1 {
 		font-size: var(--fl-text-4xl);
-		line-height: var(--fl-leading-10);
+		line-height: var(--fl-lh-5);
+		font-weight: 700;
+		letter-spacing: -0.02em;
 	}
 
 	h2 {
 		font-size: var(--fl-text-3xl);
-		line-height: var(--fl-leading-9);
+		line-height: var(--fl-lh-4);
+		font-weight: 700;
+		letter-spacing: -0.02em;
 	}
 
 	h3 {
 		font-size: var(--fl-text-2xl);
-		line-height: var(--fl-leading-8);
+		line-height: var(--fl-lh-3);
+		font-weight: 700;
+		letter-spacing: -0.02em;
 	}
 
 	h4 {
 		font-size: var(--fl-text-xl);
-		line-height: var(--fl-leading-7);
+		line-height: var(--fl-lh-2);
+		font-weight: 700;
+		letter-spacing: -0.02em;
 	}
 
 	h5 {
 		font-size: var(--fl-text-lg);
-		line-height: var(--fl-leading-6);
+		line-height: var(--fl-lh-1);
+		font-weight: 700;
 	}
 
 	h6 {
 		font-size: var(--fl-text-base);
-		line-height: var(--fl-leading-5);
+		line-height: var(--fl-lh-0);
+		font-weight: 700;
+	}
+
+	/* Styles des paragraphes */
+	p {
+		font-size: var(--fl-text-base);
+		line-height: var(--fl-lh-0);
 	}
 
 	small {
 		font-size: var(--fl-text-sm);
-		line-height: var(--fl-leading-4);
+		line-height: var(--fl-lh--1);
 	}
 }
 
-/* Classes utilitaires / Utility classes */
+/* Classes utilitaires de typographie / Typography utility classes */
 @layer utilities {
-	/* Classes de hauteur de ligne fluide / Fluid line height classes */
+	/* Classes de hauteur de ligne fluide */
 	.leading-fl-3 {
 		line-height: var(--fl-leading-3);
 	}
@@ -241,7 +175,7 @@ https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7
 		line-height: var(--fl-leading-10);
 	}
 
-	/* Classes de texte avec line-height par défaut / Text classes with default line-height */
+	/* Classes de texte avec line-height par défaut */
 	.text-fl-xs {
 		font-size: var(--fl-text-xs);
 		line-height: var(--fl-leading-3);
@@ -282,3 +216,17 @@ https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7
 		line-height: var(--fl-leading-10);
 	}
 }
+
+/*
+Fluid typography / Typographie fluide
+
+This is a fluid typography system that allows you to create a typography that is fluid and responsive.
+/ C'est un système de typographie fluide qui permet de créer une typographie fluide et responsive.
+
+It is based on the clamp function.
+This system is used Utopia.fyi
+/ Il est basé sur la fonction clamp.
+Ce système est utilisé par Utopia.fyi
+
+https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
+*/
