@@ -87,8 +87,10 @@
 		--fl-leading-9: var(--fl-lh-4);
 		--fl-leading-10: var(--fl-lh-5);
 	}
+}
 
-	/* Styles de typographie de base */
+@layer base {
+	/* Styles de base pour la typographie fluide */
 	body {
 		font-size: var(--fl-text-base);
 		line-height: var(--fl-leading-5);
@@ -230,3 +232,100 @@ Ce système est utilisé par Utopia.fyi
 
 https://utopia.fyi/type/calculator?c=330,18,1.2,1200,24,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
 */
+
+/* Variables pour référence et utilisation dans les classes utilitaires */
+:root {
+	/* Tailles de texte fluides */
+	--fl-text-xs: clamp(0.9375rem, 0.8379rem + 0.4828vw, 1.2rem);
+	--fl-text-sm: clamp(1rem, 0.8966rem + 0.5517vw, 1.3125rem);
+	--fl-text-base: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+	--fl-text-lg: clamp(1.35rem, 1.1509rem + 0.9655vw, 1.875rem);
+	--fl-text-xl: clamp(1.62rem, 1.3455rem + 1.331vw, 2.3438rem);
+	--fl-text-2xl: clamp(1.944rem, 1.5701rem + 1.8128vw, 2.9297rem);
+	--fl-text-3xl: clamp(2.3328rem, 1.8286rem + 2.4447vw, 3.6621rem);
+	--fl-text-4xl: clamp(2.7994rem, 2.1943rem + 2.9336vw, 4.3945rem);
+}
+
+@layer base {
+	/* Styles de base pour la typographie fluide */
+	h1 {
+		font-size: clamp(2.3328rem, 1.8286rem + 2.4447vw, 3.6621rem);
+		line-height: 1.1;
+		font-weight: 700;
+	}
+
+	h2 {
+		font-size: clamp(1.944rem, 1.5701rem + 1.8128vw, 2.9297rem);
+		line-height: 1.1;
+		font-weight: 700;
+	}
+
+	h3 {
+		font-size: clamp(1.62rem, 1.3455rem + 1.331vw, 2.3438rem);
+		line-height: 1.1;
+		font-weight: 700;
+	}
+
+	h4 {
+		font-size: clamp(1.35rem, 1.1509rem + 0.9655vw, 1.875rem);
+		line-height: 1.1;
+		font-weight: 700;
+	}
+
+	h5 {
+		font-size: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+		line-height: 1.1;
+		font-weight: 700;
+	}
+
+	h6 {
+		font-size: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+		line-height: 1.1;
+		font-weight: 700;
+	}
+
+	p {
+		font-size: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+		line-height: 1.5;
+	}
+
+	small {
+		font-size: clamp(0.9375rem, 0.8379rem + 0.4828vw, 1.2rem);
+		line-height: 1.5;
+	}
+
+	/* Classes utilitaires pour les ajustements spécifiques */
+	@layer utilities {
+		.text-fl-xs {
+			font-size: clamp(0.9375rem, 0.8379rem + 0.4828vw, 1.2rem);
+		}
+
+		.text-fl-sm {
+			font-size: clamp(1rem, 0.8966rem + 0.5517vw, 1.3125rem);
+		}
+
+		.text-fl-base {
+			font-size: clamp(1.125rem, 0.9828rem + 0.6897vw, 1.5rem);
+		}
+
+		.text-fl-lg {
+			font-size: clamp(1.35rem, 1.1509rem + 0.9655vw, 1.875rem);
+		}
+
+		.text-fl-xl {
+			font-size: clamp(1.62rem, 1.3455rem + 1.331vw, 2.3438rem);
+		}
+
+		.text-fl-2xl {
+			font-size: clamp(1.944rem, 1.5701rem + 1.8128vw, 2.9297rem);
+		}
+
+		.text-fl-3xl {
+			font-size: clamp(2.3328rem, 1.8286rem + 2.4447vw, 3.6621rem);
+		}
+
+		.text-fl-4xl {
+			font-size: clamp(2.7994rem, 2.1943rem + 2.9336vw, 4.3945rem);
+		}
+	}
+}

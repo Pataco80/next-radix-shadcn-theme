@@ -1,0 +1,78 @@
+/**
+ * Reset CSS
+ * Styles de base pour réinitialiser les styles par défaut du navigateur
+ */
+
+/* Reset des styles de base */
+html {
+	font-size: 16px;
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* Reset des éléments de texte */
+p {
+	margin: 0;
+	padding: 0;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+/* Reset des listes */
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Reset des liens */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* Reset des images */
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+	max-width: 100%;
+}
+
+/* Reset des formulaires */
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+
+/* Reset des tableaux */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
